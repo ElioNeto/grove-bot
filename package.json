@@ -1,0 +1,28 @@
+{
+  "name": "Grove",
+  "version": "0.0.1",
+  "description": "A simple bot for Discord.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": "12.x"
+  },
+  "dependencies": {
+    "discord.js": "^12.2.0",
+    "express": "^4.17.1",
+    "mathjs": "^7.0.2",
+    "moment": "^2.26.0",
+    "ms": "^2.1.2",
+    "node-fetch": "^2.6.0",
+    "parse-ms": "^2.1.0",
+    "quick.db": "^7.1.1",
+    "weather-js": "^2.0.0"
+  },
+  "license": "MIT",
+  "keywords": [
+    "node",
+    "express"
+  ]
+}
