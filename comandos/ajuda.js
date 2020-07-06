@@ -21,33 +21,33 @@ exports.run = async (bot, message, args) => {
 
      let embeddm = new Discord.MessageEmbed()
      .setColor('RANDOM')
-     .setTitle('**LISTA DE COMANDOS :tools:**')
-     .setDescription('Enviei a lista de comandos para você na DM! :smile:')
-     .addField('OBSERVAÇÃO', 'Se não chegar nada verifique se suas mensagens de membros de servidores estão ativadas!')
+     .setTitle('**LISTA DE COMANDOS <:comandos:729477049252708423>**')
+     .setDescription('<:correto:729451917004242964> **|** Enviei a lista de comandos para você na DM!')
+     .addField('<:info:729476860060237895> Observação', 'Se não chegar nada verifique se suas mensagens de membros de servidores estão ativadas!')
      .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
      .setTimestamp()   
 
      message.channel.send(embeddm)
 
     let embed1 = new Discord.MessageEmbed()
-    .setTitle('**LISTA DE COMANDOS :tools:**')
+    .setTitle('**LISTA DE COMANDOS <:comandos:729477049252708423>**')
     .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
     .setTimestamp()
     .setColor('RANDOM')
-    .addField('**Comandos de moderação: :hammer:**', `\`kick, ban, mute, warn...\``)
-    .addField('**Comandos de configurações: :gear:**', `\`setwelcome, setmute, setlogs...\``)
-    .addField('**Comandos de diversão: :video_game:**', `\`jokenpô, perguntar, avatar...\``)
-    .addField('**Comandos úteis: :pushpin:**', `\`clima, calcular, sugestão...\``)
+    .addField('**Comandos de moderação: <:ban:729462106721746946>**', `\`kick, ban, mute, warn...\``)
+    .addField('**Comandos de configurações: <:config:729463779292610623>**', `\`setwelcome, setmute, setlogs...\``)
+    .addField('**Comandos de diversão: <:game:729466498300772363>**', `\`jokenpô, perguntar, avatar...\``)
+    .addField('**Comandos úteis: <:emoji:729467612253126666>**', `\`clima, calcular, sugestão...\``)
 
      message.member.send(embed1).then(msg => {
-       msg.react('🔨').then(() => msg.react('⚙️')).then(() => msg.react('🎮')).then(() => msg.react('📌')).then(() => msg.react('🔙'))
+       msg.react('729462106721746946').then(() => msg.react('729463779292610623')).then(() => msg.react('729466498300772363')).then(() => msg.react('729467612253126666')).then(() => msg.react('729480249653592166'))
        
-      let mod = (reaction, usuario) => reaction.emoji.name === "🔨" && usuario.id === message.author.id;
+      let mod = (reaction, usuario) => reaction.emoji.id === "729462106721746946" && usuario.id === message.author.id;
       let coletor = msg.createReactionCollector(mod);
 
       let moderacao = new Discord.MessageEmbed()
      .setColor('RANDOM')
-     .setTitle('**COMANDOS DE MODERAÇÃO :hammer:**')
+     .setTitle('**COMANDOS DE MODERAÇÃO <:ban:729462106721746946>**')
      .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
      .addField(`\`${c.prefix}warn <user> [reason]\``, 'Para dar warn')
      .addField(`\`${c.prefix}ban <user> [reason]\``, 'Para banir')
@@ -66,12 +66,12 @@ exports.run = async (bot, message, args) => {
      
      })
 
-      let configuracoes = (reaction, usuario) => reaction.emoji.name === "⚙️" && usuario.id === message.author.id;
+      let configuracoes = (reaction, usuario) => reaction.emoji.id=== "729463779292610623" && usuario.id === message.author.id;
       let coletor2 = msg.createReactionCollector(configuracoes);
 
       let config = new Discord.MessageEmbed()
      .setColor('RANDOM')
-     .setTitle('**COMANDOS DE CONFIGURAÇÕES :gear:**')
+     .setTitle('**COMANDOS DE CONFIGURAÇÕES <:config:729463779292610623>**')
      .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
      .addField(`\`${c.prefix}setwelcome\``, 'Para setar o canal de bem-vindos')
      .addField(`\`${c.prefix}setgoodbye\``, 'Para setar o canal de adeus')
@@ -95,16 +95,23 @@ exports.run = async (bot, message, args) => {
      
      })
 
-      let div = (reaction, usuario) => reaction.emoji.name === "🎮" && usuario.id === message.author.id;
+      let div = (reaction, usuario) => reaction.emoji.id === "729466498300772363" && usuario.id === message.author.id;
       let coletor3 = msg.createReactionCollector(div);
 
       let diversao = new Discord.MessageEmbed()
      .setColor('RANDOM')
-     .setTitle('**COMANDOS DE DIVERSÃO :video_game:**')
+     .setTitle('**COMANDOS DE DIVERSÃO <:game:729466498300772363>**')
      .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
-     .addField(`\`${c.prefix}roleta\``, 'Para roleta russa')
+     .addField(`\`${c.prefix}roleta\``, 'Para jogar roleta russa')
+     .addField(`\`${c.prefix}guess\``, 'Para tentar adivinhar o número secreto')
+     .addField(`\`${c.prefix}ascii <texto>\``, 'Para converter o texto em ASCII')
+     .addField(`\`${c.prefix}firstword <texto>\``, 'Para dizer suas primeiras palavras')
+     .addField(`\`${c.prefix}morse <texto>\``, 'Para converter um texto em código morse')
+     .addField(`\`${c.prefix}reverse <texto>\``, 'Para reverter um texto')
+     .addField(`\`${c.prefix}lenny\``, 'Para enviar uma carinha')
      .addField(`\`${c.prefix}jokenpô\``, 'Para pedra, papel e tesoura')
      .addField(`\`${c.prefix}pergunta <pergunta>\``, 'Para fazer uma pergunta')
+     .addField(`\`${c.prefix}servericon\``, 'Para pegar a imagem do servidor')
      .addField(`\`${c.prefix}avatar <usuário>\``, 'Para pegar a imagem de um usuário')
      .setTimestamp()   
       coletor3.on("collect", cp => {
@@ -113,15 +120,17 @@ exports.run = async (bot, message, args) => {
      
      })
 
-      let util = (reaction, usuario) => reaction.emoji.name === "📌" && usuario.id === message.author.id;
+      let util = (reaction, usuario) => reaction.emoji.id === "729467612253126666" && usuario.id === message.author.id;
       let coletor4 = msg.createReactionCollector(util);
 
      let uteis = new Discord.MessageEmbed()
      .setColor('RANDOM')
-     .setTitle('**COMANDOS ÚTEIS :pushpin:**')
+     .setTitle('**COMANDOS ÚTEIS <:emoji:729467612253126666>**')
      .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
-     .addField(`\`${c.prefix}suporte\``, 'Adicione o bot ao seu servidor ou entre no servidor dele')
+     .addField(`\`${c.prefix}suporte\``, 'Faça parte da nossa equipe oficial')
      .addField(`\`${c.prefix}serverinfo\``, 'Para informações do servidor')
+     .addField(`\`${c.prefix}anuncio\``, 'Para criar um anúncio')
+     .addField(`\`${c.prefix}proganuncio\``, 'Para criar um anúncio que será enviado em um tempo determinado')
      .addField(`\`${c.prefix}userinfo\``, 'Para informações do usuário')  
      .addField(`\`${c.prefix}botinfo\``, 'Para informações do bot')
      .addField(`\`${c.prefix}lembrar <tempo> [razão]\``, 'Para criar um lembrete')
@@ -131,6 +140,13 @@ exports.run = async (bot, message, args) => {
      .addField(`\`${c.prefix}role\``, 'Para ganhar o cargo setado')
      .addField(`\`${c.prefix}warns\``, 'Para ver quantos warns você tem neste servidor')
      .addField(`\`${c.prefix}calc <conta>\``, 'Para pegar a resposta da conta matemática')
+     .addField(`\`${c.prefix}suporte\``, 'Para entrar na equipe do Grove')
+     .addField(`\`${c.prefix}invite\``, 'Para entrar ou convidar o bot para seu servidor')
+     .addField(`\`${c.prefix}addrep <usuário>\``, 'Para adicionar reputação a um usuário')
+     .addField(`\`${c.prefix}perfil <usuário>\``, 'Para ver o perfil de um usuário')
+     .addField(`\`${c.prefix}desc <descrição>\``, 'Para definir a descrição do seu perfil')
+     .addField(`\`${c.prefix}editcolor <cor>\``, 'Para setar a cor do seu perfil')
+     .addField(`\`${c.prefix}editimage <imagem>\``, 'Para setar uma imagem para seu perfil')
      .addField(`\`${c.prefix}covid19 <região>\``, 'Para ver informações do COVID-19')
      .setTimestamp()   
       coletor4.on("collect", cp => {
@@ -139,18 +155,18 @@ exports.run = async (bot, message, args) => {
      
      })
 
-      let ini = (reaction, usuario) => reaction.emoji.name === "🔙" && usuario.id === message.author.id;
+      let ini = (reaction, usuario) => reaction.emoji.id === "729480249653592166" && usuario.id === message.author.id;
       let coletor5 = msg.createReactionCollector(ini);
 
       let inicio = new Discord.MessageEmbed()
-      .setTitle('**LISTA DE COMANDOS :tools:**')
+      .setTitle('**LISTA DE COMANDOS <:comandos:729477049252708423>**')
       .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
       .setTimestamp()
       .setColor('RANDOM')
-      .addField('**Comandos de moderação: :hammer:**', `\`kick, ban, mute, warn...\``)
-      .addField('**Comandos de configurações: :gear:**', `\`setwelcome, setmute, setlogs...\``)
-      .addField('**Comandos de diversão: :video_game:**', `\`jokenpô, perguntar, avatar...\``)
-      .addField('**Comandos úteis: :pushpin:**', `\`clima, calcular, sugestão...\``)
+      .addField('**Comandos de moderação: <:ban:729462106721746946>**', `\`kick, ban, mute, warn...\``)
+      .addField('**Comandos de configurações: <:config:729463779292610623>**', `\`setwelcome, setmute, setlogs...\``)
+      .addField('**Comandos de diversão: <:game:729466498300772363>**', `\`jokenpô, perguntar, avatar...\``)
+      .addField('**Comandos úteis: <:emoji:729467612253126666>**', `\`clima, calcular, sugestão...\``)
       coletor5.on("collect", cp => {
       cp.remove();
 

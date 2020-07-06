@@ -18,7 +18,13 @@ exports.run = async (bot, message, args) => {
       
     } 
 
-     if (!message.member.hasPermission("ADMINISTRATOR")) return message.reply(`❌ **|** Você precisa ser um moderador para fazer isto!`); 
+      let a1 = new Discord.MessageEmbed()
+    .setDescription('<:incorreto:729451886683619438> **|** Você precisa ser um moderador para fazer isto!')
+
+    let a2 = new Discord.MessageEmbed()
+    .setDescription('<:correto:729451917004242964> **|** Todos os sets foram deletados com sucesso!')
+
+     if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(a1); 
   
    db.delete(`sugchannel_${message.guild.id}`);
    db.delete(`welchannel_${message.guild.id}`);
@@ -29,7 +35,7 @@ exports.run = async (bot, message, args) => {
    db.delete(`role_${message.guild.id}`);
    db.delete(`mute_${message.guild.id}`);
   
-   message.reply('✅ **|** Todos os sets foram deletados com sucesso!')
+   message.channel.send(a2)
   
 }
 

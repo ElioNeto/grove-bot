@@ -22,7 +22,7 @@ exports.run = async (bot, message, args) => {
 
     let embed = new Discord.MessageEmbed()
 
-    .setDescription("**[BAIXAR IMAGEM](" + membro.displayAvatarURL({dynamic: true}) + ")**")
+    .setDescription("**[BAIXAR IMAGEM <:download:729462352315023381>](" + membro.displayAvatarURL({dynamic: true}) + ")**")
     .setImage(membro.displayAvatarURL({dynamic: true}))
     .setColor('RANDOM')
     .setTimestamp()

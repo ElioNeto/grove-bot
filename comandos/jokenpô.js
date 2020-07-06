@@ -21,9 +21,12 @@ exports.run = async (bot, message, args) => {
    let item = args[0];
    var random = Math.floor(Math.random() * 3); 
 
-   if(!item) return message.reply('❌ **|** Você precisa me informar com pedra, papel, ou tesoura')
+  let a1 = new Discord.MessageEmbed()
+  .setDescription('<:incorreto:729451886683619438> **|** Você precisa me informar com pedra, papel, ou tesoura')
 
-   if(args[0] === 'tesoura') {
+   if(!item) return message.reply(a1)
+
+   if(args[0].toLowerCase() === 'tesoura') {
 
      if(random === 0) {
        let embed = new Discord.MessageEmbed()
@@ -56,7 +59,7 @@ exports.run = async (bot, message, args) => {
      }
    } 
 
-       if(args[0] === 'papel') {
+       if(args[0].toLowerCase() === 'papel') {
 
      if(random === 0) {
        let embed = new Discord.MessageEmbed()
@@ -89,7 +92,7 @@ exports.run = async (bot, message, args) => {
      } 
   }
 
-     if(args[0] === 'pedra') {
+     if(args[0].toLowerCase() === 'pedra') {
 
      if(random === 0) {
        let embed = new Discord.MessageEmbed()

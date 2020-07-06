@@ -21,9 +21,12 @@ exports.run = async (bot, message, args) => {
       
     } 
 
+  let a1 = new Discord.MessageEmbed()
+    .setDescription('<:incorreto:729451886683619438> **|** É preciso me informar a conta!')
+
   var thumb = ('https://icons.iconarchive.com/icons/paomedia/small-n-flat/512/calculator-icon.png')  
   var conta = args.slice(0).join(' ');
-  if (!conta) return message.reply(`❌ **|** É preciso me informar a conta!`);
+  if (!conta) return message.channel.send(a1);
   
   let embed = new Discord.MessageEmbed()
     

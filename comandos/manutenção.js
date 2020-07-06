@@ -4,19 +4,12 @@ const db = require ('quick.db')
 exports.run = async (bot, message, args) => {
 
     let embedDev = new MessageEmbed()
-    .setTitle('**MANUTENÇÃO**')
-    .setDescription("❌ **|** Apenas meu desenvolvedor pode usar esse comando.")
-    .setTimestamp()
-    .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
+    .setDescription("<:incorreto:729451886683619438> **|** Apenas meu desenvolvedor pode usar esse comando.")
 
     let embedDev1 = new MessageEmbed()
-    .setTitle("**MANUTENÇÃO**")
-    .setDescription("❌ **|** É preciso me informar o status com on ou off.")
-    .setTimestamp()
-    .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
+    .setDescription("<:incorreto:729451886683619438> **|** É preciso me informar o status com on ou off.")
 
     if(!args[0]) return message.channel.send(embedDev1)
-  
     
     if (!['389866221295763456', '577167173852594177'].includes(message.author.id)) {
     return message.channel.send(embedDev)

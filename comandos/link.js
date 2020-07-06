@@ -2,8 +2,8 @@ const Discord = require('discord.js')
 const db = require('quick.db')
 
 exports.run = async (bot, message, args) => {
-  
-     var manutenção = await db.get(`manutenção`)
+
+   var manutenção = await db.get(`manutenção`)
   
     if(!manutenção === true){
 
@@ -18,23 +18,17 @@ exports.run = async (bot, message, args) => {
       
     } 
 
-    let a1 = new Discord.MessageEmbed()
-    .setDescription('<:incorreto:729451886683619438> **|** Não há nenhum cargo setado.')
+    let embed = new Discord.MessageEmbed()
+    .setTitle('**CONVITES**')
+    .setDescription(`[<:server:729477402438402099> **| Entre no meu servidor**](https://discord.gg/drYKh7k)\n\n[<:add:729466473088679946> **| Me adicione no seu servidor**](https://discordapp.com/oauth2/authorize?client_id=712785958231080990&scope=bot&permissions=8)`)
+    .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
+    .setTimestamp()   
 
-   let role = db.get(`role_${message.guild.id}`)
+    message.channel.send(embed)
 
-   let a2 = new Discord.MessageEmbed()
-    .setDescription(`<:correto:729451917004242964> **|** Você ganhou o cargo <@&${role}> com sucesso!`)
-
-  if(role === null){
-    message.channel.send(a1)
-  } else {
-    message.member.roles.add(role)
-    message.channel.send(a2) 
-  } 
 }
 
 exports.help = {
-  name: 'role',
-  aliases: []
+  name: 'link',
+  aliases: ['invite', 'convite']
 }

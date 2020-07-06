@@ -21,7 +21,10 @@ exports.run = async (bot, message, args) => {
 
         let countries = args.join(" ");
 
-        if(!args[0]) return message.channel.send(`❌ **|** Você precisa me dizer um país, ou digite \`mundial\` para saber as informações do mundo todo!`);
+        let a1 = new Discord.MessageEmbed()
+       .setDescription('<:incorreto:729451886683619438> **|** Você precisa me dizer um país, ou digite \`mundial\` para saber as informações do mundo todo!')
+
+        if(!args[0]) return message.channel.send(a1);
 
         if(args[0] === "mundial"){
             fetch(`https://covid19.mathdro.id/api`)
@@ -32,7 +35,7 @@ exports.run = async (bot, message, args) => {
                 let deaths = data.deaths.value.toLocaleString()
 
                 const embed = new Discord.MessageEmbed()
-                .setTitle(`COVID-19 🌎`)
+                .setTitle(`COVID-19 <:globo:729463751287242793>`)
                 .addField('Casos confirmados 🦠', `\`${confirmed}\``)
                 .addField('Recuperados 😷', `\`${recovered}\``)
                 .addField('Mortes :skull:', `\`${deaths}\``)
@@ -61,7 +64,7 @@ exports.run = async (bot, message, args) => {
 
                 message.channel.send(embed)
             }).catch(e => {
-                return message.channel.send('❌ **|** Não encontrei este país!')
+                return message.channel.send('<:incorreto:729451886683619438> **|** Não encontrei este país!')
             })
         }
     }

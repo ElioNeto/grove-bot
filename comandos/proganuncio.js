@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
 const db = require('quick.db')
+const ms = require('ms')
 
 exports.run = async (bot, message, args) => {
   
@@ -39,6 +40,9 @@ exports.run = async (bot, message, args) => {
 
     let a6 = new Discord.MessageEmbed()
     .setDescription('<:incorreto:729451886683619438> **|** Cancelado com sucesso.')
+
+    let a7 = new Discord.MessageEmbed()
+    .setDescription('Em quanto tempo você quer que eu envie este anúncio?')
      
      message.channel.send(a1).then(msg => {
           let cp = message.channel.createMessageCollector(x => x.author.id == message.author.id, {max: 1})
@@ -56,13 +60,11 @@ exports.run = async (bot, message, args) => {
                               let ck = message.channel.createMessageCollector(x => x.author.id == message.author.id, {max: 1})
                               .on('collect', c => {
                                   title = c.content
-                                
-                                let embed = new Discord.MessageEmbed()
-                                  .setColor('RANDOM')
-                                  .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
-                                  .setTitle(`${title}`)
-                                  .setDescription(`${desc}`)
-                                  .setTimestamp()   
+
+                                  message.channel.send(a7).then(msg4 => {
+                                    let co = message.channel.createMessageCollector(x => x.author.id == message.author.id, {max: 1})
+                                    .on('collect', c => {
+                                      Timer = c.content
                                 
                                 let a8 = new Discord.MessageEmbed()
                                 .setDescription(`Você tem certeza que deseja enviar este anúncio no canal ${canal}?`)
@@ -81,15 +83,40 @@ exports.run = async (bot, message, args) => {
                                      const reaction = collected.first();
     
                                       if (reaction.emoji.id === '729451917004242964') { 
-                                      canal.send(`@everyone`, {embed})
-                                      message.channel.bulkDelete(8)
+
+                                        let a9 = new Discord.MessageEmbed()
+                                        .setDescription(`<:correto:729451917004242964> **|** O anúncio será enviado no canal ${canal} em \`${ms(ms(Timer), {long: true})}\`!`)
+                   
+                                        message.channel.bulkDelete(9)
+                                        message.channel.send(a9)  
                                         msg.delete()
-          
-                                      } else { 
-                                    message.channel.send(a6)
+
+                                        setTimeout(function() {
+
+                                          let a9 = new Discord.MessageEmbed()
+                                          .setDescription(`<:correto:729451917004242964> **|** O anúncio foi enviado no canal ${canal} com sucesso!`)
+
+                                          let embed = new Discord.MessageEmbed()
+                                          .setColor('RANDOM')
+                                          .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
+                                          .setTitle(`${title}`)
+                                          .setDescription(`${desc}`)
+                                          .setTimestamp()   
+
+                                          canal.send(`@everyone`, {embed})
+                                          message.channel.send(a9)
+
+                                        }, ms(Timer));   
+
+                                      } else if(reaction.emoji.id === '729451886683619438') { 
+                                        message.channel.send(a6)
                                         msg.delete()
-                                        message.channel.bulkDelete(8)
+                                        message.channel.bulkDelete(9)
                                      }
+                                    })
+                                  })
+                                
+                                
                                        })
                                   })
 
@@ -105,6 +132,6 @@ exports.run = async (bot, message, args) => {
 }
 
 exports.help = {
-    name: 'anuncio',
-    aliases: ['anunciar']
+    name: 'proganuncio',
+    aliases: ['proganunciar']
 }

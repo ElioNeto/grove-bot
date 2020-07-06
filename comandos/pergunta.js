@@ -23,12 +23,16 @@ exports.run = async (bot, message, args) => {
     var result = Math.floor((Math.random() * replies.length)); 
     
     let duvida = args.slice(0).join(" ")
-    if(!duvida) return message.reply('⚠️ **|** Você precisa perguntar algo ao sábio bot!')
+
+    let a1 = new Discord.MessageEmbed()
+    .setDescription('<:incorreto:729451886683619438> **|** Você precisa perguntar algo ao sábio bot!')
+    
+    if(!duvida) return message.channel.send(a1)
   
     let embed = new Discord.MessageEmbed()
     
     .setColor('GOLD')
-    .setTitle('**SÁBIO BOT**')
+    .setTitle('**SÁBIO BOT <:bot:729463406578499605>**')
     .addField(`**PERGUNTA**`, `**${duvida}**`)
     .addField(`**RESPOSTA**`, `**${replies [result]}**`)
     .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))

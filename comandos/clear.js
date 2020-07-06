@@ -19,21 +19,36 @@ exports.run = async (bot, message, args) => {
       
     } 
 
-    if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply(`❌ **|** Você precisa ser um moderador para fazer isto!`); 
-    if (!message.guild.me.hasPermission("MANAGE_MESSAGES")) return message.reply(`❌ **|** Eu preciso ter a permissão de gerenciar mensagens para fazer isto!`); 
+     let a1 = new Discord.MessageEmbed()
+    .setDescription('<:incorreto:729451886683619438> **|** Você precisa ser um moderador para fazer isto!')
+
+     let a2 = new Discord.MessageEmbed()
+    .setDescription('<:incorreto:729451886683619438> **|** Eu preciso ter a permissão de gerenciar mensagens para fazer isto!')
+
+    let a3 = new Discord.MessageEmbed()
+    .setDescription('<:incorreto:729451886683619438> **|** Você precisa me dizer um número!')
+
+    let a4 = new Discord.MessageEmbed()
+    .setDescription('<:incorreto:729451886683619438> **|** O número tem que ser de 2 a 100.')
+
+    let a5 = new Discord.MessageEmbed()
+    .setDescription('<:incorreto:729451886683619438> **|** O número tem que ser maior que 0.')
+
+    if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send(a1); 
+    if (!message.guild.me.hasPermission("MANAGE_MESSAGES")) return message.channel.send(a2); 
     let clean = args.join(''); 
 
-    if(isNaN(clean)) return message.reply('❌ **|** Você precisa me dizer um número!')
+    if(isNaN(clean)) return message.channel.send(a3)
  
-    if (clean < 2 || clean > 100) return message.reply('⚠️ **|** O número tem que ser de 2 a 100.')
+    if (clean < 2 || clean > 100) return message.channel.send(a4)
     
-    if (args.length === 0) return message.reply('⚠️ **|** O número tem que ser maior que 0.') 
+    if (args.length === 0) return message.channel.send(a5) 
     try { 
         message.channel.bulkDelete(clean) + 2 
         
         let embed = new Discord.MessageEmbed()
 
-        .setTitle(`**LIMPEZA** :broom: `)
+        .setTitle(`**LIMPEZA** :pushpin:`)
         .setDescription(`Limpei um total de \`${clean}\` mensagens.`)
         .setColor('RANDOM')
         .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))

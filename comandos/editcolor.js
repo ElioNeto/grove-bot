@@ -2,8 +2,8 @@ const Discord = require('discord.js')
 const db = require('quick.db')
 
 exports.run = async (bot, message, args) => {
-  
-     var manutenção = await db.get(`manutenção`)
+
+   var manutenção = await db.get(`manutenção`)
   
     if(!manutenção === true){
 
@@ -13,28 +13,26 @@ exports.run = async (bot, message, args) => {
             .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
             .setDescription('A manutenção foi ativada pelo meu desenvolvedor! Todos meus comandos estão desativados no momento. Não há uma previsão para voltar.')
             .setTimestamp()   
-      
+    
      return message.channel.send(embedx)
       
     } 
 
-    let a1 = new Discord.MessageEmbed()
-    .setDescription('<:incorreto:729451886683619438> **|** Não há nenhum cargo setado.')
+   let a1 = new Discord.MessageEmbed()
+   .setDescription('<:incorreto:729451886683619438> **|** Você precisa me dizer a nova cor!')
+   var membro = message.author;
 
-   let role = db.get(`role_${message.guild.id}`)
+   let color = args.slice(0).join(' ').toUpperCase();
+   if(!color) return message.channel.send(a1)
 
    let a2 = new Discord.MessageEmbed()
-    .setDescription(`<:correto:729451917004242964> **|** Você ganhou o cargo <@&${role}> com sucesso!`)
+   .setDescription(`<:correto:729451917004242964> **|** Sua nova cor foi setada para **${color}** com sucesso!`)
 
-  if(role === null){
-    message.channel.send(a1)
-  } else {
-    message.member.roles.add(role)
-    message.channel.send(a2) 
-  } 
+    db.set(`color_${membro.id}`, color)
+    message.channel.send(a2)
 }
 
 exports.help = {
-  name: 'role',
-  aliases: []
+name: 'editcolor',
+aliases: ['setcolor']
 }

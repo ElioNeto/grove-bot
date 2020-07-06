@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const moment = require("moment"); 
 moment.locale('pt-BR') 
 const db = require('quick.db')
+const c = require('../config.json')
 
 exports.run = async (bot, message, args) => { 
   
@@ -22,11 +23,8 @@ exports.run = async (bot, message, args) => {
 
     var permissions = []; 
   
-    const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.member;
-
-   const randomColor = "F8F8FF".replace(/0/g, function () { return (~~(Math.random() * 16)).toString(16); }); 
-    
-   
+    const member = message.member;
+      
     if(message.member.hasPermission("KICK_MEMBERS")){
         permissions.push("Expulsar membros");
     }
@@ -65,9 +63,9 @@ exports.run = async (bot, message, args) => {
 
     if(permissions.length == 0){ 
         permissions.push("Nenhuma permissão detectada");
-    }
+    } 
 
-    let embed = new Discord.MessageEmbed()
+    let embedE = new Discord.MessageEmbed()
         .setAuthor(`${member.user.username}`, member.user.displayAvatarURL({dynamic: true}))
         .setColor('RANDOM')
         .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
@@ -78,9 +76,9 @@ exports.run = async (bot, message, args) => {
         .addField(`Cargos [${member.roles.cache.filter(r => r.id !== message.guild.id).map(a => `\`${a.name}\``).length}]`,`${member.roles.cache.filter(r => r.id !== message.guild.id).map(roles => `<@&${roles.id }>`).join(', ') || "Esse membro não possui cargos."}`, true)
         .setTimestamp()   
 
-        message.channel.send({embed})
+        message.channel.send(embedE)
 }
 exports.help = { 
     name: 'userinfo',
-      aliases: []
+    aliases: []
 }

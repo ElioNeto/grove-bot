@@ -17,15 +17,24 @@ exports.run = async (bot, message, args) => {
      return message.channel.send(embedx)
       
     } 
+
+    let embedx5 = new Discord.MessageEmbed()
+    .setDescription(`<:incorreto:729451886683619438> **|** Você precisa ser um administrador para fazer isto!`)
   
-    if(!message.member.hasPermission("ADMINISTRATOR")) return message.reply("❌ **|** Você precisa ser um administrador para fazer isto!");
+    if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(embedx5);
+
+    let embedX3 = new Discord.MessageEmbed()
+    .setDescription(`<:incorreto:729451886683619438> **|** É preciso me informar o usuário!`)
 
     var membro = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
-    if (!membro) return message.reply("❌ **|** É preciso me informar o usuário!");
+    if (!membro) return message.channel.send(embedX3);
     let warns = await db.get(`warns_${membro.id}_${message.guild.id}`)
 
+    let embedx4 = new Discord.MessageEmbed()
+    .setDescription(`<:correto:729451917004242964> **|** Os warns de ${membro} foram resetados!`)
+
     db.set(`warns_${membro.id}_${message.guild.id}`, 0)
-    message.channel.send(`✅ **|** Os warns de ${membro} foram resetados!`)
+    message.channel.send(embedx4)
 }
 
 exports.help = {

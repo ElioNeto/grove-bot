@@ -19,7 +19,10 @@ exports.run = async (bot, message, args) => {
       
     } 
   
-  if (!message.member.hasPermission("ADMINISTRATOR")) return message.reply(`❌ **|** Você precisa ser um moderador para fazer isto!`); 
+  let a1 = new Discord.MessageEmbed()
+    .setDescription(`<:incorreto:729451886683619438> **|** Você precisa ser um moderador para fazer isto!`)
+
+  if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(a1); 
 
   let embed = new Discord.MessageEmbed()
   .setTitle('**COMO USAR O COMANDO DE MUTE**')
@@ -29,6 +32,9 @@ exports.run = async (bot, message, args) => {
   .setTimestamp()   
     
   let role = message.mentions.roles.first()
+  
+    let a3 = new Discord.MessageEmbed()
+    .setDescription(`<:correto:729451917004242964> **|** Cargo de mute setado: ${role}`)
 
   if(!role) return message.channel.send(embed)
 
@@ -36,7 +42,7 @@ exports.run = async (bot, message, args) => {
   
   db.set(`mute_${message.guild.id}`, role.id)
   
-  message.channel.send(`✅ **|** Cargo de mute setado: ${role}`) 
+  message.channel.send(a3) 
   
 }
 

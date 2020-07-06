@@ -24,9 +24,15 @@ exports.run = async (bot, message, args) => {
 
     if(warns === null) warns = 0;
 
-    if(warns === 1) return message.channel.send(`**|** O membro **${membro}** tomou \`${warns}\` warn neste servidor!`)
+    let embedX2 = new Discord.MessageEmbed()
+    .setDescription(`<:membros:729454785216118794> **|** O membro **${membro}** tomou \`${warns}\` warn neste servidor!`)
 
-    else return message.channel.send(`**|** O membro **${membro}** tomou \`${warns}\` warns neste servidor!`)
+    let embedX1 = new Discord.MessageEmbed()
+    .setDescription(`<:membros:729454785216118794> **|** O membro **${membro}** tomou \`${warns}\` warns neste servidor!`)
+
+    if(warns === 1) return message.channel.send(embedX2)
+
+    else return message.channel.send(embedX1)
 }
 
 exports.help = {

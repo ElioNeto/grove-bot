@@ -19,33 +19,33 @@ exports.run = async (bot, message, args) => {
     } 
 
     let embed = new Discord.MessageEmbed()
-    .setDescription(`Cheque sua DM!\nCaso não chegue nada, verifique se suas mensagens de membros de servidores estão ativadas!`)
+    .setDescription(`Cheque sua DM!\nCaso não chegue nada, verifique se suas mensagens de membros de servidores estão ativadas! Os usuários que utilizarem esse comando para "zoar" serão deverasmente punidos!`)
 
     message.channel.send(embed)
 
     let embedDev = new Discord.MessageEmbed()
     .setTitle('**SUPORTE**')
     .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
-    .setDescription(`:wave: **|** Olá ${message.author}\n\nVi que você usou o comando de suporte!\nE se você usou este comando, é porque tem interesse em entrar na minha equipe oficial certo? Para isso, você precisa cumprir alguns requisitos:\n\nSer um usuário ativo do Discord\nTer maturidade para lidar com problemas\nTer um pouco de conhecimento em Node Js\nTer um pouco de conhecimento na livraria discord.js\nTer um pouco de conhecimento em JavaScript\n\nSe você cumpre esses requisitos, ótimo, vamos para a próxima etapa, caso queira continuar reaja com :white_check_mark: e caso não queira continuar reaja com :x:`)
+    .setDescription(`:wave: **|** Olá ${message.author}\n\nVi que você usou o comando de suporte!\nE se você usou este comando, é porque tem interesse em entrar na minha equipe oficial certo? Para isso, você precisa cumprir alguns requisitos:\n\n<:pc:729460019111657503> **|** Desenvolvedores:\n\nTer maturidade dentro da equipe\nTer um pouco de conhecimento em Node Js\nTer um pouco de conhecimento na livraria discord.js\nTer um pouco de conhecimento em JavaScript\n\n<:staff:729492208889364480> **|** Ajudantes:\n\nTer maturidade para lidar com problemas\nAceitar críticas construtivas\nSer bem ativo dentro do servidor\nNão desistir fácil, persistir\n\nSe você cumpre esses requisitos, ótimo, vamos para a próxima etapa, caso queira continuar reaja com <:correto:729451917004242964> e caso não queira continuar reaja com <:incorreto:729451886683619438>`)
     .setTimestamp()   
 
     message.member.send(embedDev).then(msg => {
-      msg.react('✅').then(() => msg.react('❌'))
+      msg.react('729451917004242964').then(() => msg.react('729451886683619438'))
 
-    let suporte = (reaction, usuario) => reaction.emoji.name === "✅" && usuario.id === message.author.id;
+    let suporte = (reaction, usuario) => reaction.emoji.id === "729451917004242964" && usuario.id === message.author.id;
     let coletor = msg.createReactionCollector(suporte, {max: 1});
 
     let cargo = new Discord.MessageEmbed()
     .setTitle('**CARGO**')
-    .setDescription(`Agora é preciso que você escolha o cargo que você quer ficar na equipe clicnado na reação correspondente!\n\n:computer: > Desenvolvedor\n:hammer: > Ajudante`)
+    .setDescription(`Agora é preciso que você escolha o cargo que você quer ficar na equipe clicando na reação correspondente!\n\n<:pc:729460019111657503> **|** Desenvolvedor\n<:staff:729492208889364480> **|** Ajudante`)
     .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
     .setTimestamp()   
     coletor.on('collect', cp => {
 
     msg.edit(cargo).then(msg2 => {
-      msg.react('💻').then(() => msg.react('🔨'))
+      msg.react('729460019111657503').then(() => msg.react('729492208889364480'))
 
-       let carg = (reaction, usuario) => reaction.emoji.name === "💻" && usuario.id === message.author.id;
+       let carg = (reaction, usuario) => reaction.emoji.id === "729460019111657503" && usuario.id === message.author.id;
        let coletor4 = msg.createReactionCollector(carg, {max: 1});
        
     let motivo = new Discord.MessageEmbed()
@@ -115,13 +115,13 @@ exports.run = async (bot, message, args) => {
                          .on('collect', c => {
                           resposta = c.content                  
 
-                       if(c.content === 'enviar') {
+                       if(c.content.toLowerCase() === 'enviar') {
                          
                          var canal = bot.channels.cache.get('728689318302056558')
 
                          let embedEnviado = new Discord.MessageEmbed()
                          .setTitle('**FORMULÁRIO ENVIADO**')
-                         .setDescription(':white_check_mark: **|** Seu formulário foi enviado para análise com sucesso!')
+                         .setDescription(`<:correto:729451917004242964> **|** Seu formulário foi enviado para análise com sucesso!\nEspere um representante de nossa equipe entrar em contato!`)
                          .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true})) 
                          .setTimestamp()
 
@@ -141,11 +141,11 @@ exports.run = async (bot, message, args) => {
 
                          canal.send(embedFinalDev)
                          
-                           } else if(c.content === 'cancelar') {
+                           } else if(c.content.toLowerCase() === 'cancelar') {
 
                              let embedCancelado = new Discord.MessageEmbed()
                              .setTitle('**FORMULÁRIO CANCELADO**')
-                             .setDescription(':x: **|** Seu formulário foi cancelado com sucesso!')
+                             .setDescription('<:incorreto:729451886683619438> **|** Seu formulário foi cancelado com sucesso!')
                              .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true})) 
                              .setTimestamp()
 
@@ -165,7 +165,7 @@ exports.run = async (bot, message, args) => {
   })
 })
 
-  let carg1 = (reaction, usuario) => reaction.emoji.name === "🔨" && usuario.id === message.author.id;
+  let carg1 = (reaction, usuario) => reaction.emoji.id === "729492208889364480" && usuario.id === message.author.id;
   let coletor3 = msg.createReactionCollector(carg1, {max: 1});
 
     let etapa1a = new Discord.MessageEmbed()
@@ -235,12 +235,12 @@ exports.run = async (bot, message, args) => {
                             .on('collect', c => {
                               respostaFinal = c.content
 
-                              if(c.content === 'enviar') {
+                              if(c.content.toLowerCase() === 'enviar') {
                                 var canal = bot.channels.cache.get('728689318302056558')
 
                                 let embedEnviadoa = new Discord.MessageEmbed()
                                 .setTitle('**FORMULÁRIO ENVIADO**')
-                                .setDescription(':white_check_mark: **|** Seu formulário foi enviado para análise com sucesso!')
+                                .setDescription(`<:correto:729451917004242964> **|** Seu formulário foi enviado para análise com sucesso!\nEspere um representante de nossa equipe entrar em contato!`)
                                 .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true})) 
                                 .setTimestamp()
 
@@ -260,11 +260,11 @@ exports.run = async (bot, message, args) => {
 
                               canal.send(embedFinal)
 
-                          } else if(c.content === 'cancelar') {
+                          } else if(c.content.toLowerCase() === 'cancelar') {
 
                             let embedCanceladoa = new Discord.MessageEmbed()
                              .setTitle('**FORMULÁRIO CANCELADO**')
-                             .setDescription(':x: **|** Seu formulário foi cancelado com sucesso!')
+                             .setDescription('<:incorreto:729451886683619438> **|** Seu formulário foi cancelado com sucesso!')
                              .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true})) 
                              .setTimestamp()
 
@@ -287,12 +287,12 @@ exports.run = async (bot, message, args) => {
   })
 }) 
     
-   let cancel = (reaction, usuario) => reaction.emoji.name === "❌" && usuario.id === message.author.id;
+   let cancel = (reaction, usuario) => reaction.emoji.id === "729451886683619438" && usuario.id === message.author.id;
    let coletor2 = msg.createReactionCollector(cancel, {max: 1});
 
    let cancelado = new Discord.MessageEmbed()
    .setTitle('**CANCELADO**')
-   .setDescription('❌ **|** Formulário cancelado com sucesso!')
+   .setDescription('<:incorreto:729451886683619438> **|** Formulário cancelado com sucesso!')
    .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true})) 
    .setTimestamp()
    coletor2.on("collect", cp => {

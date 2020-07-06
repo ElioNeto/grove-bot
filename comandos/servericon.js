@@ -1,9 +1,9 @@
-const Discord = require('discord.js') 
+const Discord = require("discord.js");
 const db = require('quick.db')
 
 exports.run = async (bot, message, args) => {
-  
-     var manutenção = await db.get(`manutenção`)
+
+    var manutenção = await db.get(`manutenção`)
   
     if(!manutenção === true){
 
@@ -18,20 +18,18 @@ exports.run = async (bot, message, args) => {
       
     } 
 
-    let a1 = new Discord.MessageEmbed()
-    .setDescription('<:incorreto:729451886683619438> **|** Você precisa ser um moderador para fazer isto!')
+    let embed = new Discord.MessageEmbed()
 
-    let a2 = new Discord.MessageEmbed()
-    .setDescription('<:correto:729451917004242964> **|** Canal de adeus deletado com sucesso!')
+    .setDescription("**[BAIXAR IMAGEM <:download:729462352315023381>](" + message.guild.iconURL({dynamic: true}) + ")**")
+    .setImage(message.guild.iconURL({dynamic: true}))
+    .setColor('RANDOM')
+    .setTimestamp()
 
-     if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(a1); 
-  
-   db.delete(`godchannel_${message.guild.id}`);
-   message.channel.send(a2)
-  
+    message.channel.send(embed);
+
 }
 
 exports.help = {
-  name: 'deletegoodbye',
-  alises: []
+    name: 'servericon',
+    aliases: ['ícone', 'icon']
 }

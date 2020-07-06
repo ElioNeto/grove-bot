@@ -18,10 +18,16 @@ exports.run = async (bot, message, args) => {
       
     } 
 
-     if (!message.member.hasPermission("ADMINISTRATOR")) return message.reply(`❌ **|** Você precisa ser um moderador para fazer isto!`); 
+      let a1 = new Discord.MessageEmbed()
+    .setDescription('<:incorreto:729451886683619438> **|** Você precisa ser um moderador para fazer isto!')
+
+    let a2 = new Discord.MessageEmbed()
+    .setDescription('<:correto:729451917004242964> **|** Canal de bem-vindos deletado com sucesso!')
+
+     if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(a1); 
   
    db.delete(`welchannel_${message.guild.id}`);
-   message.reply('✅ **|** Canal de bem-vindos deletado com sucesso!')
+   message.channel.send(a2)
   
 }
 

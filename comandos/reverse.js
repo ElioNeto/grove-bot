@@ -1,9 +1,9 @@
-const Discord = require('discord.js') 
+const Discord = require('discord.js')
 const db = require('quick.db')
 
 exports.run = async (bot, message, args) => {
-  
-     var manutenção = await db.get(`manutenção`)
+
+  var manutenção = await db.get(`manutenção`)
   
     if(!manutenção === true){
 
@@ -13,25 +13,35 @@ exports.run = async (bot, message, args) => {
             .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
             .setDescription('A manutenção foi ativada pelo meu desenvolvedor! Todos meus comandos estão desativados no momento. Não há uma previsão para voltar.')
             .setTimestamp()   
-      
+    
      return message.channel.send(embedx)
       
     } 
 
     let a1 = new Discord.MessageEmbed()
-    .setDescription('<:incorreto:729451886683619438> **|** Você precisa ser um moderador para fazer isto!')
+    .setDescription('<:incorreto:729451886683619438> **|** É preciso me informar um texto para eu reverter!')
+    
+  try {
+
+    if(!args[0]) return message.channel.send(a1)
+    const str = args.join(' ');
+
+    let a3 = new Discord.MessageEmbed()
+    .setDescription(str.split('').reverse().join(''))
+    
+    let msg = await message.channel.send(a3);
+  }
+
+  catch (err) {
 
     let a2 = new Discord.MessageEmbed()
-    .setDescription('<:correto:729451917004242964> **|** Canal de adeus deletado com sucesso!')
+    .setDescription(`:x: **|** Ocorreu um erro!\n\n **${err}**`)
 
-     if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(a1); 
-  
-   db.delete(`godchannel_${message.guild.id}`);
-   message.channel.send(a2)
-  
+    message.channel.send(a2)
+  }
 }
 
 exports.help = {
-  name: 'deletegoodbye',
-  alises: []
+  name: 'reverse',
+  aliases: ['reverter', 'reverso']
 }

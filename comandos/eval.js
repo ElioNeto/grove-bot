@@ -2,12 +2,20 @@ const Discord = require("discord.js")
 
 exports.run = async (bot, message, args) => {
 
-    if (!['389866221295763456'].includes(message.author.id)) {
-    return message.channel.send(`❌ **|** Apenas meu desenvolvedor pode usar esse comando.`)
+    if (!['389866221295763456', '577167173852594177'].includes(message.author.id)) {
+
+      let a = new Discord.MessageEmbed()
+      .setDescription('<:incorreto:729451886683619438> **|** Apenas meu desenvolvedor pode usar esse comando.')
+
+    return message.channel.send(a)
 
     }
+
+    let a1 = new Discord.MessageEmbed()
+    .setDescription('<:incorreto:729451886683619438> **|** Digite algum comando!')
+
     const code = args.slice(0).join(" ")
-    if (!code) return message.reply(`❌ **|** Digite algum comando!`)
+    if (!code) return message.channel.send(a1)
     
         try {
         let ev = require('util').inspect(eval(code));
@@ -25,7 +33,7 @@ exports.run = async (bot, message, args) => {
         } catch(err) {
 
           let errorrr = new Discord.MessageEmbed()
-          .setDescription(`**❌ **|** ERRO!**\n\`\`\`\n${err}\`\`\``)
+          .setDescription(`**<:incorreto:729451886683619438> **|** ERRO!**\n\`\`\`\n${err}\`\`\``)
           .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
           .setTimestamp()
 

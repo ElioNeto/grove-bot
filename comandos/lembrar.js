@@ -24,25 +24,18 @@ exports.run = async (bot, message, args) => {
   if (!args[0]){ 
 
       let embed = new Discord.MessageEmbed()
-      .setColor('RANDOM')
-      .setTitle("**LEMBRETE**")
-      .setDescription("❌ **|** Você precisa me dar um tempo para te lembrar!")
-      .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
-      .setTimestamp()   
+      .setDescription("<:incorreto:729451886683619438> **|** Você precisa me dar um tempo para te lembrar!")
 
-      return message.reply({embed});
+      return message.channel.send({embed});
   }
 
   if (args[0] <= 0){
 
     let embed = new Discord.MessageEmbed()
-      .setColor('RANDOM')
-      .setTitle("**❌ **|** ALERTA**")
-      .setDescription("❌ **|** O tempo precisa ser maior que zero!")
-      .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
-      .setTimestamp()   
 
-      return message.reply({embed});
+      .setDescription("<:incorreto:729451886683619438> **|** O tempo precisa ser maior que zero!") 
+
+      return message.channel.send({embed});
   }
 
   var razao = args.slice(1).join(" ");
@@ -51,7 +44,7 @@ exports.run = async (bot, message, args) => {
 
   let embed = new Discord.MessageEmbed()
   .setColor('RANDOM')
-  .setTitle('**LEMBRETE 🕗**')
+  .setTitle('**LEMBRETE <:patches:729472695850237992>**')
   .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
   .setDescription("Irei te chamar em: " + `\`${ms(ms(Timer), {long: true})}\`\n\nRazão do lembrete: **${razao}**`)
   .setTimestamp()   
@@ -61,7 +54,7 @@ exports.run = async (bot, message, args) => {
   setTimeout(function(){ 
 
       let embed = new Discord.MessageEmbed()
-      .setTitle('**LEMBRETE 🕗**')
+      .setTitle('**LEMBRETE <:patches:729472695850237992>**')
       .setColor('RANDOM')
       .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
       .setDescription(`**BIP BIP BIP!\n\n${razao}**`)

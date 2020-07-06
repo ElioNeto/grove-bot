@@ -22,17 +22,25 @@ exports.run = async (bot, message, args) => {
   let chx = db.get(`sugchannel_${message.guild.id}`);
   
     if(chx === null){
-      return message.channel.send('❌ **|** Não há nenhum canal de sugestões setado!');
+
+      let a1 = new Discord.MessageEmbed()
+      .setDescription('<:incorreto:729451886683619438> **|** Não há nenhum canal de sugestões setado!')
+
+      return message.channel.send(a1);
     }  
   
   var canal = bot.channels.cache.get(chx)
   
   var sugestao = args.slice(0).join(' ');
   if(!sugestao){ 
-    return message.reply(`⚠️ **|** Escreva a sua sugestão!`)
+
+    let a2 = new Discord.MessageEmbed()
+    .setDescription(`<:incorreto:729451886683619438> **|** Escreva a sua sugestão!`)
+
+    return message.channel.send(a2)
   } else { 
       let embed = new Discord.MessageEmbed()
-        .setTitle(`**SUGESTÃO :mailbox_with_no_mail:**`)
+        .setTitle(`**SUGESTÃO <:sugestao:729483642073513994>**`)
         .setDescription(`**${sugestao}**`)
         .addField(`**Uso**`, `**Deixe sua sugestão digitando ${c.prefix}sugestao <sugestão>**`)
         .setColor('RANDOM')
@@ -40,8 +48,8 @@ exports.run = async (bot, message, args) => {
         .setTimestamp()   
         
         canal.send({embed}).then(function (msg) { 
-            msg.react("👍"); 
-            msg.react("👎"); 
+            msg.react("729451917004242964"); 
+            msg.react("729451886683619438"); 
    })  
  }
 }

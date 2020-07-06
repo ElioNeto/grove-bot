@@ -1,9 +1,9 @@
-const Discord = require('discord.js') 
+const Discord = require('discord.js')
 const db = require('quick.db')
 
 exports.run = async (bot, message, args) => {
-  
-     var manutenção = await db.get(`manutenção`)
+
+   var manutenção = await db.get(`manutenção`)
   
     if(!manutenção === true){
 
@@ -18,20 +18,21 @@ exports.run = async (bot, message, args) => {
       
     } 
 
-     let a1 = new Discord.MessageEmbed()
-    .setDescription('<:incorreto:729451886683619438> **|** Você precisa ser um moderador para fazer isto!')
+   let a1 = new Discord.MessageEmbed()
+   .setDescription('<:incorreto:729451886683619438> **|** Você precisa me dizer a nova imagem!')
+   var membro = message.author;
 
-    let a2 = new Discord.MessageEmbed()
-    .setDescription('<:correto:729451917004242964> **|** Cargo de mute deletado com sucesso!')
+   let image = args[0];
+   if(!image) return message.channel.send(a1)
 
-     if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(a1); 
-  
-   db.delete(`mute_${message.guild.id}`);
-   message.channel.send(a2)
-  
+   let a2 = new Discord.MessageEmbed()
+   .setDescription(`<:correto:729451917004242964> **|** Sua nova imagem foi setada para **${image}** com sucesso!`)
+
+    db.set(`image_${membro.id}`, image)
+    message.channel.send(a2)
 }
 
 exports.help = {
-  name: 'deletemute',
-  alises: []
+name: 'editimage',
+aliases: ['setimage']
 }

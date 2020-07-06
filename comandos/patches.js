@@ -18,26 +18,38 @@ exports.run = async (bot, message, args) => {
      return message.channel.send(embedx)
       
     } 
+
+    let a1 = new Discord.MessageEmbed()
+    .setDescription(`<:incorreto:729451886683619438> **|** Você precisa ser um moderador para fazer isto!`)
   
-  if (!message.member.hasPermission("ADMINISTRATOR")) return message.reply(`❌ **|** Você precisa ser um moderador para fazer isto!`); 
+  if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(a1); 
  
   let chx = db.get(`patchannel_${message.guild.id}`);
   
     if(chx === null){
-      return message.channel.send('❌ **|** Não há nenhum canal de patches setado!');
+
+      let a2 = new Discord.MessageEmbed()
+      .setDescription('<:incorreto:729451886683619438> **|** Não há nenhum canal de patches setado!')
+
+      return message.channel.send(a2);
     }  
   
   var canal = bot.channels.cache.get(chx)
   
   var patch = args.slice(0).join(' ');
   if (!patch) { 
-    return message.reply(`⚠️ **|** Escreva o patch!`)
+
+    let a3 = new Discord.MessageEmbed()
+    .setDescription(`:x: **|** Escreva o patch!`)
+
+    return message.channel.send(a3)
   } else { 
       let embed = new Discord.MessageEmbed()
-        .setTitle(`**PATCHES 💼**`)
+        .setTitle(`**PATCHES <:patches:729472695850237992>**`)
         .setDescription(`**${patch}**`)    
         .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
         .setTimestamp()   
+        .setColor('RANDOM')
       
       canal.send({embed})
       message.delete()

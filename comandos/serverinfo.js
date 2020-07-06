@@ -78,29 +78,29 @@ const filterLevels = {
     .setColor('RANDOM')
     .setTitle('**INFORMAÇÕES DO SERVIDOR**')
     .setThumbnail(message.guild.iconURL({dynamic: true}))
-    .addField('Informações', `💻 Nome do servidor: \`${message.guild.name}\`
-    👤 Membros no servidor: \`${bot.guilds.cache.get(message.guild.id).members.cache.size}\`
-    🔧 Criador do servidor: \`${message.guild.owner.user.tag}\`
-    🌎 Região do servidor: \`${regions[message.guild.region]}\`
-    🤬 Filtro do servidor : \`${filterLevels[message.guild.explicitContentFilter]}\`
-    🆔 ID do servidor: \`${message.guild.id}\`
-    ✅ Nível de verificação: \`${verificationLevels[message.guild.verificationLevel]}\`
-    📅 Servidor criado em: \`${moment(message.guild.createdAt).format('LLL')}\`
-    📅 Você entrou aqui em: \`${moment(message.member.joinedAt).format('LLL')}\`
-    🚫 Block link: \`${bl.join(' ')}\`
-    🚫 Block invite: \`${bi.join(' ')}\``, true)
-    .addField('Estatísticas', `♾️ Quantidade de cargos: \`${roles.length}\`
-    ♾️ Quantidade de emojis: \`${emojis.size}\`
-    ✋🏼 Emojis regulares: \`${emojis.filter(emoji => !emoji.animated).size}\`
-    👋 Emojis animados: \`${emojis.filter(emoji => emoji.animated).size}\`
-    👱‍♂️ Humanos: \`${members.filter(member => !member.user.bot).size}\`
-    🤖 Robôs: \`${members.filter(member => member.user.bot).size}\`
-    💬 Canais de texto: \`${channels.filter(channel => channel.type === 'text').size}\`
-    🔊 Canais de voz: \`${channels.filter(channel => channel.type === 'voice').size}\``)
-    .addField('Atividade dos usuários', `🟢 Online: \`${members.filter(member => member.presence.status === 'online').size}\`
-    🟡 Ausente: \`${members.filter(member => member.presence.status === 'idle').size}\`
-    🔴 Não perturbe: \`${members.filter(member => member.presence.status === 'dnd').size}\`
-    ⚪ Offline: \`${members.filter(member => member.presence.status === 'offline').size}\``)    
+    .addField('Informações', `<:pc:729460019111657503> Nome do servidor: \`${message.guild.name}\`
+    <:membros:729454785216118794> Membros no servidor: \`${bot.guilds.cache.get(message.guild.id).members.cache.size}\`
+    <:config:729463779292610623> Criador do servidor: \`${message.guild.owner.user.tag}\`
+    <:globo:729463751287242793> Região do servidor: \`${regions[message.guild.region]}\`
+    <:erro:729456202139828314> Filtro do servidor : \`${filterLevels[message.guild.explicitContentFilter]}\`
+    <:id:729455876582277270> ID do servidor: \`${message.guild.id}\`
+    <:discordveri:729471223398137907> Nível de verificação: \`${verificationLevels[message.guild.verificationLevel]}\`
+    <:data:729464516898979872> Servidor criado em: \`${moment(message.guild.createdAt).format('LLL')}\`
+    <:data:729464516898979872> Você entrou aqui em: \`${moment(message.member.joinedAt).format('LLL')}\`
+    <:incorreto:729451886683619438> Block link: \`${bl.join(' ')}\`
+    <:incorreto:729451886683619438> Block invite: \`${bi.join(' ')}\``, true)
+    .addField('Estatísticas', `<:emoji:729467612253126666> Quantidade de cargos: \`${roles.length}\`
+    <:emoji:729467612253126666> Quantidade de emojis: \`${emojis.size}\`
+    <:emoji:729467612253126666> Emojis regulares: \`${emojis.filter(emoji => !emoji.animated).size}\`
+    <a:sino:729452561031102494> Emojis animados: \`${emojis.filter(emoji => emoji.animated).size}\`
+    <:nab:729467164553379920> Humanos: \`${members.filter(member => !member.user.bot).size}\`
+    <:bot:729463406578499605> Robôs: \`${members.filter(member => member.user.bot).size}\`
+    <:texto:729463024372547676> Canais de texto: \`${channels.filter(channel => channel.type === 'text').size}\`
+    <:som:729463006341103618> Canais de voz: \`${channels.filter(channel => channel.type === 'voice').size}\``)
+    .addField('Atividade dos usuários', `<:online:729460721963892826> Online: \`${members.filter(member => member.presence.status === 'online').size}\`
+    <:ausente:729460709921915010> Ausente: \`${members.filter(member => member.presence.status === 'idle').size}\`
+    <:dnd:729460731619311678> Não perturbar: \`${members.filter(member => member.presence.status === 'dnd').size}\`
+    <:offline:729459670061678693> Offline: \`${members.filter(member => member.presence.status === 'offline').size}\``)    
     .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
     .setTimestamp()   
 

@@ -18,13 +18,24 @@ exports.run = async (bot, message, args) => {
       
     } 
 
-    if (!message.member.hasPermission("ADMINISTRATOR")) return message.reply(`❌ **|** Você não tem permissão de adminstrador.`)
-    if (!message.guild.me.hasPermission("ADMINISTRATOR")) return message.reply(`❌ **|** Eu preciso ter a permissão de administrador para fazer isto!`); 
+    let a1 = new Discord.MessageEmbed()
+    .setDescription(`<:incorreto:729451886683619438> **|** Você não tem permissão de adminstrador.`)
+
+    let a2 = new Discord.MessageEmbed()
+    .setDescription(`<:incorreto:729451886683619438> **|** Eu preciso ter a permissão de administrador para fazer isto!`)
+
+    let a3 = new Discord.MessageEmbed()
+    .setDescription(`<:incorreto:729451886683619438> **|** Mencione qual usuário deseja avisar, e por qual motivo!`)
+
+    let a4 = new Discord.MessageEmbed()
+    .setDescription("<:incorreto:729451886683619438> **|** Você não pode alertar você mesmo.")
+
+    if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(a1)
+    if (!message.guild.me.hasPermission("ADMINISTRATOR")) return message.channel.send(a2); 
      
     var membro = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
-    if (!membro) return message.reply(`⚠️ **|** Mencione qual usuário deseja avisar, e por qual motivo!`)
-    if (membro === message.member) return message.reply("❌ **|** Você não pode alertar você mesmo.");
-    if (membro === message.bot) return message.reply("❌ **|** Você não pode alertar um bot.");
+    if (!membro) return message.channel.send(a3)
+    if (membro === message.member) return message.channel.send(a4);
 
     let motivo = args.slice(1).join(" ")
     if(!motivo) motivo = ("Nenhum motivo especificado.");
@@ -32,21 +43,26 @@ exports.run = async (bot, message, args) => {
   let chx = db.get(`punchannel_${message.guild.id}`);
   
     if(chx === null){
-      return message.reply('❌ **|** Não há nenhum canal de punição setado!');
-    }  
 
+      let a5 = new Discord.MessageEmbed()
+      .setDescription('<:incorreto:729451886683619438> **|** Não há nenhum canal de punição setado!')
+
+      return message.channel.send(a5);
+    }  
     
     var canal = bot.channels.cache.get(chx)
     let warns = await db.get(`warns_${membro.id}_${message.guild.id}`)
 
-    let embed = new Discord.MessageEmbed()
+    if(warns === null) warns = 0;
+
+    let embedWarn = new Discord.MessageEmbed()
     .setTitle('**WARN**')
     .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
-    .setDescription(`Membro: ${membro}\n\n Motivo: **${motivo}**\n\nWarns: **${warns}**`)
+    .setDescription(`<:membros:729454785216118794> Membro: ${membro}\n\n<:trabalhador:729455442677203025> Motivo: **${motivo}**\n\n<:erro:729456202139828314> Warns: **${warns}**`)
     .setThumbnail(membro.user.displayAvatarURL({dynamic: true}))
     .setTimestamp()   
 
-    canal.send({embed})
+    canal.send(embedWarn)
     message.delete()
 
     if(warns === 3) {
@@ -54,7 +70,7 @@ exports.run = async (bot, message, args) => {
           let embedKick = new Discord.MessageEmbed()
           .setColor('FF0000')
           .setTitle(`**MEMBRO EXPULSO**`)
-          .setDescription(`\n\nMembro: ${membro}\n\nMotivo: **Tomou 3 warns no servidor.**`)
+          .setDescription(`\n\n<:membros:729454785216118794> Membro: ${membro}\n\n<:trabalhador:729455442677203025> Motivo: **Tomou 3 warns no servidor.**`)
           .setThumbnail(membro.user.displayAvatarURL({dynamic: true}))
           .addField('OBSERVAÇÃO', `Ningúem mandou descumprir as regras do servidor!`)
           .setTimestamp()   
@@ -68,14 +84,14 @@ exports.run = async (bot, message, args) => {
            let embedBan = new Discord.MessageEmbed()
           .setColor('FF0000')
           .setTitle(`**MEMBRO BANIDO**`)
-          .setDescription(`\n\nMembro: ${membro}\n\nMotivo: **Tomou 5 warns no servidor.**`)
+          .setDescription(`\n\n<:membros:729454785216118794> Membro: ${membro}\n\n<:trabalhador:729455442677203025> Motivo: **Tomou 5 warns no servidor.**`)
           .setThumbnail(membro.user.displayAvatarURL({dynamic: true}))
           .setTimestamp()   
           .addField('OBSERVAÇÃO', `Ningúem mandou descumprir as regras do servidor!`)
           .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
 
           membro.ban()
-          canal.send(embedBan)
+          canal.send(embedBan)      
     }
 
     if(warns === null) {
