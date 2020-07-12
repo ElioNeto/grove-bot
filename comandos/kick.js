@@ -35,8 +35,8 @@ exports.run = async(bot, message, args) => {
   if (membro === message.member) return message.channel.send(a2);
 
   var motivo = args.slice(1).join(" ");
-  if(!motivo) motivo = ("Nenhum motivo especificado.");
-  if(!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send(a3);
+  if (!motivo) motivo = ("Nenhum motivo especificado.");
+  if (!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send(a3);
   if (!message.guild.me.hasPermission("KICK_MEMBERS")) return message.channel.send(a4); 
 
   let chx = db.get(`punchannel_${membro.guild.id}`);

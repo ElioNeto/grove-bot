@@ -9,7 +9,7 @@ exports.run = async (bot, message, args) => {
     var presence = []
 
     if(member.presence.status === 'online') {
-      presence.push(`<:online:729460721963892826> Online`)
+      presence.push(`<:online:729460721963892826> Disponível`)
     }  
 
     else if(member.presence.status === 'idle') {
@@ -21,7 +21,7 @@ exports.run = async (bot, message, args) => {
     }
 
     else if(member.presence.status === 'offline') {
-      presence.push(`<:offline:729459670061678693> Offline`)
+      presence.push(`<:offline:729459670061678693> Invisível`)
     }
   
     var desc = await db.get(`desc_${member.id}`)  

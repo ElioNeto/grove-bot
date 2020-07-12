@@ -99,13 +99,16 @@ exports.run = async (bot, message, args) => {
                                           let embed = new Discord.MessageEmbed()
                                           .setColor('RANDOM')
                                           .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
-                                          .setTitle(`${title}`)
+                                          .setTitle(`${title} <a:sino:729452561031102494>`)
                                           .setDescription(`${desc}`)
                                           .setTimestamp()   
 
-                                          canal.send(`@everyone`, {embed})
-                                          message.channel.send(a9)
-
+                                          canal.createWebhook(`${message.author.username}`, {avatar: message.author.avatarURL({dynamic: true}), reason: 'Criado por Grove'}).then(Webhook => {
+                                            Webhook.send(`@everyone`, embed).then(() => {
+                                              Webhook.delete()
+                                            })
+                                            message.channel.send(a9)
+                                          })                                        
                                         }, ms(Timer));   
 
                                       } else if(reaction.emoji.id === '729451886683619438') { 

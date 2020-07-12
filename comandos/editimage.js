@@ -19,7 +19,7 @@ exports.run = async (bot, message, args) => {
     } 
 
    let a1 = new Discord.MessageEmbed()
-   .setDescription('<:incorreto:729451886683619438> **|** Você precisa me dizer a nova imagem!')
+   .setDescription('<:incorreto:729451886683619438> **|** Você precisa me dizer a URL da nova imagem, a imagem deve ser no formato PNG ou JPG.')
    var membro = message.author;
 
    let image = args[0];

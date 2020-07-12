@@ -19,7 +19,7 @@ exports.run = async (bot, message, args) => {
     } 
 
    let a1 = new Discord.MessageEmbed()
-   .setDescription('<:incorreto:729451886683619438> **|** Você precisa me dizer a nova cor!')
+   .setDescription('<:incorreto:729451886683619438> **|** Você precisa me dizer a nova cor em inglês!')
    var membro = message.author;
 
    let color = args.slice(0).join(' ').toUpperCase();

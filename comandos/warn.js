@@ -19,7 +19,7 @@ exports.run = async (bot, message, args) => {
     } 
 
     let a1 = new Discord.MessageEmbed()
-    .setDescription(`<:incorreto:729451886683619438> **|** Você não tem permissão de adminstrador.`)
+    .setDescription(`<:incorreto:729451886683619438> **|** Você precisa ser um administrador para fazer isto!`)
 
     let a2 = new Discord.MessageEmbed()
     .setDescription(`<:incorreto:729451886683619438> **|** Eu preciso ter a permissão de administrador para fazer isto!`)
@@ -56,38 +56,39 @@ exports.run = async (bot, message, args) => {
     if(warns === null) warns = 0;
 
     let embedWarn = new Discord.MessageEmbed()
-    .setTitle('**WARN**')
+    .setTitle('**WARN <:ban:729462106721746946>**')
     .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
-    .setDescription(`<:membros:729454785216118794> Membro: ${membro}\n\n<:trabalhador:729455442677203025> Motivo: **${motivo}**\n\n<:erro:729456202139828314> Warns: **${warns}**`)
+    .setDescription(`<:membros:729454785216118794> Membro: ${membro}\n\n<:trabalhador:729455442677203025> Motivo: **${motivo}**\n\n<:erro:729456202139828314> Warns: **${warns +1}**`)
     .setThumbnail(membro.user.displayAvatarURL({dynamic: true}))
     .setTimestamp()   
+    .setColor('FF0000')
 
     canal.send(embedWarn)
     message.delete()
 
-    if(warns === 3) {
+    if(warns === 2) {
 
           let embedKick = new Discord.MessageEmbed()
           .setColor('FF0000')
-          .setTitle(`**MEMBRO EXPULSO**`)
+          .setTitle(`**MEMBRO EXPULSO <:ban:729462106721746946>**`)
           .setDescription(`\n\n<:membros:729454785216118794> Membro: ${membro}\n\n<:trabalhador:729455442677203025> Motivo: **Tomou 3 warns no servidor.**`)
           .setThumbnail(membro.user.displayAvatarURL({dynamic: true}))
-          .addField('OBSERVAÇÃO', `Ningúem mandou descumprir as regras do servidor!`)
+          .addField('<:info:729476860060237895> Observação', `Ningúem mandou descumprir as regras do servidor!`)
           .setTimestamp()   
           .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
 
           membro.kick()
           canal.send(embedKick)
 
-    } else if(warns === 5) {
+    } else if(warns === 4) {
 
            let embedBan = new Discord.MessageEmbed()
           .setColor('FF0000')
-          .setTitle(`**MEMBRO BANIDO**`)
+          .setTitle(`**MEMBRO BANIDO <:ban:729462106721746946>**`)
           .setDescription(`\n\n<:membros:729454785216118794> Membro: ${membro}\n\n<:trabalhador:729455442677203025> Motivo: **Tomou 5 warns no servidor.**`)
           .setThumbnail(membro.user.displayAvatarURL({dynamic: true}))
           .setTimestamp()   
-          .addField('OBSERVAÇÃO', `Ningúem mandou descumprir as regras do servidor!`)
+          .addField('<:info:729476860060237895> Observação', `Ningúem mandou descumprir as regras do servidor!`)
           .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
 
           membro.ban()

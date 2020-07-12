@@ -26,7 +26,7 @@ exports.run = async (bot, message, args) => {
     let embedDev = new Discord.MessageEmbed()
     .setTitle('**SUPORTE**')
     .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
-    .setDescription(`:wave: **|** Olá ${message.author}\n\nVi que você usou o comando de suporte!\nE se você usou este comando, é porque tem interesse em entrar na minha equipe oficial certo? Para isso, você precisa cumprir alguns requisitos:\n\n<:pc:729460019111657503> **|** Desenvolvedores:\n\nTer maturidade dentro da equipe\nTer um pouco de conhecimento em Node Js\nTer um pouco de conhecimento na livraria discord.js\nTer um pouco de conhecimento em JavaScript\n\n<:staff:729492208889364480> **|** Ajudantes:\n\nTer maturidade para lidar com problemas\nAceitar críticas construtivas\nSer bem ativo dentro do servidor\nNão desistir fácil, persistir\n\nSe você cumpre esses requisitos, ótimo, vamos para a próxima etapa, caso queira continuar reaja com <:correto:729451917004242964> e caso não queira continuar reaja com <:incorreto:729451886683619438>`)
+    .setDescription(`:wave: **|** Olá ${message.author}\n\nVi que você usou o comando de suporte!\nE se você usou este comando, é porque tem interesse em entrar na minha equipe oficial certo? Para isso, você precisa cumprir alguns requisitos:\n\n<:developer:729455442631065751> **|** Desenvolvedores:\n\nTer maturidade dentro da equipe\nTer um pouco de conhecimento em Node Js\nTer um pouco de conhecimento na livraria discord.js\nTer um pouco de conhecimento em JavaScript\n\n<:equipe:729455442677203025> **|** Ajudantes:\n\nTer maturidade para lidar com problemas\nAceitar críticas construtivas\nSer bem ativo dentro do servidor\nNão desistir fácil, persistir\n\n<:emoji:729467612253126666> **|** Designers:\n\nConhecimento básico em programas de edição como Adobe\nTer tempo disponível para equipe quando precisar\nAceitar críticas construtivas\nCriatividade para imagens futuras de designer do bot/servidor\n\nSe você cumpre esses requisitos, ótimo, vamos para a próxima etapa, caso queira continuar reaja com <:correto:729451917004242964> e caso não queira continuar reaja com <:incorreto:729451886683619438>`)
     .setTimestamp()   
 
     message.member.send(embedDev).then(msg => {
@@ -37,15 +37,15 @@ exports.run = async (bot, message, args) => {
 
     let cargo = new Discord.MessageEmbed()
     .setTitle('**CARGO**')
-    .setDescription(`Agora é preciso que você escolha o cargo que você quer ficar na equipe clicando na reação correspondente!\n\n<:pc:729460019111657503> **|** Desenvolvedor\n<:staff:729492208889364480> **|** Ajudante`)
+    .setDescription(`Agora é preciso que você escolha o cargo que você quer ficar na equipe clicando na reação correspondente!\n\n<:developer:729455442631065751> **|** Desenvolvedor\n<:equipe:729455442677203025> **|** Ajudante\n<:emoji:729467612253126666> **|** Designer`)
     .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
     .setTimestamp()   
     coletor.on('collect', cp => {
 
     msg.edit(cargo).then(msg2 => {
-      msg.react('729460019111657503').then(() => msg.react('729492208889364480'))
+      msg.react('729455442631065751').then(() => msg.react('729455442677203025')).then(() => msg.react('729467612253126666'))
 
-       let carg = (reaction, usuario) => reaction.emoji.id === "729460019111657503" && usuario.id === message.author.id;
+       let carg = (reaction, usuario) => reaction.emoji.id === "729455442631065751" && usuario.id === message.author.id;
        let coletor4 = msg.createReactionCollector(carg, {max: 1});
        
     let motivo = new Discord.MessageEmbed()
@@ -136,7 +136,7 @@ exports.run = async (bot, message, args) => {
                          .addField(`Operadores`, operadores)
                          .addField(`Diferença entre const, var e let`, diferenca)
                          .addField(`Função de if, else e else if`, padrao)
-                         .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true})) 
+                         .setFooter(`ID do membro: ${message.author.id}`) 
                          .setTimestamp()
 
                          canal.send(embedFinalDev)
@@ -165,7 +165,7 @@ exports.run = async (bot, message, args) => {
   })
 })
 
-  let carg1 = (reaction, usuario) => reaction.emoji.id === "729492208889364480" && usuario.id === message.author.id;
+  let carg1 = (reaction, usuario) => reaction.emoji.id === "729455442677203025" && usuario.id === message.author.id;
   let coletor3 = msg.createReactionCollector(carg1, {max: 1});
 
     let etapa1a = new Discord.MessageEmbed()
@@ -255,7 +255,7 @@ exports.run = async (bot, message, args) => {
                               .addField(`Caso um usuário não consiga utilizar um comando por erro do bot`, duvida2)
                               .addField(`Caso um usuário descubra um erro grave`, duvida3)
                               .addField(`Caso um usuário criticasse o bot`, duvida4)
-                              .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true})) 
+                              .setFooter(`ID do membro: ${message.author.id}`)  
                               .setTimestamp()
 
                               canal.send(embedFinal)
@@ -285,7 +285,126 @@ exports.run = async (bot, message, args) => {
       })
     })
   })
-}) 
+
+   let carg2 = (reaction, usuario) => reaction.emoji.id === "729467612253126666" && usuario.id === message.author.id;
+   let coletor5 = msg.createReactionCollector(carg2, {max: 1});
+
+    let motivoD = new Discord.MessageEmbed()
+    .setTitle('**ETAPA 1**')
+    .setDescription(`Para esta primeira etapa, nos diga o motivo pela qual você quer entrar para nossa equipe como designer.`)
+    .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
+    .setTimestamp()
+    coletor5.on('collect', cp => {
+
+      msg.edit(motivoD).then(msg1b => {
+      let cm = msg1b.channel.createMessageCollector(x => x.author.id == message.author.id, {max: 1})
+      .on('collect', c => {
+        motivoDes = c.content 
+
+        let etapa2b = new Discord.MessageEmbed()
+        .setTitle('**ETAPA 2**')
+        .setDescription(`Qual software você usa para criar seus projetos e o por que.`)
+        .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
+        .setTimestamp()
+
+        message.author.send(etapa2b).then(msg2b => {
+          let cn = msg2b.channel.createMessageCollector(x => x.author.id == message.author.id, {max: 1})
+          .on('collect', c => {
+            programa = c.content
+
+            let etapa3b = new Discord.MessageEmbed()
+            .setTitle('**ETAPA 3**')
+            .setDescription(`Quanto tempo de experiência em edição de imagens você tem?`)
+            .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
+            .setTimestamp()
+
+            message.author.send(etapa3b).then(msg3b => {
+              let ct = msg3b.channel.createMessageCollector(x => x.author.id == message.author.id, {max: 1})
+              .on('collect', c => {
+                tempo = c.content
+
+                let etapa4b = new Discord.MessageEmbed()
+                .setTitle('**ETAPA 4**')
+                .setDescription(`Você já fez algum projeto para outro servidor ou algo do gênero?`)
+                .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
+                .setTimestamp()
+
+                message.author.send(etapa4b).then(msg4b => {
+                  let cy = msg4b.channel.createMessageCollector(x => x.author.id == message.author.id, {max: 1})
+                  .on('collect', c => {
+                   servidor = c.content
+
+                   let etapa5b = new Discord.MessageEmbed()
+                   .setTitle('**ETAPA 5**')
+                   .setDescription(`Envie o link de algum projeto seu.`)
+                   .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
+                   .setTimestamp()
+
+                   message.author.send(etapa5b).then(msg5b => {
+                     let cr = msg5b.channel.createMessageCollector(x => x.author.id == message.author.id, {max: 1})
+                     .on('collect', c => {
+                       imagem = c.content
+
+                       let etapaFinal = new Discord.MessageEmbed()
+                       .setTitle('**ETAPA FINAL**')
+                       .setDescription('Formulário concluído com sucesso!\nVocê deseja enviar este formulário para análise? Se sim digite **enviar**, caso contrário digite **cancelar**')
+                       .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true})) 
+                       .setTimestamp()
+
+                      message.author.send(etapaFinal).then(msg6b => {
+                       let mt = msg6b.channel.createMessageCollector(x => x.author.id == message.author.id, {max: 1})
+                        .on('collect', c => {
+                              respostFinal = c.content
+
+                              if(c.content.toLowerCase() === 'enviar') {
+                                var canal = bot.channels.cache.get('728689318302056558')
+
+                                let embedEnviadoa = new Discord.MessageEmbed()
+                                .setTitle('**FORMULÁRIO ENVIADO**')
+                                .setDescription(`<:correto:729451917004242964> **|** Seu formulário foi enviado para análise com sucesso!\nEspere um representante de nossa equipe entrar em contato!`)
+                                .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true})) 
+                                .setTimestamp()
+
+                               msg6b.edit(embedEnviadoa)
+
+                              let etapa2Final = new Discord.MessageEmbed()
+                              .setTitle('**ANÁLISE - DESIGNER**')
+                              .addField(`Análise enviada por`, `\`${message.author.tag}\``)
+                              .setThumbnail(message.author.avatarURL({dynamic: true}))
+                              .addField(`Motivo para entrar na equipe`, motivoDes)
+                              .addField(`Qual software usa para edição de imagens`, programa)
+                              .addField(`Tempo de experiência em edição de imagens`, tempo)
+                              .addField(`Se já fez algum projeto para outro servidor`, servidor)
+                              .addField(`URL de algum projeto que já fez`, imagem)
+                              .setFooter(`ID do membro: ${message.author.id}`) 
+                              .setTimestamp()
+
+                              canal.send(etapa2Final)
+
+                             } else if(c.content.toLowerCase() === 'cancelar') {
+
+                              let embedCancelado2 = new Discord.MessageEmbed()
+                               .setTitle('**FORMULÁRIO CANCELADO**')
+                               .setDescription('<:incorreto:729451886683619438> **|** Seu formulário foi cancelado com sucesso!')
+                               .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true})) 
+                               .setTimestamp()
+
+                             msg6b.edit(embedCancelado2)
+                      }
+                    })
+                   })
+                  })
+                 })
+               })
+              })
+             })
+            })
+           })   
+         }) 
+       })
+     })
+  })
+})
     
    let cancel = (reaction, usuario) => reaction.emoji.id === "729451886683619438" && usuario.id === message.author.id;
    let coletor2 = msg.createReactionCollector(cancel, {max: 1});

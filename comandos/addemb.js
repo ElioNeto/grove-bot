@@ -15,7 +15,7 @@ exports.run = async (bot, message, args) => {
   var membro = message.mentions.users.first()
   if(!membro) return message.channel.send(a1)
 
-  let emb = ('<:developer:729455442631065751> <:grove:729708311527817246> <:nodejs:729461800797601794> <:discordjs:729461813657206936> <:javascript:729486544406315058> <:discord:729445842888425592> <a:nitro:729488118322954311> <:discordveri:729471223398137907>')
+  let emb = args.slice(1).join(' ')
 
   let a2 = new Discord.MessageEmbed()
   .setDescription(`<:correto:729451917004242964> **|** Você adicionou ${emb} em ${membro} com sucesso!`)

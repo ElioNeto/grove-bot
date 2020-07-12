@@ -38,6 +38,7 @@ exports.run = async (bot, message, args) => {
       .setDescription('Block link **ATIVADO**\nA partir de agora ningúem poderá enviar links neste servidor!')
       .setTimestamp()     
       .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
+      .setColor('39FF14')
             
       let bl = db.set(`blocklink_${message.guild}`, true)
       message.channel.send(embedon)
@@ -50,6 +51,7 @@ exports.run = async (bot, message, args) => {
       .setDescription('Block link **DESATIVADO**\nA partir de agora todos poderão enviar links neste servidor!')
       .setTimestamp()     
       .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
+      .setColor('FF0000')
             
       let bl = db.set(`blocklink_${message.guild}`, null)
       message.channel.send(embedoff)

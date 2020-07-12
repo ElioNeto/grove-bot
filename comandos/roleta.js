@@ -22,21 +22,21 @@ exports.run = async (bot, message, args) => {
     if (random === 2){ 
 
         let embed = new Discord.MessageEmbed()
-        .setColor('RED')
+        .setColor('FF0000')
         .setTitle('**ROLETA RUSSA**')
         .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
         .setDescription('Rodou o cartucho e você.. **MORREU**! :cry: ')
-        .addField('**MAIS SORTE NA PRÓXIMA VEZ!**', `**A BALA FICOU NO CARTUCHO:** \`${random}\``)
+        .addField('Mais sorte na próxima vez!', `A bala ficou no cartucho: **${random}**`)
         .setTimestamp()   
         message.channel.send({embed})
     }
     else{ 
         let embed = new Discord.MessageEmbed()
-        .setColor('GREEN')
+        .setColor('39FF14')
         .setTitle('**ROLETA RUSSA**')
        .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
         .setDescription('Roudou o cartucho e você.. **SOBREVIVEU**! :sweat_smile: ')
-        .addField('**PARABÉNS**', `**A BALA FICOU NO CARTUCHO:** \`${random}\``)
+        .addField('Parabéns', `A bala ficou no cartucho: **${random}**`)
         .setTimestamp()   
         message.channel.send({embed})
       }

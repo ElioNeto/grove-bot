@@ -35,6 +35,7 @@ exports.run = async (bot, message, args) => {
                 let deaths = data.deaths.value.toLocaleString()
 
                 const embed = new Discord.MessageEmbed()
+                .setColor('RANDOM')
                 .setTitle(`COVID-19 <:globo:729463751287242793>`)
                 .addField('Casos confirmados 🦠', `\`${confirmed}\``)
                 .addField('Recuperados 😷', `\`${recovered}\``)
@@ -54,6 +55,7 @@ exports.run = async (bot, message, args) => {
                 let deaths = data.deaths.value.toLocaleString()
 
                 const embed = new Discord.MessageEmbed()
+                .setColor('RANDOM')
                 .setTitle(`COVID-19 em **${countries}** 🔬`)
                 .addField('Casos confirmados 🦠', `\`${confirmed}\``)
                 .addField('Recuperados 😷', `\`${recovered}\``)
@@ -64,7 +66,11 @@ exports.run = async (bot, message, args) => {
 
                 message.channel.send(embed)
             }).catch(e => {
-                return message.channel.send('<:incorreto:729451886683619438> **|** Não encontrei este país!')
+
+              let a9 = new Discord.MessageEmbed()
+              .setDescription('<:incorreto:729451886683619438> **|** Não encontrei este país!')
+
+                return message.channel.send(a9)
             })
         }
     }

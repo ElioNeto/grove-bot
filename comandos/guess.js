@@ -38,6 +38,7 @@ let embederro = new Discord.MessageEmbed()
 .setDescription('<:incorreto:729451886683619438> **|** Já tem um jogo em andamento neste servidor, espere o jogo terminar para iniciar outro!')
 .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
 .setTimestamp()
+.setColor('RANDOM')
 
 let guess = db.get(`guess_${message.guild.id}`)
 
@@ -48,7 +49,7 @@ if(guess === true) return message.channel.send(embederro)
 let random_number = Math.floor(Math.random() * (gameconfig.maximum - gameconfig.minimum + 1)) + gameconfig.minimum;
 
 let embed1 = new Discord.MessageEmbed()
-.setTitle('**GUESS**')
+.setTitle('**GUESS <:discord:729445842888425592>**')
 .setDescription(`O número está entre **${gameconfig.minimum}** e **${gameconfig.maximum}**, você tem **${gameconfig.tries}** tentativas para acerta-lo\n\nDigite \`parar\` a qualquer momento para cancelar o jogo!`)
 .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
 .setColor('RANDOM')
@@ -107,7 +108,7 @@ game_coletor.on('collect', u_msg => {
     gameconfig.tries--;
 
     let embed4 = new Discord.MessageEmbed()
-    .setTitle('**GUESS**')
+    .setTitle('**GUESS <:discord:729445842888425592>**')
     .setDescription(`**${u_msg.content}** é menor que o número correto!\nVocê tem **${gameconfig.tries}** tentativas restantes!`)
     .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
     .setColor('RANDOM')
@@ -121,7 +122,7 @@ game_coletor.on('collect', u_msg => {
     gameconfig.tries--;
 
     let embed5 = new Discord.MessageEmbed()
-    .setTitle('**GUESS**')
+    .setTitle('**GUESS <:discord:729445842888425592>**')
     .setDescription(`**${u_msg.content}** é maior que o número correto!\nVocê tem **${gameconfig.tries}** tentativas restantes!`)
     .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
     .setColor('RANDOM')
@@ -139,7 +140,7 @@ game_coletor.on('end', (collected, reason) => {
     db.set(`guess_${message.guild.id}`, false)
 
     let embedT = new Discord.MessageEmbed()
-    .setDescription(':x: **|** O jogo foi cancelado pois o tempo de 5 minutos excedeu!')
+    .setDescription('<:incorreto:729451886683619438> **|** O jogo foi cancelado pois o tempo de 5 minutos excedeu!')
 
     message.channel.send(embedT)
     

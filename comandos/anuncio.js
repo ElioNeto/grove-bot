@@ -60,7 +60,7 @@ exports.run = async (bot, message, args) => {
                                 let embed = new Discord.MessageEmbed()
                                   .setColor('RANDOM')
                                   .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
-                                  .setTitle(`${title}`)
+                                  .setTitle(`${title} <a:sino:729452561031102494>`)
                                   .setDescription(`${desc}`)
                                   .setTimestamp()   
                                 
@@ -77,23 +77,26 @@ exports.run = async (bot, message, args) => {
                                   msg.awaitReactions(filter, {max: 1}) 
     
                                      .then(collected => { 
-      
-                                     const reaction = collected.first();
+
+                                     canal.createWebhook(`${message.author.username}`, {avatar: message.author.avatarURL({dynamic:true}), reason: 'Criado por Grove'}).then(Webhook => {
+                                       const reaction = collected.first();
     
-                                      if (reaction.emoji.id === '729451917004242964') { 
-                                      canal.send(`@everyone`, {embed})
-                                      message.channel.bulkDelete(8)
-                                        msg.delete()
+                                       if (reaction.emoji.id === '729451917004242964') { 
+                                       Webhook.send(`@everyone`, embed).then(() => {
+                                         Webhook.delete()
+                                       })
+                                       message.channel.bulkDelete(8)
+                                       msg.delete()
           
                                       } else { 
-                                    message.channel.send(a6)
-                                        msg.delete()
-                                        message.channel.bulkDelete(8)
+                                       message.channel.send(a6)
+                                       msg.delete()
+                                       message.channel.bulkDelete(8)
                                      }
-                                       })
                                   })
-
+                                 })
                               })
+                            })
                           })
                       })
                   })

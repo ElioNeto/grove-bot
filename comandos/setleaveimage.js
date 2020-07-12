@@ -19,20 +19,20 @@ exports.run = async (bot, message, args) => {
     } 
 
    let a1 = new Discord.MessageEmbed()
-   .setDescription('<:incorreto:729451886683619438> **|** Você precisa me dizer a nova cor!')
-   var membro = message.mentions.users.first();
+   .setDescription('<:incorreto:729451886683619438> **|** Você precisa me dizer a URL da nova imagem, a imagem deve ser no formato PNG ou JPG.')
+   var membro = message.author;
 
-   let image = args.slice(1).join(' ');
+   let image = args[0];
    if(!image) return message.channel.send(a1)
 
    let a2 = new Discord.MessageEmbed()
-   .setDescription(`<:correto:729451917004242964> **|** Sua nova cor foi setada para **${image}** com sucesso!`)
+   .setDescription(`<:correto:729451917004242964> **|** A imagem de adeus foi setada para **${image}** com sucesso!`)
 
-    db.set(`desc_${membro.id}`, image)
+    db.set(`leaimage_${message.guild.id}`, image)
     message.channel.send(a2)
 }
 
 exports.help = {
-name: '2020500',
-aliases: []
+name: 'setleaveimage',
+aliases: ['setleaimage']
 }

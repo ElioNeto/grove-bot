@@ -62,13 +62,23 @@ const filterLevels = {
     
     var bl = [];
 
+    let blockINVITE = '<:desativado:730235950046904330> Block invite:'
+
     if(blockinvite === true) {
+
+      blockINVITE = '<:ativado:730235937166065752> Block invite:'
+
       bi.push('Ativado')
     } else {
       bi.push('Desativado')
     }
 
+    let blockLINK = '<:desativado:730235950046904330> Block link:'
+
      if(blocklink === true) {
+ 
+     blockLINK = '<:ativado:730235937166065752> Block link:'
+
       bl.push('Ativado')
     } else {
       bl.push('Desativado')
@@ -87,8 +97,8 @@ const filterLevels = {
     <:discordveri:729471223398137907> Nível de verificação: \`${verificationLevels[message.guild.verificationLevel]}\`
     <:data:729464516898979872> Servidor criado em: \`${moment(message.guild.createdAt).format('LLL')}\`
     <:data:729464516898979872> Você entrou aqui em: \`${moment(message.member.joinedAt).format('LLL')}\`
-    <:incorreto:729451886683619438> Block link: \`${bl.join(' ')}\`
-    <:incorreto:729451886683619438> Block invite: \`${bi.join(' ')}\``, true)
+    ${blockLINK} \`${bl.join(' ')}\`
+    ${blockINVITE} \`${bi.join(' ')}\``)
     .addField('Estatísticas', `<:emoji:729467612253126666> Quantidade de cargos: \`${roles.length}\`
     <:emoji:729467612253126666> Quantidade de emojis: \`${emojis.size}\`
     <:emoji:729467612253126666> Emojis regulares: \`${emojis.filter(emoji => !emoji.animated).size}\`
@@ -97,10 +107,10 @@ const filterLevels = {
     <:bot:729463406578499605> Robôs: \`${members.filter(member => member.user.bot).size}\`
     <:texto:729463024372547676> Canais de texto: \`${channels.filter(channel => channel.type === 'text').size}\`
     <:som:729463006341103618> Canais de voz: \`${channels.filter(channel => channel.type === 'voice').size}\``)
-    .addField('Atividade dos usuários', `<:online:729460721963892826> Online: \`${members.filter(member => member.presence.status === 'online').size}\`
-    <:ausente:729460709921915010> Ausente: \`${members.filter(member => member.presence.status === 'idle').size}\`
+    .addField('Atividade dos usuários', `<:online:729460721963892826> Diponíveis: \`${members.filter(member => member.presence.status === 'online').size}\`
+    <:ausente:729460709921915010> Ausentes: \`${members.filter(member => member.presence.status === 'idle').size}\`
     <:dnd:729460731619311678> Não perturbar: \`${members.filter(member => member.presence.status === 'dnd').size}\`
-    <:offline:729459670061678693> Offline: \`${members.filter(member => member.presence.status === 'offline').size}\``)    
+    <:offline:729459670061678693> Invisíveis: \`${members.filter(member => member.presence.status === 'offline').size}\``)    
     .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
     .setTimestamp()   
 

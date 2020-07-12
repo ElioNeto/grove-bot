@@ -38,7 +38,7 @@ exports.run = async (bot, message, args) => {
             if (message.member.hasPermission('ATTACH_FILES')) {
 
               let a3 = new Discord.MessageEmbed()
-              .setDescription('<:pesquisar:729460055438786600> **|** Processando...')
+              .setDescription('<a:rodando:730254050632794124> **|** Processando...')
 
               let erro = new Discord.MessageEmbed()
               .setDescription('<:incorreto:729451886683619438> **|** Ocorreu um erro ao criar a imagem.')

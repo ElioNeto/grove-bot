@@ -30,6 +30,9 @@ exports.run = async (bot, message, args) => {
     }  
   
   var canal = bot.channels.cache.get(chx)
+
+  let a8 = new Discord.MessageEmbed()
+  .setDescription(`<:correto:729451917004242964> **|** Sua sugestão foi enviada no canal ${canal} com sucesso!`)
   
   var sugestao = args.slice(0).join(' ');
   if(!sugestao){ 
@@ -38,18 +41,24 @@ exports.run = async (bot, message, args) => {
     .setDescription(`<:incorreto:729451886683619438> **|** Escreva a sua sugestão!`)
 
     return message.channel.send(a2)
+
   } else { 
+    canal.createWebhook(`${message.author.username}`, {avatar: message.author.avatarURL({dynamic: true}), reason: 'Criado por Grove'}).then(Webhook => {
       let embed = new Discord.MessageEmbed()
-        .setTitle(`**SUGESTÃO <:sugestao:729483642073513994>**`)
+        .setTitle(`**SUGESTÃO :incoming_envelope:**`)
         .setDescription(`**${sugestao}**`)
-        .addField(`**Uso**`, `**Deixe sua sugestão digitando ${c.prefix}sugestao <sugestão>**`)
+        .setThumbnail('https://cdn.discordapp.com/emojis/729483642073513994.png?v=1')
         .setColor('RANDOM')
         .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
         .setTimestamp()   
-        
-        canal.send({embed}).then(function (msg) { 
-            msg.react("729451917004242964"); 
-            msg.react("729451886683619438"); 
+
+        message.channel.send(a8)
+        Webhook.send(embed).then(() => {
+          Webhook.delete()
+        }).then(function (msg) { 
+        msg.react("729451917004242964"); 
+        msg.react("729451886683619438"); 
+    })    
    })  
  }
 }

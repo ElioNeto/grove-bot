@@ -20,10 +20,11 @@ exports.run = async (bot, message, args) => {
 
     let embed = new Discord.MessageEmbed()
 
-    .setDescription("**[BAIXAR IMAGEM <:download:729462352315023381>](" + message.guild.iconURL({dynamic: true}) + ")**")
-    .setImage(message.guild.iconURL({dynamic: true}))
+    .setDescription("**[CLIQUE AQUI PARA BAIXAR IMAGEM <:download:729462352315023381>](" + message.guild.iconURL({dynamic: true}) + ")**")
+    .setImage(message.guild.iconURL({size: 1024, dynamic: true}))
     .setColor('RANDOM')
     .setTimestamp()
+    .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
 
     message.channel.send(embed);
 

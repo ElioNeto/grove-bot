@@ -36,9 +36,10 @@ exports.run = async (bot, message, args) => {
     .addField(`**PERGUNTA**`, `**${duvida}**`)
     .addField(`**RESPOSTA**`, `**${replies [result]}**`)
     .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
+    .setThumbnail('https://images-ext-1.discordapp.net/external/vT6b83STxP3A2w8QDGbFFrb2uCnxjtf1-VmLyAzQjEg/https/findicons.com/files/icons/1700/2d/512/8_ball.png')
     .setTimestamp()   
     
-    message.reply({embed})
+    message.channel.send({embed})
 }
 
 exports.help = { 

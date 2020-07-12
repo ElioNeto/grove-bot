@@ -40,7 +40,7 @@ exports.run = async (bot, message, args) => {
     .addField('**Comandos úteis: <:emoji:729467612253126666>**', `\`clima, calcular, sugestão...\``)
 
      message.member.send(embed1).then(msg => {
-       msg.react('729462106721746946').then(() => msg.react('729463779292610623')).then(() => msg.react('729466498300772363')).then(() => msg.react('729467612253126666')).then(() => msg.react('729480249653592166'))
+       msg.react('729462106721746946').then(() => msg.react('729463779292610623')).then(() => msg.react('729466498300772363')).then(() => msg.react('729467612253126666')).then(() => msg.react('730955576489541642'))
        
       let mod = (reaction, usuario) => reaction.emoji.id === "729462106721746946" && usuario.id === message.author.id;
       let coletor = msg.createReactionCollector(mod);
@@ -50,13 +50,15 @@ exports.run = async (bot, message, args) => {
      .setTitle('**COMANDOS DE MODERAÇÃO <:ban:729462106721746946>**')
      .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
      .addField(`\`${c.prefix}warn <user> [reason]\``, 'Para dar warn')
+     .addField(`\`${c.prefix}warns <user>\``, 'Para ver os warns de um usuário')
      .addField(`\`${c.prefix}ban <user> [reason]\``, 'Para banir')
      .addField(`\`${c.prefix}kick <user> [reason]\``, 'Para expulsar')
      .addField(`\`${c.prefix}mute <user>\``, 'Para mutar')
      .addField(`\`${c.prefix}tempmute <user> <time>\``, 'Para mutar um usuário por um tempo determinado')
      .addField(`\`${c.prefix}unmute <user>\``, 'Para desmutar')
      .addField(`\`${c.prefix}clear <messageNumber>\``, 'Para limpar mensagens')
-     .addField(`\`${c.prefix}resetwarn <user>\``, 'Para deletar os warns de algum jogador')
+     .addField(`\`${c.prefix}resetwarn <user>\``, 'Para deletar os warns de um usuário')
+     .addField(`\`${c.prefix}removewarn <user> <number>\``, 'Para remover um número de warns de um usuário')
      .addField(`\`${c.prefix}blockinvite <status>\``, 'Para ativar/desativar o bloqueio de convites')
      .addField(`\`${c.prefix}blocklink <status>\``, 'Para ativar/desativar o bloqueio de links')
      .setTimestamp()   
@@ -88,6 +90,8 @@ exports.run = async (bot, message, args) => {
      .addField(`\`${c.prefix}deleterole\``, 'Para deletar cargo setado')
      .addField(`\`${c.prefix}deletemute\``, 'Para deletar cargo de mute setado')
      .addField(`\`${c.prefix}deletesets\``, 'Para deletar todos os canais setados')
+     .addField(`\`${c.prefix}setwelimage\``, 'Para setar a imagem de bem-vindos')
+     .addField(`\`${c.prefix}setleaveimage\``, 'Para setar a imagem de adeus')
      .setTimestamp()   
      coletor2.on("collect", cp => {
 
@@ -113,6 +117,8 @@ exports.run = async (bot, message, args) => {
      .addField(`\`${c.prefix}pergunta <pergunta>\``, 'Para fazer uma pergunta')
      .addField(`\`${c.prefix}servericon\``, 'Para pegar a imagem do servidor')
      .addField(`\`${c.prefix}avatar <usuário>\``, 'Para pegar a imagem de um usuário')
+     .addField(`\`${c.prefix}say <usuário> <texto>\``, 'Para se passar por um usuário')
+     .addField(`\`${c.prefix}ship <usuário>\``, 'Para testar seu amor com o usuário')
      .setTimestamp()   
       coletor3.on("collect", cp => {
 
@@ -138,7 +144,6 @@ exports.run = async (bot, message, args) => {
      .addField(`\`${c.prefix}sugestao <sugestão>\``, 'Para enviar uma sugestão')
      .addField(`\`${c.prefix}sets\``, 'Para ver os canais setados')
      .addField(`\`${c.prefix}role\``, 'Para ganhar o cargo setado')
-     .addField(`\`${c.prefix}warns\``, 'Para ver quantos warns você tem neste servidor')
      .addField(`\`${c.prefix}calc <conta>\``, 'Para pegar a resposta da conta matemática')
      .addField(`\`${c.prefix}suporte\``, 'Para entrar na equipe do Grove')
      .addField(`\`${c.prefix}invite\``, 'Para entrar ou convidar o bot para seu servidor')
@@ -147,6 +152,8 @@ exports.run = async (bot, message, args) => {
      .addField(`\`${c.prefix}desc <descrição>\``, 'Para definir a descrição do seu perfil')
      .addField(`\`${c.prefix}editcolor <cor>\``, 'Para setar a cor do seu perfil')
      .addField(`\`${c.prefix}editimage <imagem>\``, 'Para setar uma imagem para seu perfil')
+     .addField(`\`${c.prefix}cpu\``, 'Para ver status da CPU')
+     .addField(`\`${c.prefix}addemoji <nome> <url>\``, 'Para adicionar um emoji em seu servidor')
      .addField(`\`${c.prefix}covid19 <região>\``, 'Para ver informações do COVID-19')
      .setTimestamp()   
       coletor4.on("collect", cp => {
@@ -155,7 +162,7 @@ exports.run = async (bot, message, args) => {
      
      })
 
-      let ini = (reaction, usuario) => reaction.emoji.id === "729480249653592166" && usuario.id === message.author.id;
+      let ini = (reaction, usuario) => reaction.emoji.id === "730955576489541642" && usuario.id === message.author.id;
       let coletor5 = msg.createReactionCollector(ini);
 
       let inicio = new Discord.MessageEmbed()

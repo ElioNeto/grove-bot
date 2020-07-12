@@ -38,6 +38,7 @@ exports.run = async (bot, message, args) => {
       .setDescription('Block invite **ATIVADO**\nA partir de agora ningúem poderá enviar convites de outros servidores!')
       .setTimestamp()     
       .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
+      .setColor('39FF14')
             
       let bi = db.set(`blockinvite_${message.guild}`, true)
       message.channel.send(embedon)
@@ -50,6 +51,7 @@ exports.run = async (bot, message, args) => {
       .setDescription('Block invite **DESATIVADO**\nA partir de agora todos poderão enviar convites de outros servidores!')
       .setTimestamp()     
       .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
+      .setColor('FF0000')
             
       let bi = db.set(`blockinvite_${message.guild}`, null)
       message.channel.send(embedoff)

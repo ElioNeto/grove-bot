@@ -6,6 +6,7 @@ const http = require('http');
 const express = require('express');
 const app = express();
 const db = require('quick.db')
+const request = require('request')
 bot.aliases = new Discord.Collection();
 
 app.get("/", (request, response) => {
@@ -43,18 +44,19 @@ bot.on('ready', () => {
          {name: `${bot.channels.cache.size} canais`, type: 'WATCHING'},
          {name: `${bot.users.cache.size} usuários`, type: 'LISTENING'}
     ]
+
        function setStatus(){
            var altstatus = tabela[Math.floor(Math.random() * tabela.length)]
-           bot.user.setActivity(altstatus)
+           bot.user.setActivity(altstatus)         
        }
 
        setStatus();
-       setInterval(() => setStatus(), 60000)
+       setInterval(() => setStatus(), 30000)
 });
 
 bot.on('messageUpdate', async (oldMessage, newMessage) => {
   
-    let chx = db.get(`logchannel_${oldMessage.guild.id}`);
+    let chx = db.get(`logchannel_${oldMessage.guild}`);
    
     if(chx === null){
       return;
@@ -82,7 +84,7 @@ bot.on('messageUpdate', async (oldMessage, newMessage) => {
 
 bot.on('messageDelete', message => {
 
-    let chx = db.get(`logchannel_${message.guild.id}`);
+    let chx = db.get(`logchannel_${message.guild}`);
    
     if(chx === null){
       return;
@@ -151,7 +153,7 @@ bot.on('guildCreate', guild => {
   
   var canal = bot.channels.cache.get('719599120494624819')
   
-  guild.owner.send(`:wave: **|** Olá ${guild.owner}, vi que me adicionou em seu servidor **${guild.name}** para saber meus comandos digite \`${config.prefix}ajuda\`, para saber os comandos de moderação digite \`${config.prefix}moderação\`\n\nAqui vai algumas dicas:\n\nPara que eu funcione perfeitamente, é preciso setar os canais.\n\n\`${config.prefix}setwelcome <canal>\` Para setar o canal de boas-vindas!\n\`${config.prefix}setgoodbye <canal>\` Para setar o canal de despedida!\n\`${config.prefix}setsugestion <canal>\`Para setar o canal de sugestões!\n\`${config.prefix}setpunishments <canal>\` Para setar o canal de punições!\n\`${config.prefix}setpatch <canal>\` Para setar o canal de patches!\n\`${config.prefix}setlogs <canal>\` Para setar o canal de logs!\n\`${config.prefix}setrole <cargo>\` Para setar um cargo que quando o usuário digitar \`${config.prefix}role\` irá ganhar\n\`${config.prefix}setmute <cargo>\` Para setar o cargo de mute\n\nTambém tenho meu servidor de suporte! digite \`${config.prefix}suporte\` ou entre clicando no link a baixo\n\nhttps://discord.gg/q7ZY9cg\n\nLá você poderá tirar suas dúvidas, reportar bugs, ter acesso com meu próprio criador e dar sugestões para eu melhorar cada vez mais! Espero que goste e que eu seja útil para você! :wink:`)
+  guild.owner.send(`:wave: **|** Olá ${guild.owner}, vi que me adicionou em seu servidor **${guild.name}** para saber meus comandos digite \`${config.prefix}ajuda\`\n\nAqui vai algumas dicas:\n\nPara que eu funcione perfeitamente, é preciso setar os canais.\n\n\`${config.prefix}setwelcome <canal>\` Para setar o canal de boas-vindas!\n\`${config.prefix}setgoodbye <canal>\` Para setar o canal de despedida!\n\`${config.prefix}setsugestion <canal>\`Para setar o canal de sugestões!\n\`${config.prefix}setpunishments <canal>\` Para setar o canal de punições!\n\`${config.prefix}setpatch <canal>\` Para setar o canal de patches!\n\`${config.prefix}setlogs <canal>\` Para setar o canal de logs!\n\`${config.prefix}setrole <cargo>\` Para setar um cargo que quando o usuário digitar \`${config.prefix}role\` irá ganhar\n\`${config.prefix}setmute <cargo>\` Para setar o cargo de mute\n\nTambém tenho meu servidor de suporte! digite \`${config.prefix}suporte\` ou entre clicando no link a baixo\n\nhttps://discord.gg/q7ZY9cg\n\nLá você poderá tirar suas dúvidas, reportar bugs, ter acesso com meu próprio criador e dar sugestões para eu melhorar cada vez mais! Espero que goste e que eu seja útil para você! :wink:`)
   
   let embed = new Discord.MessageEmbed()
   .setTitle('**ME ADICIONARAM EM UM SERVIDOR! <:servidores:729462514928058417>**')
@@ -191,6 +193,10 @@ bot.on('guildDelete', guild => {
 
 
 bot.on('guildMemberAdd', membro => {
+
+    let image = db.get(`welimage_${membro.guild.id}`)
+
+    if(image === null) image = `https://imagensbrasil.org/images/2020/06/26/BEM-VINDO74d4bfaab098010b.png`
   
     let chx = db.get(`welchannel_${membro.guild.id}`);
    
@@ -206,10 +212,10 @@ bot.on('guildMemberAdd', membro => {
     let embed = new Discord.MessageEmbed()
     .setColor('39FF14')
     .setTitle('BEM-VINDO(A)')
-    .setDescription(`Seja muito bem-vindo(a) ${membro} ao servidor **${membro.guild.name}** !\n\n Agora somos \`${bot.guilds.cache.get(membro.guild.id).members.cache.size}\` membros no servidor!`)
+    .setDescription(`Seja muito bem-vindo(a) ${membro} ao servidor **${membro.guild.name}** !\n\n Agora somos **${bot.guilds.cache.get(membro.guild.id).members.cache.size}** membros no servidor!`)
     .addField('<:info:729476860060237895> Observação', `Leia as regras para evitar punições!`)
     .setThumbnail(membro.user.displayAvatarURL({dynamic: true}))
-    .setImage(`https://imagensbrasil.org/images/2020/06/26/BEM-VINDO74d4bfaab098010b.png`)
+    .setImage(image)
     .setFooter(`ID do membro: ${membro.id}`)
     .setTimestamp()
 
@@ -218,6 +224,10 @@ bot.on('guildMemberAdd', membro => {
 });
 
 bot.on('guildMemberRemove', membro => {
+
+  let image = db.get(`leaimage_${membro.guild.id}`)
+
+    if(image === null) image = `https://imagensbrasil.org/images/2020/06/26/ATE_MAIS.png`
   
     let chx = db.get(`godchannel_${membro.guild.id}`);
   
@@ -230,10 +240,10 @@ bot.on('guildMemberRemove', membro => {
     let embed = new Discord.MessageEmbed()
     .setColor('FF0000')
     .setTitle('**O MEMBRO SAIU**')
-    .setDescription(`O membro ${membro} saiu do servidor **${membro.guild.name}** !`)
+    .setDescription(`O membro ${membro} saiu do servidor **${membro.guild.name}**\n\n Agora somos **${bot.guilds.cache.get(membro.guild.id).members.cache.size}** membros no servidor!!`)
     .setThumbnail(membro.user.displayAvatarURL({dynamic: true}))
     .setFooter(`ID do membro: ${membro.id}`)
-    .setImage(`https://imagensbrasil.org/images/2020/06/26/ATE_MAIS.png`)
+    .setImage(image)
     .setTimestamp()
 
     canal.send({embed})
@@ -313,13 +323,13 @@ bot.on('message', message => {
     
     if(message.content.startsWith(`<@${bot.user.id}>`) || message.content.startsWith(`<@!${bot.user.id}>`)) return message.channel.send(mentionEmbed)
     if(message.content.includes(`<@${bot.user.id}>`) || message.content.includes(`<@!${bot.user.id}>`)) {
-      message.react('❤️')
+      message.react('731664172496191559')
 
-      let heart = (reaction, usuario) => reaction.emoji.name === "❤️" && usuario.id === message.author.id;
+      let heart = (reaction, usuario) => reaction.emoji.id === "731664172496191559" && usuario.id === message.author.id;
       let coracao = message.createReactionCollector(heart, {max: 1});
      
       coracao.on('collect', cp => {
-        message.channel.send('^^ :heart:')
+        message.channel.send('<:love:731664172496191559> <:love:731664172496191559> <:love:731664172496191559>')
       })
     }
   
