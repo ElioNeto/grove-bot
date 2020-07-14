@@ -34,5 +34,5 @@ exports.run = async (bot, message, args) => {
 
 exports.help = {
 name: 'editcolor',
-aliases: ['setcolor']
+aliases: ['setcolor', 'color']
 }

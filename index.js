@@ -7,6 +7,7 @@ const express = require('express');
 const app = express();
 const db = require('quick.db')
 const request = require('request')
+const translator = require('@vitalets/google-translate-api')
 bot.aliases = new Discord.Collection();
 
 app.get("/", (request, response) => {
@@ -161,7 +162,7 @@ bot.on('guildCreate', guild => {
   .addField('**<:id:729455876582277270> ID do servidor**', `\`${guild.id}\``)
   .addField('**<:membros:729454785216118794> Membros do servidor**', `\`${guild.members.cache.size}\``)
   .addField('**<:comandos:729477049252708423> Canais do servidor**', `\`${guild.channels.cache.size}\``)
-  .setFooter(`Dono do servidor: ${guild.owner.user.tag}`)
+  .setFooter(`${guild.owner.user.tag}`, guild.owner.user.id)
   .setThumbnail(guild.iconURL({dynamic: true}))
   .setColor('39FF14')
   .setTimestamp()
@@ -182,7 +183,7 @@ bot.on('guildDelete', guild => {
   .addField('**<:id:729455876582277270> ID do servidor**', `\`${guild.id}\``)
   .addField('**<:membros:729454785216118794> Membros do servidor**', `\`${guild.members.cache.size}\``)
   .addField('**<:comandos:729477049252708423> Canais do servidor**', `\`${guild.channels.cache.size}\``)
-  .setFooter(`Dono do servidor: ${guild.owner.user.tag}`)
+  .setFooter(`${guild.owner.user.tag}`, guild.owner.user.id)
   .setThumbnail(guild.iconURL({dynamic: true}))
   .setColor('FF0000')
   .setTimestamp()
@@ -248,6 +249,67 @@ bot.on('guildMemberRemove', membro => {
 
     canal.send({embed})
 });
+
+bot.on('message', async message => {
+  
+  let traduction_channel = db.get(`traduction_system_channels_${message.channel.id}`)
+  
+  if(traduction_channel) {    
+    if(message.author.id === traduction_channel.user1) {
+      
+      let web1 = db.get(`traduction_system_channels_${message.channel.id}_web${message.author.id}`)     
+      const webhook = new Discord.WebhookClient(web1.id, web1.token)      
+      let user_language = db.get(`users_${traduction_channel.user2}`)   
+      let other_user_language;
+      
+      if(user_language.idioma === "PT") other_user_language = "Portuguese"
+      if(user_language.idioma === "EN") other_user_language = "English"
+      
+      let user_languagee;  
+      let user = db.get(`users_${message.author.id}`)
+
+      if(user.idioma === "PT") user_languagee = "Portuguese"
+      if(user.idioma === "EN") user_languagee = "English"
+      
+      let traducted_text = await translator(message.content, { from: user_languagee, to: other_user_language })
+      
+      if(!message.attachments.first() && !message.mentions.users.first()) {
+      
+      webhook.send(traducted_text.text)      
+      }      
+      message.delete()    
+    }
+    
+    if(message.author.id === traduction_channel.user2) {
+      
+      let web2 = db.get(`traduction_system_channels_${message.channel.id}_web${message.author.id}`)    
+      const webhook = new Discord.WebhookClient(web2.id, web2.token)      
+      let user_language = db.get(`users_${traduction_channel.user1}`)     
+      let other_user_language;
+      
+      if(user_language.idioma === "PT") other_user_language = "Portuguese"
+      if(user_language.idioma === "EN") other_user_language = "English"
+      
+      let user_languagee;
+      let user = db.get(`users_${message.author.id}`)
+      
+      if(user.idioma === "PT") user_languagee = "Portuguese"
+      if(user.idioma === "EN") user_languagee = "English"
+      
+      let traducted_text = await translator(message.content, { from: user_languagee, to: other_user_language })
+
+      if(message.content.toLowerCase() === 'close-chat'){
+        webhook.send('test')
+      }   
+      
+      if(!message.attachments.first() && !message.mentions.users.first()) {
+      
+      webhook.send(traducted_text.text)   
+      }
+      message.delete() 
+    } 
+  }
+})
 
 bot.on('message', message => {
 

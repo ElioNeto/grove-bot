@@ -44,7 +44,8 @@ exports.run = async (bot, message, args) => {
     
     if (args.length === 0) return message.channel.send(a5) 
     try { 
-        message.channel.bulkDelete(clean) + 2 
+        message.delete()
+        message.channel.bulkDelete(clean)
         
         let embed = new Discord.MessageEmbed()
 
@@ -55,7 +56,7 @@ exports.run = async (bot, message, args) => {
         .setTimestamp()   
 
         message.channel.send({embed}).then(msg => {
-          msg.delete({ timeout: 3000 })
+          msg.delete({ timeout: 2000 })
         })
     } catch(e){ 
         console.log(e); 

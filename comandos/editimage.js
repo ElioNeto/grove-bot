@@ -34,5 +34,5 @@ exports.run = async (bot, message, args) => {
 
 exports.help = {
 name: 'editimage',
-aliases: ['setimage']
+aliases: ['setimage', 'image']
 }

@@ -12,10 +12,14 @@ exports.run = async (bot, message, args) => {
   let a1 = new Discord.MessageEmbed()
   .setDescription("<:incorreto:729451886683619438> **|** Você precisa me informar um usuário!")
 
+  let a4 = new Discord.MessageEmbed()
+  .setDescription("<:incorreto:729451886683619438> **|** Você precisa me dizer os emblemas!")
+
   var membro = message.mentions.users.first()
   if(!membro) return message.channel.send(a1)
 
   let emb = args.slice(1).join(' ')
+  if(!emb) return message.channel.send(a4)
 
   let a2 = new Discord.MessageEmbed()
   .setDescription(`<:correto:729451917004242964> **|** Você adicionou ${emb} em ${membro} com sucesso!`)

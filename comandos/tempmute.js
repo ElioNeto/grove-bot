@@ -1,6 +1,7 @@
 const Discord = require('discord.js')
 const db = require('quick.db')
 const ms = require('ms')
+const translate = require('@vitalets/google-translate-api');
 
 exports.run = async (bot, message, args) => {
 

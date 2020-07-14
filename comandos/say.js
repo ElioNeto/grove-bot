@@ -24,6 +24,11 @@ exports.run = async (bot, message, args) => {
   let a2 = new Discord.MessageEmbed()
   .setDescription('<:incorreto:729451886683619438> **|** Você precisa me dizer o que falar!')
 
+  let a15 = new Discord.MessageEmbed()
+  .setDescription('<:incorreto:729451886683619438> **|** Eu preciso ter a permissão de criar webhooks!')
+
+  if(!message.guild.me.hasPermission('MANAGE_WEBHOOKS')) return message.channel.send(a15)
+
    var membro = message.mentions.users.first()
    if(!membro) return message.channel.send(a1)
 

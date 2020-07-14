@@ -38,9 +38,10 @@ exports.run = async (bot, message, args) => {
     .addField('**Comandos de configurações: <:config:729463779292610623>**', `\`setwelcome, setmute, setlogs...\``)
     .addField('**Comandos de diversão: <:game:729466498300772363>**', `\`jokenpô, perguntar, avatar...\``)
     .addField('**Comandos úteis: <:emoji:729467612253126666>**', `\`clima, calcular, sugestão...\``)
+    .addField('**Comandos social <:membros:729454785216118794>**', `\`perfil, editimage, desc...\``)
 
      message.member.send(embed1).then(msg => {
-       msg.react('729462106721746946').then(() => msg.react('729463779292610623')).then(() => msg.react('729466498300772363')).then(() => msg.react('729467612253126666')).then(() => msg.react('730955576489541642'))
+       msg.react('729462106721746946').then(() => msg.react('729463779292610623')).then(() => msg.react('729466498300772363')).then(() => msg.react('729467612253126666')).then(() => msg.react('729454785216118794')).then(() => msg.react('730955576489541642'))
        
       let mod = (reaction, usuario) => reaction.emoji.id === "729462106721746946" && usuario.id === message.author.id;
       let coletor = msg.createReactionCollector(mod);
@@ -147,20 +148,35 @@ exports.run = async (bot, message, args) => {
      .addField(`\`${c.prefix}calc <conta>\``, 'Para pegar a resposta da conta matemática')
      .addField(`\`${c.prefix}suporte\``, 'Para entrar na equipe do Grove')
      .addField(`\`${c.prefix}invite\``, 'Para entrar ou convidar o bot para seu servidor')
-     .addField(`\`${c.prefix}addrep <usuário>\``, 'Para adicionar reputação a um usuário')
-     .addField(`\`${c.prefix}perfil <usuário>\``, 'Para ver o perfil de um usuário')
-     .addField(`\`${c.prefix}desc <descrição>\``, 'Para definir a descrição do seu perfil')
-     .addField(`\`${c.prefix}editcolor <cor>\``, 'Para setar a cor do seu perfil')
-     .addField(`\`${c.prefix}editimage <imagem>\``, 'Para setar uma imagem para seu perfil')
      .addField(`\`${c.prefix}cpu\``, 'Para ver status da CPU')
      .addField(`\`${c.prefix}addemoji <nome> <url>\``, 'Para adicionar um emoji em seu servidor')
      .addField(`\`${c.prefix}covid19 <região>\``, 'Para ver informações do COVID-19')
+     .addField(`\`${c.prefix}traduzir <sigla> <texto>\``, 'Para traduzir seu texto para o idioma escolhido')
      .setTimestamp()   
       coletor4.on("collect", cp => {
 
       msg.edit(uteis)
      
      })
+
+      let pro = (reaction, usuario) => reaction.emoji.id === "729454785216118794" && usuario.id === message.author.id;
+      let coletor6 = msg.createReactionCollector(pro);
+
+    let profile = new Discord.MessageEmbed()
+    .setTitle('**COMANDOS SOCIAL <:membros:729454785216118794>**')
+    .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
+    .setTimestamp()
+    .setColor('RANDOM')
+    .addField(`\`${c.prefix}perfil <usuário>\``, 'Para ver o perfil de um usuário')
+    .addField(`\`${c.prefix}desc <descrição>\``, 'Para definir a descrição do seu perfil')
+    .addField(`\`${c.prefix}editcolor <cor>\``, 'Para setar a cor do seu perfil')
+    .addField(`\`${c.prefix}editimage <imagem>\``, 'Para setar uma imagem para seu perfil')
+    .addField(`\`${c.prefix}addrep <usuário>\``, 'Para adicionar reputação a um usuário')
+    coletor6.on('collect', cp => {
+
+      msg.edit(profile)
+      
+    })
 
       let ini = (reaction, usuario) => reaction.emoji.id === "730955576489541642" && usuario.id === message.author.id;
       let coletor5 = msg.createReactionCollector(ini);
@@ -174,8 +190,8 @@ exports.run = async (bot, message, args) => {
       .addField('**Comandos de configurações: <:config:729463779292610623>**', `\`setwelcome, setmute, setlogs...\``)
       .addField('**Comandos de diversão: <:game:729466498300772363>**', `\`jokenpô, perguntar, avatar...\``)
       .addField('**Comandos úteis: <:emoji:729467612253126666>**', `\`clima, calcular, sugestão...\``)
+      .addField('**Comandos social <:membros:729454785216118794>**', `\`perfil, editimage, desc...\``)
       coletor5.on("collect", cp => {
-      cp.remove();
 
       msg.edit(inicio)
      
