@@ -14,14 +14,8 @@ exports.run = async (bot, message, args) => {
   let other_user = message.mentions.members.first()
   
   if(!other_user) return message.channel.send(a2)
-
-  db.set(`chats_open_${message.author.id}_${other_user.user.id}`, null)
-
-  let chats_open = db.get(`chats_open_${message.author.id}_${other_user.user.id}`)
-
-  if(chats_open === true) return message.reply('test');
   
-  message.guild.channels.create(`g-${message.author.username}-${other_user.user.username}`, {
+  message.guild.channels.create(`${message.author.username}-${other_user.user.username}`, {
     permissionOverwrites: [
       {
         id: message.guild.id, 
@@ -49,7 +43,6 @@ exports.run = async (bot, message, args) => {
     db.set(`traduction_system_channels_${c.id}`, {user1: message.author.id, user2: other_user.user.id})
     db.set(`traduction_system_channels_${c.id}_web${message.author.id}`, {id: web1.id, token: web1.token})
     db.set(`traduction_system_channels_${c.id}_web${other_user.user.id}`, {id: web2.id, token: web2.token})
-    db.set(`chats_open_${message.author.id}_${other_user.user.id}`, true)
 
     let a4 = new Discord.MessageEmbed()
     .setDescription(`<:texto:729463024372547676> **|** ${message.author} me informe o seu idioma!`)

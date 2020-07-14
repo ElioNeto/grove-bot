@@ -297,10 +297,6 @@ bot.on('message', async message => {
       if(user.idioma === "EN") user_languagee = "English"
       
       let traducted_text = await translator(message.content, { from: user_languagee, to: other_user_language })
-
-      if(message.content.toLowerCase() === 'close-chat'){
-        webhook.send('test')
-      }   
       
       if(!message.attachments.first() && !message.mentions.users.first()) {
       
