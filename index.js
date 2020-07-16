@@ -154,7 +154,7 @@ bot.on('guildCreate', guild => {
   
   var canal = bot.channels.cache.get('719599120494624819')
   
-  guild.owner.send(`:wave: **|** Olá ${guild.owner}, vi que me adicionou em seu servidor **${guild.name}** para saber meus comandos digite \`${config.prefix}ajuda\`\n\nAqui vai algumas dicas:\n\nPara que eu funcione perfeitamente, é preciso setar os canais.\n\n\`${config.prefix}setwelcome <canal>\` Para setar o canal de boas-vindas!\n\`${config.prefix}setgoodbye <canal>\` Para setar o canal de despedida!\n\`${config.prefix}setsugestion <canal>\`Para setar o canal de sugestões!\n\`${config.prefix}setpunishments <canal>\` Para setar o canal de punições!\n\`${config.prefix}setpatch <canal>\` Para setar o canal de patches!\n\`${config.prefix}setlogs <canal>\` Para setar o canal de logs!\n\`${config.prefix}setrole <cargo>\` Para setar um cargo que quando o usuário digitar \`${config.prefix}role\` irá ganhar\n\`${config.prefix}setmute <cargo>\` Para setar o cargo de mute\n\nTambém tenho meu servidor de suporte! digite \`${config.prefix}suporte\` ou entre clicando no link a baixo\n\nhttps://discord.gg/q7ZY9cg\n\nLá você poderá tirar suas dúvidas, reportar bugs, ter acesso com meu próprio criador e dar sugestões para eu melhorar cada vez mais! Espero que goste e que eu seja útil para você! :wink:`)
+  guild.owner.send(`:wave: **|** Olá ${guild.owner}, vi que me adicionou em seu servidor **${guild.name}** para saber meus comandos digite \`${config.prefix}ajuda\`\n\nAqui vai algumas dicas:\n\nPara que eu funcione perfeitamente, é preciso setar os canais.\n\n\`${config.prefix}setwelcome <canal>\` Para setar o canal de boas-vindas!\n\`${config.prefix}setgoodbye <canal>\` Para setar o canal de despedida!\n\`${config.prefix}setsugestion <canal>\`Para setar o canal de sugestões!\n\`${config.prefix}setpunishments <canal>\` Para setar o canal de punições!\n\`${config.prefix}setpatch <canal>\` Para setar o canal de patches!\n\`${config.prefix}setlogs <canal>\` Para setar o canal de logs!\n\`${config.prefix}setrole <cargo>\` Para setar um cargo que quando o usuário digitar \`${config.prefix}role\` irá ganhar\n\`${config.prefix}setmute <cargo>\` Para setar o cargo de mute\n\nTambém tenho meu servidor de suporte! digite \`${config.prefix}convite\` ou entre clicando no link a baixo\n\nhttps://discord.gg/q7ZY9cg\n\nLá você poderá tirar suas dúvidas, reportar bugs, ter acesso com meu próprio criador e dar sugestões para eu melhorar cada vez mais! Espero que goste e que eu seja útil para você! :wink:`)
   
   let embed = new Discord.MessageEmbed()
   .setTitle('**ME ADICIONARAM EM UM SERVIDOR! <:servidores:729462514928058417>**')
@@ -162,12 +162,12 @@ bot.on('guildCreate', guild => {
   .addField('**<:id:729455876582277270> ID do servidor**', `\`${guild.id}\``)
   .addField('**<:membros:729454785216118794> Membros do servidor**', `\`${guild.members.cache.size}\``)
   .addField('**<:comandos:729477049252708423> Canais do servidor**', `\`${guild.channels.cache.size}\``)
-  .setFooter(`${guild.owner.user.tag}`, guild.owner.user.id)
+  .setFooter(`Dono do servidor: ${guild.owner.tag}`)
   .setThumbnail(guild.iconURL({dynamic: true}))
   .setColor('39FF14')
   .setTimestamp()
   
-  canal.send({embed})
+  canal.send(embed)
   
 })
 
@@ -183,12 +183,12 @@ bot.on('guildDelete', guild => {
   .addField('**<:id:729455876582277270> ID do servidor**', `\`${guild.id}\``)
   .addField('**<:membros:729454785216118794> Membros do servidor**', `\`${guild.members.cache.size}\``)
   .addField('**<:comandos:729477049252708423> Canais do servidor**', `\`${guild.channels.cache.size}\``)
-  .setFooter(`${guild.owner.user.tag}`, guild.owner.user.id)
   .setThumbnail(guild.iconURL({dynamic: true}))
+  .setFooter(`Dono do servidor: ${guild.owner.tag}`)
   .setColor('FF0000')
   .setTimestamp()
   
-  canal.send({embed})
+  canal.send(embed)
   
 })
 
@@ -207,9 +207,6 @@ bot.on('guildMemberAdd', membro => {
 
     var canal = bot.channels.cache.get(chx)
 
-    let a1 = new Discord.MessageEmbed()
-    .setDescription(`:wave: **|** Olá ${membro}, digite \`${config.prefix}botinfo\` para saber mais de mim!`)
-
     let embed = new Discord.MessageEmbed()
     .setColor('39FF14')
     .setTitle('BEM-VINDO(A)')
@@ -221,7 +218,6 @@ bot.on('guildMemberAdd', membro => {
     .setTimestamp()
 
     canal.send(embed)  
-    membro.user.send(a1)
 });
 
 bot.on('guildMemberRemove', membro => {

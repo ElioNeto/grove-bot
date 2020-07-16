@@ -18,6 +18,12 @@ exports.run = async (bot, message, args) => {
      return message.channel.send(embedx)
       
     } 
+
+    
+    let c1 = new Discord.MessageEmbed()
+    .setDescriotion('<:incorreto:729451886683619438> **|** Eu preciso ter a permissão de criar webhooks!')
+
+    if(!message.guild.me.hasPermission('MANAGE_WEBHOOKS')) return message.channel.send(c1)
  
   let chx = db.get(`sugchannel_${message.guild.id}`);
   
@@ -55,10 +61,7 @@ exports.run = async (bot, message, args) => {
         message.channel.send(a8)
         Webhook.send(embed).then(() => {
           Webhook.delete()
-        }).then(function (msg) { 
-        msg.react("729451917004242964"); 
-        msg.react("729451886683619438"); 
-    })    
+     })    
    })  
  }
 }

@@ -6,7 +6,7 @@ exports.run = (bot, message, args) => {
   let a1 = new Discord.MessageEmbed()
   .setDescription('<:incorreto:729451886683619438> **|** Apenas membros da equipe superior podem usar esse comando!')
 
-  if(!['389866221295763456', '577167173852594177'].includes(message.author.id)) return message.channel.send(a1)
+  if(!['389866221295763456'].includes(message.author.id)) return message.channel.send(a1)
 
   let a2 = new Discord.MessageEmbed()
   .setDescription('<:incorreto:729451886683619438> **|** Você precisa me informar o tipo!')

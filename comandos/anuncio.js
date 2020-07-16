@@ -17,6 +17,12 @@ exports.run = async (bot, message, args) => {
      return message.channel.send(embedx)
       
     } 
+
+    let c1 = new Discord.MessageEmbed()
+    .setDescriotion('<:incorreto:729451886683619438> **|** Eu preciso ter a permissão de criar webhooks!')
+
+    if(!message.guild.me.hasPermission('MANAGE_WEBHOOKS')) return message.channel.send(c1)
+
     let embedx5 = new Discord.MessageEmbed()
     .setDescription(`<:incorreto:729451886683619438> **|** Você precisa ser um administrador para fazer isto!`)
   

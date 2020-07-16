@@ -2,7 +2,7 @@ const Discord = require("discord.js")
 
 exports.run = async (bot, message, args) => {
 
-    if (!['389866221295763456', '577167173852594177'].includes(message.author.id)) {
+    if (!['389866221295763456'].includes(message.author.id)) {
 
       let a = new Discord.MessageEmbed()
       .setDescription('<:incorreto:729451886683619438> **|** Apenas meu desenvolvedor pode usar esse comando.')

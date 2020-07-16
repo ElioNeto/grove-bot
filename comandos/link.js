@@ -31,5 +31,5 @@ exports.run = async (bot, message, args) => {
 
 exports.help = {
   name: 'link',
-  aliases: ['invite', 'convite']
+  aliases: ['invite', 'convite', 'convites']
 }

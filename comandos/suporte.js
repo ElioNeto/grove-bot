@@ -142,7 +142,7 @@ exports.run = async (bot, message, args) => {
                          canal.send(embedFinalDev).then(msg => {
                            msg.react('729460721963892826').then(() => msg.react('729460709921915010')).then(() => msg.react('729460731619311678')).then(() => msg.react('729459670061678693'))
 
-                           let online = (reaction, usuario) => reaction.emoji.id === "729460721963892826" && usuario.id === message.author.id;
+                           let online = (reaction, usuario) => reaction.emoji.id === "729460721963892826" && usuario.id;
                            let onli = msg.createReactionCollector(online, {max: 1});
 
                            let oNLINE = new Discord.MessageEmbed()
@@ -155,11 +155,11 @@ exports.run = async (bot, message, args) => {
                              message.author.send(oNLINE)
                            })
 
-                           let ausente = (reaction, usuario) => reaction.emoji.id === "729460709921915010" && usuario.id === message.author.id;
+                           let ausente = (reaction, usuario) => reaction.emoji.id === "729460709921915010" && usuario.id;
                            let ausen = msg.createReactionCollector(ausente, {max: 1});
 
                            let aUSENTE = new Discord.MessageEmbed()
-                           .setTitle('**ERRO**') 
+                           .setTitle('**ALERTA**') 
                            .setColor('FFFF00')
                            .setDescription(`:wave: **|** Olá ${message.author}\n\n<:ausente:729460709921915010> **|** A equipe de suporte não conseguiu entrar em contato com você! Veja se suas mensagens diretas estão ativadas!\nA equipe tentará entrar em contato com você em torno de 1 hora!`)
                            .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true})) 
@@ -168,7 +168,7 @@ exports.run = async (bot, message, args) => {
                              message.author.send(aUSENTE)
                            })
 
-                           let donotd = (reaction, usuario) => reaction.emoji.id === "729460731619311678" && usuario.id === message.author.id;
+                           let donotd = (reaction, usuario) => reaction.emoji.id === "729460731619311678" && usuario.id;
                            let donot = msg.createReactionCollector(donotd, {max: 1});
 
                            let dND = new Discord.MessageEmbed()
@@ -181,7 +181,7 @@ exports.run = async (bot, message, args) => {
                              message.author.send(dND)
                            })
 
-                           let offline = (reaction, usuario) => reaction.emoji.id === "729459670061678693" && usuario.id === message.author.id;
+                           let offline = (reaction, usuario) => reaction.emoji.id === "729459670061678693" && usuario.id;
                            let offli = msg.createReactionCollector(offline, {max: 1});
 
                            let oFFLINE = new Discord.MessageEmbed()
@@ -315,7 +315,7 @@ exports.run = async (bot, message, args) => {
                               canal.send(embedFinal).then(msg => {
                            msg.react('729460721963892826').then(() => msg.react('729460709921915010')).then(() => msg.react('729460731619311678')).then(() => msg.react('729459670061678693'))
 
-                           let online = (reaction, usuario) => reaction.emoji.id === "729460721963892826" && usuario.id === message.author.id;
+                           let online = (reaction, usuario) => reaction.emoji.id === "729460721963892826" && usuario.id;
                            let onli = msg.createReactionCollector(online, {max: 1});
 
                            let oNLINE = new Discord.MessageEmbed()
@@ -328,11 +328,11 @@ exports.run = async (bot, message, args) => {
                              message.author.send(oNLINE)
                            })
 
-                           let ausente = (reaction, usuario) => reaction.emoji.id === "729460709921915010" && usuario.id === message.author.id;
+                           let ausente = (reaction, usuario) => reaction.emoji.id === "729460709921915010" && usuario.id;
                            let ausen = msg.createReactionCollector(ausente, {max: 1});
 
                            let aUSENTE = new Discord.MessageEmbed()
-                           .setTitle('**ERRO**') 
+                           .setTitle('**ALERTA**') 
                            .setColor('FFFF00')
                            .setDescription(`:wave: **|** Olá ${message.author}\n\n<:ausente:729460709921915010> **|** A equipe de suporte não conseguiu entrar em contato com você! Veja se suas mensagens diretas estão ativadas!\nA equipe tentará entrar em contato com você em torno de 1 hora!`)
                            .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true})) 
@@ -341,7 +341,7 @@ exports.run = async (bot, message, args) => {
                              message.author.send(aUSENTE)
                            })
 
-                           let donotd = (reaction, usuario) => reaction.emoji.id === "729460731619311678" && usuario.id === message.author.id;
+                           let donotd = (reaction, usuario) => reaction.emoji.id === "729460731619311678" && usuario.id;
                            let donot = msg.createReactionCollector(donotd, {max: 1});
 
                            let dND = new Discord.MessageEmbed()
@@ -354,7 +354,7 @@ exports.run = async (bot, message, args) => {
                              message.author.send(dND)
                            })
 
-                           let offline = (reaction, usuario) => reaction.emoji.id === "729459670061678693" && usuario.id === message.author.id;
+                           let offline = (reaction, usuario) => reaction.emoji.id === "729459670061678693" && usuario.id;
                            let offli = msg.createReactionCollector(offline, {max: 1});
 
                            let oFFLINE = new Discord.MessageEmbed()
@@ -488,10 +488,10 @@ exports.run = async (bot, message, args) => {
                               .setTimestamp()
 
                               canal.send(etapa2Final).then(msg => {
-                           msg.react('729460721963892826').then(msg => {
+                           msg.react('729460721963892826').then(() => {
                            msg.react('729460721963892826').then(() => msg.react('729460709921915010')).then(() => msg.react('729460731619311678')).then(() => msg.react('729459670061678693'))
 
-                           let online = (reaction, usuario) => reaction.emoji.id === "729460721963892826" && usuario.id === message.author.id;
+                           let online = (reaction, usuario) => reaction.emoji.id === "729460721963892826" && usuario.id;
                            let onli = msg.createReactionCollector(online, {max: 1});
 
                            let oNLINE = new Discord.MessageEmbed()
@@ -504,11 +504,11 @@ exports.run = async (bot, message, args) => {
                              message.author.send(oNLINE)
                            })
 
-                           let ausente = (reaction, usuario) => reaction.emoji.id === "729460709921915010" && usuario.id === message.author.id;
+                           let ausente = (reaction, usuario) => reaction.emoji.id === "729460709921915010" && usuario.id;
                            let ausen = msg.createReactionCollector(ausente, {max: 1});
 
                            let aUSENTE = new Discord.MessageEmbed()
-                           .setTitle('**ERRO**') 
+                           .setTitle('**ALERTA**') 
                            .setColor('FFFF00')
                            .setDescription(`:wave: **|** Olá ${message.author}\n\n<:ausente:729460709921915010> **|** A equipe de suporte não conseguiu entrar em contato com você! Veja se suas mensagens diretas estão ativadas!\nA equipe tentará entrar em contato com você em torno de 1 hora!`)
                            .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true})) 
@@ -517,7 +517,7 @@ exports.run = async (bot, message, args) => {
                              message.author.send(aUSENTE)
                            })
 
-                           let donotd = (reaction, usuario) => reaction.emoji.id === "729460731619311678" && usuario.id === message.author.id;
+                           let donotd = (reaction, usuario) => reaction.emoji.id === "729460731619311678" && usuario.id;
                            let donot = msg.createReactionCollector(donotd, {max: 1});
 
                            let dND = new Discord.MessageEmbed()
@@ -530,7 +530,7 @@ exports.run = async (bot, message, args) => {
                              message.author.send(dND)
                            })
 
-                           let offline = (reaction, usuario) => reaction.emoji.id === "729459670061678693" && usuario.id === message.author.id;
+                           let offline = (reaction, usuario) => reaction.emoji.id === "729459670061678693" && usuario.id;
                            let offli = msg.createReactionCollector(offline, {max: 1});
 
                            let oFFLINE = new Discord.MessageEmbed()

@@ -19,10 +19,10 @@ exports.run = async (bot, message, args) => {
     } 
 
     let a1 = new Discord.MessageEmbed()
-    .setDescription(`<:incorreto:729451886683619438> **|** Você precisa ser um administrador para fazer isto!`)
+    .setDescription(`<:incorreto:729451886683619438> **|** Você precisa ser um expulsar membros para fazer isto!`)
 
     let a2 = new Discord.MessageEmbed()
-    .setDescription(`<:incorreto:729451886683619438> **|** Eu preciso ter a permissão de administrador para fazer isto!`)
+    .setDescription(`<:incorreto:729451886683619438> **|** Eu preciso ter a permissão de expulsar membros para fazer isto!`)
 
     let a3 = new Discord.MessageEmbed()
     .setDescription(`<:incorreto:729451886683619438> **|** Mencione qual usuário deseja avisar, e por qual motivo!`)
@@ -30,8 +30,8 @@ exports.run = async (bot, message, args) => {
     let a4 = new Discord.MessageEmbed()
     .setDescription("<:incorreto:729451886683619438> **|** Você não pode alertar você mesmo.")
 
-    if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(a1)
-    if (!message.guild.me.hasPermission("ADMINISTRATOR")) return message.channel.send(a2); 
+    if (!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send(a1)
+    if (!message.guild.me.hasPermission("KICK_MEMBERS")) return message.channel.send(a2); 
      
     var membro = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
     if (!membro) return message.channel.send(a3)
