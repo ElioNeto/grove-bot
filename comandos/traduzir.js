@@ -26,6 +26,11 @@ exports.run = async (bot, message, args) => {
   let a2 = new Discord.MessageEmbed()
   .setDescription('<:incorreto:729451886683619438> **|** Você precisa me informar a sigla do idioma, caso eu não responda é por que a sigla não existe!')
 
+  let a3 = new Discord.MessageEmbed()
+  .setDescription('<:incorreto:729451886683619438> **|** Eu preciso ter a permissão de criar webhooks!')
+
+  if(!message.guild.me.hasPermission('MANAGE_WEBHOOKS')) return message.channel.send(a3)
+
   let type = args[0]
   if(!type) return message.channel.send(a2)
 
