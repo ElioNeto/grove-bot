@@ -64,14 +64,14 @@ bot.on('raw', async dados => {
 
     let tickets = db.get(`tickets_${membro.id}`)
 
-    let chn = bot.channels.cache.get('733370622557683732')
+    let chn = bot.channels.cache.get('733370622557683732') // id do canal
 
     let b1 = new Discord.MessageEmbed()
     .setDescription(`<:incorreto:729451886683619438> **|** ${membro} você já tem um ticket aberto!`)
 
-    if(tickets === true) return chn.send(b1).then(chx => {
+    if(servidor.channels.cache.find(c => c.name === `「🎫」${membro.user.username}`)) return chn.send(b1).then(chx => {
       chx.delete({timeout: 1000})
-    })
+    });
 
     if(dados.t === "MESSAGE_REACTION_ADD"){
     if(dados.d.emoji.id === "733364949723775007"){ // id do emoji
@@ -85,7 +85,6 @@ bot.on('raw', async dados => {
 
     servidor.channels.create(`「🎫」${membro.user.username}`, {type: "text", parent: '733371245395050658'}).then(canal => { // id da categoria
     canal.send(embed)
-    db.set(`tickets_${membro.id}`, true)
     canal.updateOverwrite(membro.guild.roles.everyone, {VIEW_CHANNEL: false})
     canal.updateOverwrite(membro, {VIEW_CHANNEL: true})
     canal.updateOverwrite("721545561198821447" , {VIEW_CHANNEL: true}) // id do cargo
