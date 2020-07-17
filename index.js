@@ -55,6 +55,45 @@ bot.on('ready', () => {
        setInterval(() => setStatus(), 30000)
 });
 
+bot.on('raw', async dados => {
+    if(dados.t !== "MESSAGE_REACTION_ADD") return
+    if(dados.d.message_id != "733372681340059709") return // id da mensagem
+
+    let servidor = bot.guilds.cache.get("719264043675811981") // id do servidor
+    let membro = servidor.members.cache.get(dados.d.user_id)
+
+    let tickets = db.get(`tickets_${membro.id}`)
+
+    let chn = bot.channels.cache.get('733370622557683732')
+
+    let b1 = new Discord.MessageEmbed()
+    .setDescription(`<:incorreto:729451886683619438> **|** ${membro} você já tem um ticket aberto!`)
+
+    if(tickets === true) return chn.send(b1).then(chx => {
+      chx.delete({timeout: 1000})
+    })
+
+    if(dados.t === "MESSAGE_REACTION_ADD"){
+    if(dados.d.emoji.id === "733364949723775007"){ // id do emoji
+
+    const embed = new Discord.MessageEmbed()
+    .setColor('RANDOM')
+    .setTitle('**TICKET ABERTO <:ticket:733364949723775007>**')
+    .setDescription(`Um ticket entre ${membro} e a equipe foi aberto!`)
+    .setTimestamp()
+    .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
+
+    servidor.channels.create(`「🎫」${membro.user.username}`, {type: "text", parent: '733371245395050658'}).then(canal => { // id da categoria
+    canal.send(embed)
+    db.set(`tickets_${membro.id}`, true)
+    canal.updateOverwrite(membro.guild.roles.everyone, {VIEW_CHANNEL: false})
+    canal.updateOverwrite(membro, {VIEW_CHANNEL: true})
+    canal.updateOverwrite("721545561198821447" , {VIEW_CHANNEL: true}) // id do cargo
+    })
+   }
+  }
+})
+
 bot.on('messageUpdate', async (oldMessage, newMessage) => {
   
     let chx = db.get(`logchannel_${oldMessage.guild}`);
@@ -162,7 +201,7 @@ bot.on('guildCreate', guild => {
   .addField('**<:id:729455876582277270> ID do servidor**', `\`${guild.id}\``)
   .addField('**<:membros:729454785216118794> Membros do servidor**', `\`${guild.members.cache.size}\``)
   .addField('**<:comandos:729477049252708423> Canais do servidor**', `\`${guild.channels.cache.size}\``)
-  .setFooter(`Dono do servidor: ${guild.owner.tag}`)
+  .setFooter(`Dono do servidor: ${guild.owner.user.tag}`)
   .setThumbnail(guild.iconURL({dynamic: true}))
   .setColor('39FF14')
   .setTimestamp()
@@ -184,7 +223,7 @@ bot.on('guildDelete', guild => {
   .addField('**<:membros:729454785216118794> Membros do servidor**', `\`${guild.members.cache.size}\``)
   .addField('**<:comandos:729477049252708423> Canais do servidor**', `\`${guild.channels.cache.size}\``)
   .setThumbnail(guild.iconURL({dynamic: true}))
-  .setFooter(`Dono do servidor: ${guild.owner.tag}`)
+  .setFooter(`Dono do servidor: ${guild.owner.user.tag}`)
   .setColor('FF0000')
   .setTimestamp()
   
