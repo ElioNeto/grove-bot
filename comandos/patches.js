@@ -40,7 +40,7 @@ exports.run = async (bot, message, args) => {
   if (!patch) { 
 
     let a3 = new Discord.MessageEmbed()
-    .setDescription(`:x: **|** Escreva o patch!`)
+    .setDescription(`<:incorreto:729451886683619438> **|** Você precisa me informar o patch!`)
 
     return message.channel.send(a3)
   } else { 
