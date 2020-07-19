@@ -63,7 +63,6 @@ exports.run = async (bot, message, args)  => {
   .addField(`**<:discordjs:729461813657206936> | Livraria**`, `[discord.js](https://discord.js.org/#/)`, true)
   .addField(`**<:javascript:729486544406315058> | Linguagem**`, `[JavaScript](https://www.javascript.com/)`, true)
   .addField(`**<:nodejs:729461800797601794> | Base**`, `[NodeJS](https://nodejs.org/en/)`, true)
-  .addField(`**<:uptime:729477843070877797> discordbotlist.com**`, `[Vote em mim!](https://discordbotlist.com/bots/grove-150)`, true)
   .addField(`**<:comandos:729477049252708423> | Lista de comandos**`, `\`${c.prefix}ajuda\``, true)
   .addField(`**<:equipe:729455442677203025> | Suporte**`, `\`${c.prefix}suporte\``, true)
   .addField(`**<:server:729477402438402099> | Meu servidor**`, `[Entre no meu servidor](https://discord.gg/drYKh7k)`, true)

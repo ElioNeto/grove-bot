@@ -81,25 +81,7 @@ exports.run = async (bot, message, args) => {
         message.channel.send(embed1)
     }
 
-    if(['577167173852594177'].includes(member.id)) {
-
-      let embed2 = new Discord.MessageEmbed()
-        .setAuthor(`${member.user.username}`, member.user.displayAvatarURL({dynamic: true}))
-        .setColor(color)
-        .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
-        .setThumbnail(member.user.displayAvatarURL({dynamic: true}))
-        .setDescription(or)
-        .addField(`Descrição`, desc)
-        .addField('Reputação', rep, true)
-        .addField('Status', presence.join(' '), true)
-        .addField('Emblemas', emb)
-        .setImage(image)
-        .setTimestamp()
-
-        message.channel.send(embed2) 
-    }
-
-    else if(!['577167173852594177', '389866221295763456'].includes(member.id)) {
+    else if(!['389866221295763456'].includes(member.id)) {
 
     let embedE = new Discord.MessageEmbed()
         .setAuthor(`${member.user.username}`, member.user.displayAvatarURL({dynamic: true}))

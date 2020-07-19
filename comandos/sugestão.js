@@ -21,7 +21,7 @@ exports.run = async (bot, message, args) => {
 
     
     let c1 = new Discord.MessageEmbed()
-    .setDescriotion('<:incorreto:729451886683619438> **|** Eu preciso ter a permissão de criar webhooks!')
+    .setDescription('<:incorreto:729451886683619438> **|** Eu preciso ter a permissão de criar webhooks!')
 
     if(!message.guild.me.hasPermission('MANAGE_WEBHOOKS')) return message.channel.send(c1)
  
@@ -67,5 +67,5 @@ exports.run = async (bot, message, args) => {
 }
 exports.help = {
  name: 'sugestão',
-    aliases: ['sugestao']
+    aliases: ['sugestao', 'sugerir']
 }

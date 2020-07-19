@@ -40,7 +40,14 @@ exports.run = async (bot, message, args) => {
   try {
     message.guild.emojis.create(args[1], args[0]).then(emoji => {
       let a4 = new Discord.MessageEmbed()
-      .setDescription(`<:correto:729451917004242964> **|** O emoji ${emoji} foi adicionado com sucesso!`)
+      .setTitle(`**EMOJI ADICIONADO ${emoji}**`)
+      .setColor('RANDOM')
+      .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
+      .setTimestamp()
+      .addField(`<:pc:729460019111657503> Nome do emoji`, emoji.name)
+      .addField(`<:id:729455876582277270> ID do emoji`, emoji.id)
+      .addField(`<:cpu:730254692042407986> Codificação do emoji`, `\\${emoji}`)
+      .setThumbnail(emoji.url)
 
       message.channel.send(a4)
     })

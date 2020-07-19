@@ -39,8 +39,6 @@ bot.on('ready', () => {
     
     var tabela = [
          {name: 'digite g.ajuda', type: 'PLAYING'},
-         {name: '#SL500', type: 'PLAYING'},
-         {name: 'art by Ryan Ribeiro#4147', type: 'PLAYING'},
          {name: `em ${bot.guilds.cache.size} servidores`, type: 'STREAMING', url: 'https://www.twitch.tv/gaules'},
          {name: `${bot.channels.cache.size} canais`, type: 'WATCHING'},
          {name: `${bot.users.cache.size} usuários`, type: 'LISTENING'}
@@ -61,8 +59,6 @@ bot.on('raw', async dados => {
 
     let servidor = bot.guilds.cache.get("719264043675811981") // id do servidor
     let membro = servidor.members.cache.get(dados.d.user_id)
-
-    let tickets = db.get(`tickets_${membro.id}`)
 
     let chn = bot.channels.cache.get('733370622557683732') // id do canal
 
@@ -189,6 +185,13 @@ bot.on('guildMemberUpdate', (oldMember, newMember) => {
 })
 
 bot.on('guildCreate', guild => {
+
+  let users = bot.users.cache.size;
+  let servidores = bot.guilds.cache.size;
+    setTimeout(() => {
+     bot.channels.cache.get("733511338935976056").setName(`🌐 Servidores: ${servidores}`)
+     bot.channels.cache.get("733511380665368587").setName(`👥 Usuários: ${users}`)
+    }, 400)
   
   var canal = bot.channels.cache.get('719599120494624819')
   
@@ -210,6 +213,13 @@ bot.on('guildCreate', guild => {
 })
 
 bot.on('guildDelete', guild => {
+
+  let users = bot.users.cache.size;
+  let servidores = bot.guilds.cache.size;
+    setTimeout(() => {
+     bot.channels.cache.get("733511338935976056").setName(`🌐 Servidores: ${servidores}`)
+     bot.channels.cache.get("733511380665368587").setName(`👥 Usuários: ${users}`)
+    }, 400)
   
   guild.owner.send(`:wave: **|** Olá ${guild.owner}, vi que você me retirou do seu servidor **${guild.name}**, eu gostaria de saber o motivo :confused:\n\n Se você puder me informar o motivo na qual levou você a me **expulsar** do seu servidor, tenho meu próprio servidor no Discord para suporte, lá você pode conversar com o meu criador e dar sua opinião para que eu melhore cada vez mais!\n\nhttps://discord.gg/q7ZY9cg\n\n Espero você lá, pense em mim, me de mais uma chance! :wink:`)
   
@@ -343,7 +353,7 @@ bot.on('message', async message => {
 
 bot.on('message', message => {
 
-let blacklist = ['.com', 'https:', 'http', '.io', '.it', 'www.']
+let blacklist = ['.com', 'https:', 'http', '.io', '.it', 'www.', '.xyz']
 
 let foundInText = false;
 for(var i in blacklist) {
