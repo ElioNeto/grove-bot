@@ -139,61 +139,7 @@ exports.run = async (bot, message, args) => {
                          .setFooter(`ID do membro: ${message.author.id}`) 
                          .setTimestamp()
 
-                         canal.send(embedFinalDev).then(msg => {
-                           msg.react('729460721963892826').then(() => msg.react('729460709921915010')).then(() => msg.react('729460731619311678')).then(() => msg.react('729459670061678693'))
-
-                           let online = (reaction, usuario) => reaction.emoji.id === "729460721963892826" && usuario.id;
-                           let onli = msg.createReactionCollector(online, {max: 1});
-
-                           let oNLINE = new Discord.MessageEmbed()
-                           .setTitle('**FORMULÁRIO VISUALIZADO**')
-                           .setDescription(`:wave: **|** Olá ${message.author}\n\n<:online:729460721963892826> **|** A equipe de analisadores visualizou seu formulário e você será contatado em breve!`)
-                           .setColor('39FF14')
-                           .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true})) 
-                           .setTimestamp()
-                           onli.on('collect', cp => {
-                             message.author.send(oNLINE)
-                           })
-
-                           let ausente = (reaction, usuario) => reaction.emoji.id === "729460709921915010" && usuario.id;
-                           let ausen = msg.createReactionCollector(ausente, {max: 1});
-
-                           let aUSENTE = new Discord.MessageEmbed()
-                           .setTitle('**ALERTA**') 
-                           .setColor('FFFF00')
-                           .setDescription(`:wave: **|** Olá ${message.author}\n\n<:ausente:729460709921915010> **|** A equipe de suporte não conseguiu entrar em contato com você! Veja se suas mensagens diretas estão ativadas!\nA equipe tentará entrar em contato com você em torno de 1 hora!`)
-                           .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true})) 
-                           .setTimestamp()
-                           ausen.on('collect', cp => {
-                             message.author.send(aUSENTE)
-                           })
-
-                           let donotd = (reaction, usuario) => reaction.emoji.id === "729460731619311678" && usuario.id;
-                           let donot = msg.createReactionCollector(donotd, {max: 1});
-
-                           let dND = new Discord.MessageEmbed()
-                           .setTitle('**REPROVADO**') 
-                           .setColor('FF0000')
-                           .setDescription(`:wave: **|** Olá ${message.author}\n\n<:dnd:729460731619311678> **|** Você foi reprovado instantaneamente pois usou este comando para "zoar", se persistir você será bloqueado de usar este comando.`)
-                           .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true})) 
-                           .setTimestamp()
-                           donot.on('collect', cp => {
-                             message.author.send(dND)
-                           })
-
-                           let offline = (reaction, usuario) => reaction.emoji.id === "729459670061678693" && usuario.id;
-                           let offli = msg.createReactionCollector(offline, {max: 1});
-
-                           let oFFLINE = new Discord.MessageEmbed()
-                           .setTitle('**SEM VAGAS**') 
-                           .setColor('F0F8FF')
-                           .setDescription(`:wave: **|** Olá ${message.author}\n\n<:offline:729459670061678693> **|** Desculpe-nos, mas estamos sem vagas para desenvolvedores!\nQuem sabe em uma próxima vez você não consiga entrar na equipe!`)
-                           .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true})) 
-                           .setTimestamp()
-                           offli.on('collect', cp => {
-                             message.author.send(oFFLINE)
-                           })
-                         })
+                         canal.send(embedFinalDev)
                          
                            } else if(c.content.toLowerCase() === 'cancelar') {
 
@@ -312,61 +258,7 @@ exports.run = async (bot, message, args) => {
                               .setFooter(`ID do membro: ${message.author.id}`)  
                               .setTimestamp()
 
-                              canal.send(embedFinal).then(msg => {
-                           msg.react('729460721963892826').then(() => msg.react('729460709921915010')).then(() => msg.react('729460731619311678')).then(() => msg.react('729459670061678693'))
-
-                           let online = (reaction, usuario) => reaction.emoji.id === "729460721963892826" && usuario.id;
-                           let onli = msg.createReactionCollector(online, {max: 1});
-
-                           let oNLINE = new Discord.MessageEmbed()
-                           .setTitle('**FORMULÁRIO VISUALIZADO**')
-                           .setDescription(`:wave: **|** Olá ${message.author}\n\n<:online:729460721963892826> **|** A equipe de analisadores visualizou seu formulário e você será contatado em breve!`)
-                           .setColor('39FF14')
-                           .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true})) 
-                           .setTimestamp()
-                           onli.on('collect', cp => {
-                             message.author.send(oNLINE)
-                           })
-
-                           let ausente = (reaction, usuario) => reaction.emoji.id === "729460709921915010" && usuario.id;
-                           let ausen = msg.createReactionCollector(ausente, {max: 1});
-
-                           let aUSENTE = new Discord.MessageEmbed()
-                           .setTitle('**ALERTA**') 
-                           .setColor('FFFF00')
-                           .setDescription(`:wave: **|** Olá ${message.author}\n\n<:ausente:729460709921915010> **|** A equipe de suporte não conseguiu entrar em contato com você! Veja se suas mensagens diretas estão ativadas!\nA equipe tentará entrar em contato com você em torno de 1 hora!`)
-                           .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true})) 
-                           .setTimestamp()
-                           ausen.on('collect', cp => {
-                             message.author.send(aUSENTE)
-                           })
-
-                           let donotd = (reaction, usuario) => reaction.emoji.id === "729460731619311678" && usuario.id;
-                           let donot = msg.createReactionCollector(donotd, {max: 1});
-
-                           let dND = new Discord.MessageEmbed()
-                           .setTitle('**REPROVADO**') 
-                           .setColor('FF0000')
-                           .setDescription(`:wave: **|** Olá ${message.author}\n\n<:dnd:729460731619311678> **|** Você foi reprovado instantaneamente pois usou este comando para "zoar", se persistir você será bloqueado de usar este comando.`)
-                           .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true})) 
-                           .setTimestamp()
-                           donot.on('collect', cp => {
-                             message.author.send(dND)
-                           })
-
-                           let offline = (reaction, usuario) => reaction.emoji.id === "729459670061678693" && usuario.id;
-                           let offli = msg.createReactionCollector(offline, {max: 1});
-
-                           let oFFLINE = new Discord.MessageEmbed()
-                           .setTitle('**SEM VAGAS**') 
-                           .setColor('F0F8FF')
-                           .setDescription(`:wave: **|** Olá ${message.author}\n\n<:offline:729459670061678693> **|** Desculpe-nos, mas estamos sem vagas para ajudantes!\nQuem sabe em uma próxima vez você não consiga entrar na equipe!`)
-                           .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true})) 
-                           .setTimestamp()
-                           offli.on('collect', cp => {
-                             message.author.send(oFFLINE)
-                           })
-                         })
+                              canal.send(embedFinal)
 
                           } else if(c.content.toLowerCase() === 'cancelar') {
 
@@ -487,63 +379,7 @@ exports.run = async (bot, message, args) => {
                               .setFooter(`ID do membro: ${message.author.id}`) 
                               .setTimestamp()
 
-                              canal.send(etapa2Final).then(msg => {
-                           msg.react('729460721963892826').then(() => {
-                           msg.react('729460721963892826').then(() => msg.react('729460709921915010')).then(() => msg.react('729460731619311678')).then(() => msg.react('729459670061678693'))
-
-                           let online = (reaction, usuario) => reaction.emoji.id === "729460721963892826" && usuario.id;
-                           let onli = msg.createReactionCollector(online, {max: 1});
-
-                           let oNLINE = new Discord.MessageEmbed()
-                           .setTitle('**FORMULÁRIO VISUALIZADO**')
-                           .setDescription(`:wave: **|** Olá ${message.author}\n\n<:online:729460721963892826> **|** A equipe de analisadores visualizou seu formulário e você será contatado em breve!`)
-                           .setColor('39FF14')
-                           .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true})) 
-                           .setTimestamp()
-                           onli.on('collect', cp => {
-                             message.author.send(oNLINE)
-                           })
-
-                           let ausente = (reaction, usuario) => reaction.emoji.id === "729460709921915010" && usuario.id;
-                           let ausen = msg.createReactionCollector(ausente, {max: 1});
-
-                           let aUSENTE = new Discord.MessageEmbed()
-                           .setTitle('**ALERTA**') 
-                           .setColor('FFFF00')
-                           .setDescription(`:wave: **|** Olá ${message.author}\n\n<:ausente:729460709921915010> **|** A equipe de suporte não conseguiu entrar em contato com você! Veja se suas mensagens diretas estão ativadas!\nA equipe tentará entrar em contato com você em torno de 1 hora!`)
-                           .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true})) 
-                           .setTimestamp()
-                           ausen.on('collect', cp => {
-                             message.author.send(aUSENTE)
-                           })
-
-                           let donotd = (reaction, usuario) => reaction.emoji.id === "729460731619311678" && usuario.id;
-                           let donot = msg.createReactionCollector(donotd, {max: 1});
-
-                           let dND = new Discord.MessageEmbed()
-                           .setTitle('**REPROVADO**') 
-                           .setColor('FF0000')
-                           .setDescription(`:wave: **|** Olá ${message.author}\n\n<:dnd:729460731619311678> **|** Você foi reprovado instantaneamente pois usou este comando para "zoar", se persistir você será bloqueado de usar este comando.`)
-                           .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true})) 
-                           .setTimestamp()
-                           donot.on('collect', cp => {
-                             message.author.send(dND)
-                           })
-
-                           let offline = (reaction, usuario) => reaction.emoji.id === "729459670061678693" && usuario.id;
-                           let offli = msg.createReactionCollector(offline, {max: 1});
-
-                           let oFFLINE = new Discord.MessageEmbed()
-                           .setTitle('**SEM VAGAS**') 
-                           .setColor('F0F8FF')
-                           .setDescription(`:wave: **|** Olá ${message.author}\n\n<:offline:729459670061678693> **|** Desculpe-nos, mas estamos sem vagas para designers!\nQuem sabe em uma próxima vez você não consiga entrar na equipe!`)
-                           .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true})) 
-                           .setTimestamp()
-                           offli.on('collect', cp => {
-                             message.author.send(oFFLINE)
-                           })
-                         })
-                        })
+                              canal.send(etapa2Final)
 
                              } else if(c.content.toLowerCase() === 'cancelar') {
 

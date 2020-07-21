@@ -19,7 +19,7 @@ exports.run = async (bot, message, args) => {
     } 
 
     let a1 = new Discord.MessageEmbed()
-    .setDescription(`<:incorreto:729451886683619438> **|** Você precisa ser um expulsar membros para fazer isto!`)
+    .setDescription(`<:incorreto:729451886683619438> **|** Você precisa ter a permissão expulsar membros para fazer isto!`)
 
     let a2 = new Discord.MessageEmbed()
     .setDescription(`<:incorreto:729451886683619438> **|** Eu preciso ter a permissão de expulsar membros para fazer isto!`)

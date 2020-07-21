@@ -26,9 +26,9 @@ exports.run = async (bot, message, args) => {
     if(!message.guild.me.hasPermission('MANAGE_WEBHOOKS')) return message.channel.send(c1)
 
     let embedx5 = new Discord.MessageEmbed()
-    .setDescription(`<:incorreto:729451886683619438> **|** Você precisa ser um administrador para fazer isto!`)
+    .setDescription(`<:incorreto:729451886683619438> **|** Você precisa ser um moderador para fazer isto!`)
   
-    if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(embedx5);
+    if(!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send(embedx5);
 
     let a1 = new Discord.MessageEmbed()
     .setDescription(`Em qual canal você deseja enviar o anúncio?`)
