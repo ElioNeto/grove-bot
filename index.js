@@ -55,7 +55,7 @@ bot.on('ready', () => {
 
 bot.on('messageUpdate', async (oldMessage, newMessage) => {
   
-    let chx = db.get(`logchannel_${oldMessage.guild}`);
+    let chx = db.get(`logchannel_${oldMessage.guild.id}`);
    
     if(chx === null){
       return;
@@ -83,7 +83,7 @@ bot.on('messageUpdate', async (oldMessage, newMessage) => {
 
 bot.on('messageDelete', message => {
 
-    let chx = db.get(`logchannel_${message.guild}`);
+    let chx = db.get(`logchannel_${message.guild.id}`);
    
     if(chx === null){
       return;
@@ -105,7 +105,7 @@ bot.on('messageDelete', message => {
    .addField(`**:clipboard: Mensagem:**`, `\`\`\`${message}\`\`\``)
    .setTimestamp()
    
-   canal.send({embed})
+   canal.send(embed)
      
    }
 })
@@ -152,8 +152,10 @@ bot.on('guildCreate', guild => {
 
   let users = bot.users.cache.size;
   let servidores = bot.guilds.cache.size;
+  let canais = bot.channels.cache.size;
     setTimeout(() => {
      bot.channels.cache.get("733511338935976056").setName(`🌐 Servidores: ${servidores}`)
+     bot.channels.cache.get("736299207186579626").setName(`💬 Canais: ${canais}`)
      bot.channels.cache.get("733511380665368587").setName(`👥 Usuários: ${users}`)
     }, 400)
   
@@ -180,8 +182,10 @@ bot.on('guildDelete', guild => {
 
   let users = bot.users.cache.size;
   let servidores = bot.guilds.cache.size;
+  let canais = bot.channels.cache.size;
     setTimeout(() => {
      bot.channels.cache.get("733511338935976056").setName(`🌐 Servidores: ${servidores}`)
+     bot.channels.cache.get("736299207186579626").setName(`💬 Canais: ${canais}`)
      bot.channels.cache.get("733511380665368587").setName(`👥 Usuários: ${users}`)
     }, 400)
   
@@ -212,12 +216,8 @@ bot.on('guildMemberAdd', membro => {
     if(image === null) image = `https://imagensbrasil.org/images/2020/06/26/BEM-VINDO74d4bfaab098010b.png`
   
     let chx = db.get(`welchannel_${membro.guild.id}`);
-   
-    if(chx === null){
-      return;
-    }  
-
     var canal = bot.channels.cache.get(chx)
+    if(!canal) return;
 
     let embed = new Discord.MessageEmbed()
     .setColor('39FF14')
@@ -317,7 +317,7 @@ bot.on('message', async message => {
 
 bot.on('message', message => {
 
-let blacklist = ['.com', 'https:', 'http', '.io', '.it', 'www.', '.xyz']
+let blacklist = ['.com', 'https:', 'http:', '.io', '.it', 'www.', '.xyz']
 
 let foundInText = false;
 for(var i in blacklist) {
@@ -340,10 +340,8 @@ if (blocklink === true) {
     msg.delete({timeout : 3000})
   })
   message.delete()
-  } else {
-    return;
-  }
-}
+  } else return;
+ }
 })
 
 bot.on('message', message => {

@@ -6,7 +6,7 @@ exports.run = (bot, message, args) => {
   let a1 = new Discord.MessageEmbed()
   .setDescription('<:incorreto:729451886683619438> **|** Apenas membros da equipe superior podem usar esse comando!')
 
-  if(!['389866221295763456'].includes(message.author.id)) return message.channel.send(a1)
+  if(!['389866221295763456', '449240801520779266'].includes(message.author.id)) return message.channel.send(a1)
 
   let a2 = new Discord.MessageEmbed()
   .setDescription('<:incorreto:729451886683619438> **|** Você precisa me informar o tipo!')
@@ -53,7 +53,7 @@ exports.run = (bot, message, args) => {
     let a8 = new Discord.MessageEmbed()
     .setDescription('<:incorreto:729451886683619438> **|** Você precisa me informar a descrição!')
 
-    let valor3 = args[2]
+    let valor3 = args.slice(2).join(' ')
     if(!valor3) return message.channel.send(a8)
 
     let a9 = new Discord.MessageEmbed()

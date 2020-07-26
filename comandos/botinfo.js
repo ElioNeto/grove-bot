@@ -53,7 +53,7 @@ exports.run = async (bot, message, args)  => {
   let embed = new Discord.MessageEmbed()
   .setTitle('**MINHAS INFORMAÇÕES <:info:729476860060237895>**')
   .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
-  .addField(`**<:config:729463779292610623> | Fui criado por**`, `\`patek#2433\``, true)
+  .addField(`**<:config:729463779292610623> | Fui criado por**`, `\`patek#0001\``, true)
   .addField(`**<:servidores:729462514928058417> | Estou em**`, `\`${bot.guilds.cache.size}\` servidores`, true)
   .addField(`**<:pc:729460019111657503> | Com**`, `\`${bot.channels.cache.size}\` canais`, true)
   .addField(`**<:membros:729454785216118794> | Com**`, `\`${bot.users.cache.size}\` usuários`, true)

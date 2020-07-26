@@ -19,10 +19,16 @@ exports.run = async (bot, message, args, texts) => {
       
     } 
 
-    let text = encodeURIComponent(args.join(' '));
-    if (!text) return message.channel.send("<:incorreto:729451886683619438> **|** Você precisa me informar um texto para converter para ASCII.");
+    let a2 = new discord.MessageEmbed()
+    .setDescription("<:incorreto:729451886683619438> **|** Você precisa me informar um texto para converter para ASCII.")
 
-    const tooLong = "<:incorreto:729451886683619438> **|** O texto inserido é muito longo!";
+    let text = encodeURIComponent(args.join(' '));
+    if (!text) return message.channel.send(a2);
+
+    let a1 = new discord.MessageEmbed()
+    .setDescription('<:incorreto:729451886683619438> **|** O texto inserido é muito longo!')
+
+    const tooLong = a1;
 
     fetch(`http://artii.herokuapp.com/make?text=${text}`)
         .then(res => res.text())
