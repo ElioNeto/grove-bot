@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const c = process.env.PREFIX
+const c = require('../config.json')
 const db = require('quick.db')
 
 exports.run = async (bot, message, args) => {
@@ -21,34 +21,34 @@ exports.run = async (bot, message, args) => {
 
      let embeddm = new Discord.MessageEmbed()
      .setColor('RANDOM')
-     .setTitle('**LISTA DE COMANDOS <:comandos:729477049252708423>**')
-     .setDescription('<:correto:729451917004242964> **|** Enviei a lista de comandos para você na DM!')
-     .addField('<:info:729476860060237895> Observação', 'Se não chegar nada verifique se suas mensagens de membros de servidores estão ativadas!')
+     .setTitle('**LISTA DE COMANDOS <:commandreload:737102191160197150>**')
+     .setDescription('<:correto:737091697615568957> **|** Enviei a lista de comandos para você na DM!')
+     .addField('<:Info:737103117971357826> Observação', 'Se não chegar nada verifique se suas mensagens de membros de servidores estão ativadas!')
      .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
      .setTimestamp()   
 
      message.channel.send(embeddm)
 
     let embed1 = new Discord.MessageEmbed()
-    .setTitle('**LISTA DE COMANDOS <:comandos:729477049252708423>**')
+    .setTitle('**LISTA DE COMANDOS <:commandreload:737102191160197150>**')
     .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
     .setTimestamp()
     .setColor('RANDOM')
-    .addField('**Comandos de moderação: <:ban:729462106721746946>**', `\`kick, ban, mute, warn...\``)
-    .addField('**Comandos de configurações: <:config:729463779292610623>**', `\`setwelcome, setmute, setlogs...\``)
-    .addField('**Comandos de diversão: <:game:729466498300772363>**', `\`jokenpô, perguntar, avatar...\``)
-    .addField('**Comandos úteis: <:emoji:729467612253126666>**', `\`clima, calcular, sugestão...\``)
-    .addField('**Comandos social <:membros:729454785216118794>**', `\`perfil, editimage, desc...\``)
+    .addField('**Comandos de moderação: <:admin:737317049860358206>**', `\`kick, ban, mute, warn...\``)
+    .addField('**Comandos de configurações: <a:config:737103260459991080>**', `\`setwelcome, setmute, setlogs...\``)
+    .addField('**Comandos de diversão: <:controle:737102308755767417>**', `\`jokenpô, perguntar, avatar...\``)
+    .addField('**Comandos úteis: <:emoji:737317098711154742>**', `\`clima, calcular, sugestão...\``)
+    .addField('**Comandos social <:pessoas:737094140264841257>**', `\`perfil, editimage, desc...\``)
 
      message.member.send(embed1).then(msg => {
-       msg.react('729462106721746946').then(() => msg.react('729463779292610623')).then(() => msg.react('729466498300772363')).then(() => msg.react('729467612253126666')).then(() => msg.react('729454785216118794')).then(() => msg.react('730955576489541642'))
+       msg.react('737317049860358206').then(() => msg.react('737103260459991080')).then(() => msg.react('737102308755767417')).then(() => msg.react('737317098711154742')).then(() => msg.react('737094140264841257')).then(() => msg.react('737321379556491315'))
        
-      let mod = (reaction, usuario) => reaction.emoji.id === "729462106721746946" && usuario.id === message.author.id;
+      let mod = (reaction, usuario) => reaction.emoji.id === "737317049860358206" && usuario.id === message.author.id;
       let coletor = msg.createReactionCollector(mod);
 
       let moderacao = new Discord.MessageEmbed()
      .setColor('RANDOM')
-     .setTitle('**COMANDOS DE MODERAÇÃO <:ban:729462106721746946>**')
+     .setTitle('**COMANDOS DE MODERAÇÃO <:admin:737317049860358206>**')
      .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
      .addField(`\`${c.prefix}warn <user> [reason]\``, 'Para dar warn')
      .addField(`\`${c.prefix}warns <user>\``, 'Para ver os warns de um usuário')
@@ -69,12 +69,12 @@ exports.run = async (bot, message, args) => {
      
      })
 
-      let configuracoes = (reaction, usuario) => reaction.emoji.id=== "729463779292610623" && usuario.id === message.author.id;
+      let configuracoes = (reaction, usuario) => reaction.emoji.id=== "737103260459991080" && usuario.id === message.author.id;
       let coletor2 = msg.createReactionCollector(configuracoes);
 
       let config = new Discord.MessageEmbed()
      .setColor('RANDOM')
-     .setTitle('**COMANDOS DE CONFIGURAÇÕES <:config:729463779292610623>**')
+     .setTitle('**COMANDOS DE CONFIGURAÇÕES <a:config:737103260459991080>**')
      .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
      .addField(`\`${c.prefix}setwelcome\``, 'Para setar o canal de bem-vindos')
      .addField(`\`${c.prefix}setgoodbye\``, 'Para setar o canal de adeus')
@@ -100,12 +100,12 @@ exports.run = async (bot, message, args) => {
      
      })
 
-      let div = (reaction, usuario) => reaction.emoji.id === "729466498300772363" && usuario.id === message.author.id;
+      let div = (reaction, usuario) => reaction.emoji.id === "737102308755767417" && usuario.id === message.author.id;
       let coletor3 = msg.createReactionCollector(div);
 
       let diversao = new Discord.MessageEmbed()
      .setColor('RANDOM')
-     .setTitle('**COMANDOS DE DIVERSÃO <:game:729466498300772363>**')
+     .setTitle('**COMANDOS DE DIVERSÃO <:controle:737102308755767417>**')
      .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
      .addField(`\`${c.prefix}roleta\``, 'Para jogar roleta russa')
      .addField(`\`${c.prefix}guess\``, 'Para tentar adivinhar o número secreto')
@@ -127,12 +127,12 @@ exports.run = async (bot, message, args) => {
      
      })
 
-      let util = (reaction, usuario) => reaction.emoji.id === "729467612253126666" && usuario.id === message.author.id;
+      let util = (reaction, usuario) => reaction.emoji.id === "737317098711154742" && usuario.id === message.author.id;
       let coletor4 = msg.createReactionCollector(util);
 
      let uteis = new Discord.MessageEmbed()
      .setColor('RANDOM')
-     .setTitle('**COMANDOS ÚTEIS <:emoji:729467612253126666>**')
+     .setTitle('**COMANDOS ÚTEIS <:emoji:737317098711154742>**')
      .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
      .addField(`\`${c.prefix}suporte\``, 'Faça parte da nossa equipe oficial')
      .addField(`\`${c.prefix}serverinfo\``, 'Para informações do servidor')
@@ -159,11 +159,11 @@ exports.run = async (bot, message, args) => {
      
      })
 
-      let pro = (reaction, usuario) => reaction.emoji.id === "729454785216118794" && usuario.id === message.author.id;
+      let pro = (reaction, usuario) => reaction.emoji.id === "737094140264841257" && usuario.id === message.author.id;
       let coletor6 = msg.createReactionCollector(pro);
 
     let profile = new Discord.MessageEmbed()
-    .setTitle('**COMANDOS SOCIAL <:membros:729454785216118794>**')
+    .setTitle('**COMANDOS SOCIAL <:pessoas:737094140264841257>**')
     .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
     .setTimestamp()
     .setColor('RANDOM')
@@ -178,19 +178,19 @@ exports.run = async (bot, message, args) => {
       
     })
 
-      let ini = (reaction, usuario) => reaction.emoji.id === "730955576489541642" && usuario.id === message.author.id;
+      let ini = (reaction, usuario) => reaction.emoji.id === "737321379556491315" && usuario.id === message.author.id;
       let coletor5 = msg.createReactionCollector(ini);
 
       let inicio = new Discord.MessageEmbed()
-      .setTitle('**LISTA DE COMANDOS <:comandos:729477049252708423>**')
+      .setTitle('**LISTA DE COMANDOS <:commandreload:737102191160197150>**')
       .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
       .setTimestamp()
       .setColor('RANDOM')
-      .addField('**Comandos de moderação: <:ban:729462106721746946>**', `\`kick, ban, mute, warn...\``)
-      .addField('**Comandos de configurações: <:config:729463779292610623>**', `\`setwelcome, setmute, setlogs...\``)
-      .addField('**Comandos de diversão: <:game:729466498300772363>**', `\`jokenpô, perguntar, avatar...\``)
-      .addField('**Comandos úteis: <:emoji:729467612253126666>**', `\`clima, calcular, sugestão...\``)
-      .addField('**Comandos social <:membros:729454785216118794>**', `\`perfil, editimage, desc...\``)
+      .addField('**Comandos de moderação: <:admin:737317049860358206>**', `\`kick, ban, mute, warn...\``)
+      .addField('**Comandos de configurações: <a:config:737103260459991080>**', `\`setwelcome, setmute, setlogs...\``)
+      .addField('**Comandos de diversão: <:controle:737102308755767417>**', `\`jokenpô, perguntar, avatar...\``)
+      .addField('**Comandos úteis: <:emoji:737317098711154742>**', `\`clima, calcular, sugestão...\``)
+      .addField('**Comandos social <:pessoas:737094140264841257>**', `\`perfil, editimage, desc...\``)
       coletor5.on("collect", cp => {
 
       msg.edit(inicio)

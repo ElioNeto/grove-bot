@@ -22,7 +22,7 @@ exports.run = async (bot, message, args) => {
     let a3 = new Discord.MessageEmbed()
   .setDescription('<:incorreto:737091863558750279> **|** Apenas membros oficias da equipe podem usar este comando!')
 
-  if(!['577167173852594177', ''].includes(message.author.id)) return message.channel.send(a3)
+  if(!['389866221295763456', '449240801520779266'].includes(message.author.id)) return message.channel.send(a3)
   
   let a1 = new Discord.MessageEmbed()
   .setDescription("<:incorreto:737091863558750279> **|** Você precisa me informar um usuário!")

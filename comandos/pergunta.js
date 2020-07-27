@@ -1,5 +1,5 @@
 const Discord = require('discord.js'); 
-const c = process.env.PREFIX
+const c = require('../config.json')
 const db = require('quick.db')
 
 exports.run = async (bot, message, args) => { 
@@ -25,7 +25,7 @@ exports.run = async (bot, message, args) => {
     let duvida = args.slice(0).join(" ")
 
     let a1 = new Discord.MessageEmbed()
-    .setDescription('<:incorreto:729451886683619438> **|** Você precisa perguntar algo ao sábio bot!')
+    .setDescription('<:incorreto:737091863558750279> **|** Você precisa perguntar algo ao sábio bot!')
     
     if(!duvida) return message.channel.send(a1)
   

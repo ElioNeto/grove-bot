@@ -26,10 +26,10 @@ exports.run = async (bot, message, args) => {
         if (err) console.log(err); 
 
         let a1 = new Discord.MessageEmbed()
-       .setDescription('<:incorreto:729451886683619438> **|** Você precisa me dizer uma cidade!')
+       .setDescription('<:incorreto:737091863558750279> **|** Você precisa me dizer uma cidade!')
 
        let a2 = new Discord.MessageEmbed()
-       .setDescription('<:incorreto:729451886683619438> **|** Desculpe, mas não encontrei essa cidade!')
+       .setDescription('<:incorreto:737091863558750279> **|** Desculpe, mas não encontrei essa cidade!')
         
         if (!result) return message.channel.send(a1)
        

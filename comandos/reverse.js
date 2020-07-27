@@ -19,7 +19,7 @@ exports.run = async (bot, message, args) => {
     } 
 
     let a1 = new Discord.MessageEmbed()
-    .setDescription('<:incorreto:729451886683619438> **|** É preciso me informar um texto para eu reverter!')
+    .setDescription('<:incorreto:737091863558750279> **|** É preciso me informar um texto para eu reverter!')
     
   try {
 
@@ -35,7 +35,7 @@ exports.run = async (bot, message, args) => {
   catch (err) {
 
     let a2 = new Discord.MessageEmbed()
-    .setDescription(`:x: **|** Ocorreu um erro!\n\n **${err}**`)
+    .setDescription(`<:incorreto:737091863558750279> **|** Ocorreu um erro!\n\n **${err}**`)
 
     message.channel.send(a2)
   }

@@ -44,9 +44,9 @@ exports.run = async (bot, message, args) => {
       .setColor('RANDOM')
       .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
       .setTimestamp()
-      .addField(`<:pc:729460019111657503> Nome do emoji`, emoji.name)
-      .addField(`<:id:729455876582277270> ID do emoji`, emoji.id)
-      .addField(`<:cpu:730254692042407986> Codificação do emoji`, `\\${emoji}`)
+      .addField(`💻 Nome do emoji`, emoji.name)
+      .addField(`<:id:737316544299663381> ID do emoji`, emoji.id)
+      .addField(`<:mem:737320063085969460> Codificação do emoji`, `\\${emoji}`)
       .setThumbnail(emoji.url)
 
       message.channel.send(a4)

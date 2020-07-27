@@ -19,10 +19,10 @@ exports.run = async (bot, message, args) => {
     } 
 
       let a1 = new Discord.MessageEmbed()
-    .setDescription('<:incorreto:729451886683619438> **|** Você precisa ser um moderador para fazer isto!')
+    .setDescription('<:incorreto:737091863558750279> **|** Você precisa ser um moderador para fazer isto!')
 
     let a2 = new Discord.MessageEmbed()
-    .setDescription('<:correto:729451917004242964> **|** Todos os sets foram deletados com sucesso!')
+    .setDescription('<:correto:737091697615568957> **|** Todos os sets foram deletados com sucesso!')
 
      if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(a1); 
   

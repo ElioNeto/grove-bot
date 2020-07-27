@@ -19,10 +19,10 @@ exports.run = async (bot, message, args) => {
     } 
 
   let a1 = new Discord.MessageEmbed()
-  .setDescription('<:incorreto:729451886683619438> **|** É preciso me informar sua nova descrição!')
+  .setDescription('<:incorreto:737091863558750279> **|** É preciso me informar sua nova descrição!')
 
   let a2 = new Discord.MessageEmbed()
-  .setDescription('<:correto:729451917004242964> **|** Sua nova descrição foi setada!')
+  .setDescription('<:correto:737091697615568957> **|** Sua nova descrição foi setada!')
 
   var membro = message.author;
 

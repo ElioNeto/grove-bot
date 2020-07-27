@@ -21,12 +21,12 @@ exports.run = async (bot, message, args) => {
 
     
     let c1 = new Discord.MessageEmbed()
-    .setDescription('<:incorreto:729451886683619438> **|** Eu preciso ter a permissão de criar webhooks!')
+    .setDescription('<:incorreto:737091863558750279> **|** Eu preciso ter a permissão de criar webhooks!')
 
     if(!message.guild.me.hasPermission('MANAGE_WEBHOOKS')) return message.channel.send(c1)
 
     let embedx5 = new Discord.MessageEmbed()
-    .setDescription(`<:incorreto:729451886683619438> **|** Você precisa ser um moderador para fazer isto!`)
+    .setDescription(`<:incorreto:737091863558750279> **|** Você precisa ser um moderador para fazer isto!`)
   
     if(!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send(embedx5);
 
@@ -46,7 +46,7 @@ exports.run = async (bot, message, args) => {
     .setDescription('Qual o titulo do seu anúncio?')
 
     let a6 = new Discord.MessageEmbed()
-    .setDescription('<:incorreto:729451886683619438> **|** Cancelado com sucesso.')
+    .setDescription('<:incorreto:737091863558750279> **|** Cancelado com sucesso.')
 
     let a7 = new Discord.MessageEmbed()
     .setDescription('Em quanto tempo você quer que eu envie este anúncio?')
@@ -77,10 +77,10 @@ exports.run = async (bot, message, args) => {
                                 .setDescription(`Você tem certeza que deseja enviar este anúncio no canal ${canal}?`)
 
                                 message.channel.send(a8).then(msg => {                                                                       
-                                     msg.react('729451917004242964').then(() => msg.react('729451886683619438'))   
+                                     msg.react('737091697615568957').then(() => msg.react('737091863558750279'))   
                                   
                                      const filter = (reaction, user) => { 
-                                      return ['729451917004242964', '729451886683619438'].includes(reaction.emoji.id) && user.id === message.author.id; 
+                                      return ['737091697615568957', '737091863558750279'].includes(reaction.emoji.id) && user.id === message.author.id; 
                                       };
                                   
                                   msg.awaitReactions(filter, {max: 1}) 
@@ -89,10 +89,10 @@ exports.run = async (bot, message, args) => {
       
                                      const reaction = collected.first();
     
-                                      if (reaction.emoji.id === '729451917004242964') { 
+                                      if (reaction.emoji.id === '737091697615568957') { 
 
                                         let a9 = new Discord.MessageEmbed()
-                                        .setDescription(`<:correto:729451917004242964> **|** O anúncio será enviado no canal ${canal} em \`${ms(ms(Timer), {long: true})}\`!`)
+                                        .setDescription(`<:correto:737091697615568957> **|** O anúncio será enviado no canal ${canal} em \`${ms(ms(Timer), {long: true})}\`!`)
                    
                                         message.channel.bulkDelete(9)
                                         message.channel.send(a9)  
@@ -101,7 +101,7 @@ exports.run = async (bot, message, args) => {
                                         setTimeout(function() {
 
                                           let a9 = new Discord.MessageEmbed()
-                                          .setDescription(`<:correto:729451917004242964> **|** O anúncio foi enviado no canal ${canal} com sucesso!`)
+                                          .setDescription(`<:correto:737091697615568957> **|** O anúncio foi enviado no canal ${canal} com sucesso!`)
 
                                           let embed = new Discord.MessageEmbed()
                                           .setColor('RANDOM')
@@ -118,7 +118,7 @@ exports.run = async (bot, message, args) => {
                                           })                                        
                                         }, ms(Timer));   
 
-                                      } else if(reaction.emoji.id === '729451886683619438') { 
+                                      } else if(reaction.emoji.id === '737091863558750279') { 
                                         message.channel.send(a6)
                                         msg.delete()
                                         message.channel.bulkDelete(9)

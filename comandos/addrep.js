@@ -26,7 +26,7 @@ exports.run = async (bot, message, args) => {
   if(!membro) return message.channel.send(a1)
 
   let a2 = new Discord.MessageEmbed()
-  .setDescription(`<:correto:729451917004242964> **|** Você adicionou 1 reputação em ${membro}`)
+  .setDescription(`<:correto:737091697615568957> **|** Você adicionou 1 reputação em ${membro}`)
 
   let a3 = new Discord.MessageEmbed()
   .setDescription('<:incorreto:737091863558750279> **|** Você não pode adicionar reputação a si mesmo!')

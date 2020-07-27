@@ -20,7 +20,7 @@ exports.run = async (bot, message, args) => {
     } 
 
     let a1 = new Discord.MessageEmbed()
-    .setDescription('<:incorreto:729451886683619438> **|** Você precisa me dizer as primeiras palavras!')
+    .setDescription('<:incorreto:737091863558750279> **|** Você precisa me dizer as primeiras palavras!')
 
     if (message.content.split(' ').slice(1).join(' ').length < 1) {
         message.channel.send(a1)
@@ -28,7 +28,7 @@ exports.run = async (bot, message, args) => {
     } else {
 
       let a2 = new Discord.MessageEmbed()
-      .setDescription('<:incorreto:729451886683619438> **|** Você ultrapassou o limite de 50 caracteres!')
+      .setDescription('<:incorreto:737091863558750279> **|** Você ultrapassou o limite de 50 caracteres!')
 
         if (message.content.split(' ').slice(1).join(' ').length > 50) {
             message.channel.send(a2)
@@ -38,10 +38,10 @@ exports.run = async (bot, message, args) => {
             if (message.member.hasPermission('ATTACH_FILES')) {
 
               let a3 = new Discord.MessageEmbed()
-              .setDescription('<a:rodando:730254050632794124> **|** Processando...')
+              .setDescription('<a:discord:737315845633474650> **|** Processando...')
 
               let erro = new Discord.MessageEmbed()
-              .setDescription('<:incorreto:729451886683619438> **|** Ocorreu um erro ao criar a imagem.')
+              .setDescription('<:incorreto:737091863558750279> **|** Ocorreu um erro ao criar a imagem.')
               
                 var authorMessage = message
                 message.channel.send(a3).then(message => {
@@ -65,7 +65,7 @@ exports.run = async (bot, message, args) => {
             } else {
 
               let erro1 = new Discord.MessageEmbed()
-              .setDescription('<:incorreto:729451886683619438> **|** Eu não tenho a permissão necessária para fazer isso!')
+              .setDescription('<:incorreto:737091863558750279> **|** Eu não tenho a permissão necessária para fazer isso!')
 
                 message.channel.send(erro1)
 

@@ -22,7 +22,7 @@ exports.run = async (bot, message, args) => {
         let countries = args.join(" ");
 
         let a1 = new Discord.MessageEmbed()
-       .setDescription('<:incorreto:729451886683619438> **|** Você precisa me dizer um país, ou digite \`mundial\` para saber as informações do mundo todo!')
+       .setDescription('<:incorreto:737091863558750279> **|** Você precisa me dizer um país, ou digite \`mundial\` para saber as informações do mundo todo!')
 
         if(!args[0]) return message.channel.send(a1);
 
@@ -68,7 +68,7 @@ exports.run = async (bot, message, args) => {
             }).catch(e => {
 
               let a9 = new Discord.MessageEmbed()
-              .setDescription('<:incorreto:729451886683619438> **|** Não encontrei este país!')
+              .setDescription('<:incorreto:737091863558750279> **|** Não encontrei este país!')
 
                 return message.channel.send(a9)
             })

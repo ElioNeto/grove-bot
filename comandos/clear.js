@@ -1,5 +1,5 @@
 const Discord = require('discord.js')
-const c = process.env.PREFIX
+const c = require('../config.json')
 const db = require('quick.db')
 
 exports.run = async (bot, message, args) => {
@@ -20,19 +20,19 @@ exports.run = async (bot, message, args) => {
     } 
 
      let a1 = new Discord.MessageEmbed()
-    .setDescription('<:incorreto:729451886683619438> **|** Você precisa ter a permissão de gerenciar mensagens para fazer isto!')
+    .setDescription('<:incorreto:737091863558750279> **|** Você precisa ter a permissão de gerenciar mensagens para fazer isto!')
 
      let a2 = new Discord.MessageEmbed()
-    .setDescription('<:incorreto:729451886683619438> **|** Eu preciso ter a permissão de gerenciar mensagens para fazer isto!')
+    .setDescription('<:incorreto:737091863558750279> **|** Eu preciso ter a permissão de gerenciar mensagens para fazer isto!')
 
     let a3 = new Discord.MessageEmbed()
-    .setDescription('<:incorreto:729451886683619438> **|** Você precisa me dizer um número!')
+    .setDescription('<:incorreto:737091863558750279> **|** Você precisa me dizer um número!')
 
     let a4 = new Discord.MessageEmbed()
-    .setDescription('<:incorreto:729451886683619438> **|** O número tem que ser de 2 a 100.')
+    .setDescription('<:incorreto:737091863558750279> **|** O número tem que ser de 2 a 100.')
 
     let a5 = new Discord.MessageEmbed()
-    .setDescription('<:incorreto:729451886683619438> **|** O número tem que ser maior que 0.')
+    .setDescription('<:incorreto:737091863558750279> **|** O número tem que ser maior que 0.')
 
     if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send(a1); 
     if (!message.guild.me.hasPermission("MANAGE_MESSAGES")) return message.channel.send(a2); 

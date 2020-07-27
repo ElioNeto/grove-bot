@@ -1,5 +1,5 @@
 const Discord = require('discord.js'); 
-const c = process.env.PREFIX
+const c = require('../config.json')
 const db = require("quick.db")
 
 exports.run = async (bot, message, args) => {
@@ -20,7 +20,7 @@ exports.run = async (bot, message, args) => {
     } 
 
     let a1 = new Discord.MessageEmbed()
-    .setDescription(`<:incorreto:729451886683619438> **|** Você precisa ser um moderador para fazer isto!`)
+    .setDescription(`<:incorreto:737091863558750279> **|** Você precisa ser um moderador para fazer isto!`)
   
   if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(a1); 
  
@@ -29,7 +29,7 @@ exports.run = async (bot, message, args) => {
     if(chx === null){
 
       let a2 = new Discord.MessageEmbed()
-      .setDescription('<:incorreto:729451886683619438> **|** Não há nenhum canal de patches setado!')
+      .setDescription('<:incorreto:737091863558750279> **|** Não há nenhum canal de patches setado!')
 
       return message.channel.send(a2);
     }  
@@ -40,12 +40,12 @@ exports.run = async (bot, message, args) => {
   if (!patch) { 
 
     let a3 = new Discord.MessageEmbed()
-    .setDescription(`<:incorreto:729451886683619438> **|** Você precisa me informar o patch!`)
+    .setDescription(`<:incorreto:737091863558750279> **|** Você precisa me informar o patch!`)
 
     return message.channel.send(a3)
   } else { 
       let embed = new Discord.MessageEmbed()
-        .setTitle(`**PATCHES <:patches:729472695850237992>**`)
+        .setTitle(`**PATCHES <:patches:737316991500681316>**`)
         .setDescription(`**${patch}**`)    
         .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
         .setTimestamp()   

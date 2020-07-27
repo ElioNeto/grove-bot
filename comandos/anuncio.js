@@ -74,10 +74,10 @@ exports.run = async (bot, message, args) => {
                                 .setDescription(`Você tem certeza que deseja enviar este anúncio no canal ${canal}?`)
 
                                 message.channel.send(a8).then(msg => {                                                                       
-                                     msg.react('729451917004242964').then(() => msg.react('729451886683619438'))   
+                                     msg.react('737091697615568957').then(() => msg.react('737091863558750279'))   
                                   
                                      const filter = (reaction, user) => { 
-                                      return ['729451917004242964', '729451886683619438'].includes(reaction.emoji.id) && user.id === message.author.id; 
+                                      return ['737091697615568957', '737091863558750279'].includes(reaction.emoji.id) && user.id === message.author.id; 
                                       };
                                   
                                   msg.awaitReactions(filter, {max: 1}) 
@@ -87,7 +87,7 @@ exports.run = async (bot, message, args) => {
                                      canal.createWebhook(`${message.author.username}`, {avatar: message.author.avatarURL({dynamic:true}), reason: 'Criado por Grove'}).then(Webhook => {
                                        const reaction = collected.first();
     
-                                       if (reaction.emoji.id === '729451917004242964') { 
+                                       if (reaction.emoji.id === '737091697615568957') { 
                                        Webhook.send(`@everyone`, embed).then(() => {
                                          Webhook.delete()
                                        })

@@ -22,7 +22,7 @@ exports.run = async (bot, message, args) => {
    var random = Math.floor(Math.random() * 3); 
 
   let a1 = new Discord.MessageEmbed()
-  .setDescription('<:incorreto:729451886683619438> **|** Você precisa me informar com pedra, papel, ou tesoura')
+  .setDescription('<:incorreto:737091863558750279> **|** Você precisa me informar com pedra, papel, ou tesoura')
 
    if(!item) return message.channel.send(a1)
 

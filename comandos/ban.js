@@ -52,22 +52,22 @@ exports.run = async (bot, message, args) => {
   var canal = bot.channels.cache.get(chx)
 
   let a6 = new Discord.MessageEmbed()
- .setDescription('<:membros:729454785216118794> **|** Você tem certeza que deseja banir este usuário?')
+ .setDescription('<:pessoas:737094140264841257> **|** Você tem certeza que deseja banir este usuário?')
 
   let confirm_msg = await message.channel.send(a6)
-      confirm_msg.react("729451917004242964");
-      confirm_msg.react('729451886683619438')
+      confirm_msg.react("737091697615568957");
+      confirm_msg.react('737091863558750279')
 
-      let filtro = (reaction, usuario) => reaction.emoji.id === "729451917004242964" && usuario.id === message.author.id;
+      let filtro = (reaction, usuario) => reaction.emoji.id === "737091697615568957" && usuario.id === message.author.id;
       let coletor = confirm_msg.createReactionCollector(filtro, {max: 1});
 
           let embed = new Discord.MessageEmbed()
           .setColor('FF0000')
-          .setTitle(`**MEMBRO BANIDO <:ban:729462106721746946>**`)
-          .setDescription(`\n\n<:membros:729454785216118794> Membro: ${membro}\n\n<:equipe:729455442677203025> Motivo: **${motivo}**`)
+          .setTitle(`**MEMBRO BANIDO <:admin:737317049860358206>**`)
+          .setDescription(`\n\n<:pessoas:737094140264841257> Membro: ${membro}\n\n<:eqp:737092505098780843> Motivo: **${motivo}**`)
           .setThumbnail(membro.user.displayAvatarURL({dynamic: true}))
           .setTimestamp()   
-          .addField('<:info:729476860060237895> Observação', `Ningúem mandou descumprir as regras do servidor!`)
+          .addField('<:Info:737103117971357826> Observação', `Ningúem mandou descumprir as regras do servidor!`)
           .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
           coletor.on("collect", cp => {
           cp.remove(message.author.id);
@@ -78,7 +78,7 @@ exports.run = async (bot, message, args) => {
           message.delete()
       })
 
-      let filtro2 = (reaction, usuario) => reaction.emoji.id === "729451886683619438" && usuario.id === message.author.id;
+      let filtro2 = (reaction, usuario) => reaction.emoji.id === "737091863558750279" && usuario.id === message.author.id;
           let coletor2 = confirm_msg.createReactionCollector(filtro2, {max: 1});
 
           let embed2 = new Discord.MessageEmbed()

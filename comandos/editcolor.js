@@ -19,14 +19,14 @@ exports.run = async (bot, message, args) => {
     } 
 
    let a1 = new Discord.MessageEmbed()
-   .setDescription('<:incorreto:729451886683619438> **|** Você precisa me dizer a nova cor em inglês!')
+   .setDescription('<:incorreto:737091863558750279> **|** Você precisa me dizer a nova cor em inglês!')
    var membro = message.author;
 
    let color = args.slice(0).join(' ').toUpperCase();
    if(!color) return message.channel.send(a1)
 
    let a2 = new Discord.MessageEmbed()
-   .setDescription(`<:correto:729451917004242964> **|** Sua nova cor foi setada para **${color}** com sucesso!`)
+   .setDescription(`<:correto:737091697615568957> **|** Sua nova cor foi setada para **${color}** com sucesso!`)
 
     db.set(`color_${membro.id}`, color)
     message.channel.send(a2)

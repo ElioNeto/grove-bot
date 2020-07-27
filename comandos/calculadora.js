@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const math = require('mathjs');
-const c = process.env.PREFIX
+const c = require('../config.json')
 const ms = require('ms');
 const db = require('quick.db')
 
@@ -22,7 +22,7 @@ exports.run = async (bot, message, args) => {
     } 
 
   let a1 = new Discord.MessageEmbed()
-    .setDescription('<:incorreto:729451886683619438> **|** É preciso me informar a conta!')
+    .setDescription('<:incorreto:737091863558750279> **|** É preciso me informar a conta!')
 
   var thumb = ('https://icons.iconarchive.com/icons/paomedia/small-n-flat/512/calculator-icon.png')  
   var conta = args.slice(0).join(' ');

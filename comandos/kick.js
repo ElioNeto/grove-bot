@@ -19,16 +19,16 @@ exports.run = async(bot, message, args) => {
     } 
 
     let a1 = new Discord.MessageEmbed()
-    .setDescription("<:incorreto:729451886683619438> **|** Mencione qual usuário deseja expulsar, e por qual motivo!")
+    .setDescription("<:incorreto:737091863558750279> **|** Mencione qual usuário deseja expulsar, e por qual motivo!")
 
     let a2 = new Discord.MessageEmbed()
-    .setDescription("<:incorreto:729451886683619438> **|** Você não pode expulsar você mesmo.")
+    .setDescription("<:incorreto:737091863558750279> **|** Você não pode expulsar você mesmo.")
 
     let a3 = new Discord.MessageEmbed()
-    .setDescription("<:incorreto:729451886683619438> **|** Você precisa ser um moderador para fazer isto!")
+    .setDescription("<:incorreto:737091863558750279> **|** Você precisa ser um moderador para fazer isto!")
 
     let a4 = new Discord.MessageEmbed()
-    .setDescription(`<:incorreto:729451886683619438> **|** Eu preciso ter a permissão de expulsar usuários para fazer isto!`)
+    .setDescription(`<:incorreto:737091863558750279> **|** Eu preciso ter a permissão de expulsar usuários para fazer isto!`)
 
   var membro = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
   if (!membro) return message.channel.send(a1);
@@ -44,7 +44,7 @@ exports.run = async(bot, message, args) => {
     if(chx === null){
 
       let a5 = new Discord.MessageEmbed()
-      .setDescription('<:incorreto:729451886683619438> **|** Não há nenhum canal de punição setado!')
+      .setDescription('<:incorreto:737091863558750279> **|** Não há nenhum canal de punição setado!')
 
       return message.channel.send(a5);
     }  
@@ -52,21 +52,21 @@ exports.run = async(bot, message, args) => {
   var canal = bot.channels.cache.get(chx)
 
   let a6 = new Discord.MessageEmbed()
-  .setDescription('<:membros:729454785216118794> **|** Você tem certeza que deseja expulsar este usuário?')
+  .setDescription('<:pessoas:737094140264841257> **|** Você tem certeza que deseja expulsar este usuário?')
 
   let confirm_msg = await message.channel.send(a6)
-      confirm_msg.react("729451917004242964");
-      confirm_msg.react('729451886683619438')
+      confirm_msg.react("737091697615568957");
+      confirm_msg.react('737091863558750279')
 
-      let filtro = (reaction, usuario) => reaction.emoji.id === "729451917004242964" && usuario.id === message.author.id;
+      let filtro = (reaction, usuario) => reaction.emoji.id === "737091697615568957" && usuario.id === message.author.id;
       let coletor = confirm_msg.createReactionCollector(filtro, {max: 1});
 
           let embed = new Discord.MessageEmbed()
           .setColor('FF0000')
-          .setTitle(`**MEMBRO EXPULSO <:ban:729462106721746946>**`)
-          .setDescription(`\n\n<:membros:729454785216118794> Membro: ${membro}\n\n<:equipe:729455442677203025> Motivo: **${motivo}**`)
+          .setTitle(`**MEMBRO EXPULSO <:admin:737317049860358206>**`)
+          .setDescription(`\n\n<:pessoas:737094140264841257> Membro: ${membro}\n\n<:eqp:737092505098780843> Motivo: **${motivo}**`)
           .setThumbnail(membro.user.displayAvatarURL({dynamic: true}))
-          .addField('<:info:729476860060237895> Observação', `Ningúem mandou descumprir as regras do servidor!`)
+          .addField('<:Info:737103117971357826> Observação', `Ningúem mandou descumprir as regras do servidor!`)
           .setTimestamp()   
           .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
           coletor.on("collect", cp => {
@@ -78,11 +78,11 @@ exports.run = async(bot, message, args) => {
           message.delete()
       })
 
-      let filtro2 = (reaction, usuario) => reaction.emoji.id === "729451886683619438" && usuario.id === message.author.id;
+      let filtro2 = (reaction, usuario) => reaction.emoji.id === "737091863558750279" && usuario.id === message.author.id;
           let coletor2 = confirm_msg.createReactionCollector(filtro2, {max: 1});
 
           let embed2 = new Discord.MessageEmbed()
-          .setDescription('<:incorreto:729451886683619438> **|** Cancelado com sucesso.')
+          .setDescription('<:incorreto:737091863558750279> **|** Cancelado com sucesso.')
           coletor2.on('collect', cp => {
 
           message.channel.send(embed2)

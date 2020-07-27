@@ -20,7 +20,7 @@ exports.run = async (bot, message, args) => {
 
     let embed = new Discord.MessageEmbed()
     .setTitle('**CONVITES**')
-    .setDescription(`[<:server:729477402438402099> **| Entre no meu servidor**](https://discord.gg/drYKh7k)\n\n[<:add:729466473088679946> **| Me adicione no seu servidor**](https://discordapp.com/oauth2/authorize?client_id=712785958231080990&scope=bot&permissions=8)`)
+    .setDescription(`[<:acloud:737103573334097960> **| Entre no meu servidor**](https://discord.gg/drYKh7k)\n\n[<:nuvem:737103776552321164> **| Me adicione no seu servidor**](https://discordapp.com/oauth2/authorize?client_id=712785958231080990&scope=bot&permissions=8)`)
     .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
     .setTimestamp()   
     .setColor('RANDOM')

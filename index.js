@@ -3,6 +3,7 @@ const fs = require("fs");
 const bot = new Discord.Client();
 const http = require('http');
 const express = require('express');
+const config = require('./config.json')
 const app = express();
 const db = require('quick.db')
 const request = require('request')
@@ -161,16 +162,16 @@ bot.on('guildCreate', guild => {
      bot.channels.cache.get("737063422851547227").setName(`👥 Usuários: ${users}`)
     }, 400)
   
-  var canal = bot.channels.cache.get('719599120494624819')
+  var canal = bot.channels.cache.get('737063423300599852')
   
-  guild.owner.send(`:wave: **|** Olá ${guild.owner}, vi que me adicionou em seu servidor **${guild.name}** para saber meus comandos digite \`${config.prefix}ajuda\`\n\nAqui vai algumas dicas:\n\nPara que eu funcione perfeitamente, é preciso setar os canais.\n\n\`${config.prefix}setwelcome <canal>\` Para setar o canal de boas-vindas!\n\`${config.prefix}setgoodbye <canal>\` Para setar o canal de despedida!\n\`${config.prefix}setsugestion <canal>\`Para setar o canal de sugestões!\n\`${config.prefix}setpunishments <canal>\` Para setar o canal de punições!\n\`${config.prefix}setpatch <canal>\` Para setar o canal de patches!\n\`${config.prefix}setlogs <canal>\` Para setar o canal de logs!\n\`${config.prefix}setrole <cargo>\` Para setar um cargo que quando o usuário digitar \`${config.prefix}role\` irá ganhar\n\`${config.prefix}setmute <cargo>\` Para setar o cargo de mute\n\nTambém tenho meu servidor de suporte! digite \`${config.prefix}convite\` ou entre clicando no link a baixo\n\nhttps://discord.gg/q7ZY9cg\n\nLá você poderá tirar suas dúvidas, reportar bugs, ter acesso com meu próprio criador e dar sugestões para eu melhorar cada vez mais! Espero que goste e que eu seja útil para você! :wink:`)
+  guild.owner.send(`<a:helloo:737094267096399914> **|** Olá ${guild.owner}, vi que me adicionou em seu servidor **${guild.name}** para saber meus comandos digite \`${config.prefix}ajuda\`\n\nAqui vai algumas dicas:\n\nPara que eu funcione perfeitamente, é preciso setar os canais.\n\n\`${config.prefix}setwelcome <canal>\` Para setar o canal de boas-vindas!\n\`${config.prefix}setgoodbye <canal>\` Para setar o canal de despedida!\n\`${config.prefix}setsugestion <canal>\`Para setar o canal de sugestões!\n\`${config.prefix}setpunishments <canal>\` Para setar o canal de punições!\n\`${config.prefix}setpatch <canal>\` Para setar o canal de patches!\n\`${config.prefix}setlogs <canal>\` Para setar o canal de logs!\n\`${config.prefix}setrole <cargo>\` Para setar um cargo que quando o usuário digitar \`${config.prefix}role\` irá ganhar\n\`${config.prefix}setmute <cargo>\` Para setar o cargo de mute\n\nTambém tenho meu servidor de suporte! digite \`${config.prefix}convite\` ou entre clicando no link a baixo\n\nhttps://discord.gg/xJMXX9A\n\nLá você poderá tirar suas dúvidas, reportar bugs, ter acesso com meu próprio criador e dar sugestões para eu melhorar cada vez mais! Espero que goste e que eu seja útil para você! :wink:`)
   
   let embed = new Discord.MessageEmbed()
-  .setTitle('**ME ADICIONARAM EM UM SERVIDOR! <:servidores:729462514928058417>**')
-  .addField('**<:pc:729460019111657503> Nome do servidor**', `\`${guild.name}\``)
-  .addField('**<:id:729455876582277270> ID do servidor**', `\`${guild.id}\``)
-  .addField('**<:membros:729454785216118794> Membros do servidor**', `\`${guild.members.cache.size}\``)
-  .addField('**<:comandos:729477049252708423> Canais do servidor**', `\`${guild.channels.cache.size}\``)
+  .setTitle('**ME ADICIONARAM EM UM SERVIDOR! <:Servidores:737101641655910501>**')
+  .addField('**💻 Nome do servidor**', `\`${guild.name}\``)
+  .addField('**<:id:737316544299663381> ID do servidor**', `\`${guild.id}\``)
+  .addField('**<:pessoas:737094140264841257> Membros do servidor**', `\`${guild.members.cache.size}\``)
+  .addField('**<:commandreload:737102191160197150> Canais do servidor**', `\`${guild.channels.cache.size}\``)
   .setFooter(`Dono do servidor: ${guild.owner.user.tag}`)
   .setThumbnail(guild.iconURL({dynamic: true}))
   .setColor('39FF14')
@@ -191,16 +192,16 @@ bot.on('guildDelete', guild => {
      bot.channels.cache.get("737063422851547227").setName(`👥 Usuários: ${users}`)
     }, 400)
   
-  guild.owner.send(`:wave: **|** Olá ${guild.owner}, vi que você me retirou do seu servidor **${guild.name}**, eu gostaria de saber o motivo :confused:\n\n Se você puder me informar o motivo na qual levou você a me **expulsar** do seu servidor, tenho meu próprio servidor no Discord para suporte, lá você pode conversar com o meu criador e dar sua opinião para que eu melhore cada vez mais!\n\nhttps://discord.gg/q7ZY9cg\n\n Espero você lá, pense em mim, me de mais uma chance! :wink:`)
+  guild.owner.send(`<a:helloo:737094267096399914> **|** Olá ${guild.owner}, vi que você me retirou do seu servidor **${guild.name}**, eu gostaria de saber o motivo :confused:\n\n Se você puder me informar o motivo na qual levou você a me **expulsar** do seu servidor, tenho meu próprio servidor no Discord para suporte, lá você pode conversar com o meu criador e dar sua opinião para que eu melhore cada vez mais!\n\nhttps://discord.gg/xJMXX9A\n\n Espero você lá, pense em mim, me de mais uma chance! :wink:`)
   
-  var canal = bot.channels.cache.get('719599120494624819')
+  var canal = bot.channels.cache.get('737063423300599852')
   
   let embed = new Discord.MessageEmbed()
-  .setTitle('**ME REMOVERAM EM UM SERVIDOR! <:servidores:729462514928058417>**')
-  .addField('**<:pc:729460019111657503> Nome do servidor**', `\`${guild.name}\``)
-  .addField('**<:id:729455876582277270> ID do servidor**', `\`${guild.id}\``)
-  .addField('**<:membros:729454785216118794> Membros do servidor**', `\`${guild.members.cache.size}\``)
-  .addField('**<:comandos:729477049252708423> Canais do servidor**', `\`${guild.channels.cache.size}\``)
+  .setTitle('**ME REMOVERAM EM UM SERVIDOR! <:Servidores:737101641655910501>**')
+  .addField('**💻 Nome do servidor**', `\`${guild.name}\``)
+  .addField('**<:id:737316544299663381> ID do servidor**', `\`${guild.id}\``)
+  .addField('**<:pessoas:737094140264841257> Membros do servidor**', `\`${guild.members.cache.size}\``)
+  .addField('**<:commandreload:737102191160197150> Canais do servidor**', `\`${guild.channels.cache.size}\``)
   .setThumbnail(guild.iconURL({dynamic: true}))
   .setFooter(`Dono do servidor: ${guild.owner.user.tag}`)
   .setColor('FF0000')
@@ -333,7 +334,7 @@ if (blocklink === true) {
 
   let embed2 = new Discord.MessageEmbed()
   .setColor('FF0000')
-  .setTitle('**LINK BLOQUEADO <:incorreto:729451886683619438>**')
+  .setTitle('**LINK BLOQUEADO <:incorreto:737091863558750279>**')
   .setDescription('É proibido o envio de links neste servidor!\n Leia as regras para evitar punições.')
   .setTimestamp()
   .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
@@ -361,7 +362,7 @@ if(blockinvite === true)
 
   let embed = new Discord.MessageEmbed()
   .setColor('FF0000')
-  .setTitle('**CONVITE BLOQUEADO <:incorreto:729451886683619438>**')
+  .setTitle('**CONVITE BLOQUEADO <:incorreto:737091863558750279>**')
   .setDescription('É proibido o envio de convites de outros servidores neste servidor!\n Leia as regras para evitar punições.')
   .setTimestamp()
   .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
@@ -379,24 +380,30 @@ bot.on('message', message => {
     if(message.author.bot) return;
     if(message.channel === "dm") return;
   
-    let prefix = process.env.PREFIX;
+    let prefix = config.prefix;
     let messageArray = message.content.split(" ");
     let command = messageArray[0];
     let args = messageArray.slice(1);
     
     let mentionEmbed = new Discord.MessageEmbed()
-    .setDescription(`:wave: **|** Olá ${message.author} meu prefixo aqui é \`${prefix}\` digite \`${prefix}ajuda\` para saber meus comandos!`)
+    .setDescription(`<a:helloo:737094267096399914> **|** Olá ${message.author} meu prefixo aqui é \`${prefix}\` digite \`${prefix}ajuda\` para saber meus comandos!`)
     
     if(message.content.startsWith(`<@${bot.user.id}>`) || message.content.startsWith(`<@!${bot.user.id}>`)) return message.channel.send(mentionEmbed)
     if(message.content.includes(`<@${bot.user.id}>`) || message.content.includes(`<@!${bot.user.id}>`)) {
-      message.react('731664172496191559')
+      message.react('737092622224719883')
 
-      let heart = (reaction, usuario) => reaction.emoji.id === "731664172496191559" && usuario.id === message.author.id;
+      let heart = (reaction, usuario) => reaction.emoji.id === "737092622224719883" && usuario.id === message.author.id;
       let coracao = message.createReactionCollector(heart, {max: 1});
      
       coracao.on('collect', cp => {
-        message.channel.send('<:love:731664172496191559> <:love:731664172496191559> <:love:731664172496191559>')
+        message.channel.send('<:love:737092622224719883> <:love:737092622224719883> <:love:737092622224719883>')
       })
+    }
+
+    var canal = bot.channels.cache.get('737335340733562961')
+
+    if(message.content.startsWith(prefix)){
+      canal.send(`**${message.author.tag}** usou o comando: **${message.content}** no servidor **${message.guild.name} ( ${message.guild.id} )** `)
     }
   
     if (!message.content.startsWith(prefix)) return;
@@ -409,8 +416,8 @@ bot.on('message', message => {
 
            let errox = new Discord.MessageEmbed()
           .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
-          .setTitle('**<:incorreto:729451886683619438> | ERRO**')
-          .setDescription(`<:comandos:729477049252708423> **|** Este comando não foi encontrado!\nDigite \`${prefix}ajuda\` para saber meus comandos!`)
+          .setTitle('**<:incorreto:737091863558750279> | ERRO**')
+          .setDescription(`<:commandreload:737102191160197150> **|** Este comando não foi encontrado!\nDigite \`${prefix}ajuda\` para saber meus comandos!`)
           .setTimestamp()
 
            return;

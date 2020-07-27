@@ -35,7 +35,7 @@ let gameconfig = {
 
 let embederro = new Discord.MessageEmbed()
 .setTitle('**JOGO EM ANDAMENTO**')
-.setDescription('<:incorreto:729451886683619438> **|** Já tem um jogo em andamento neste servidor, espere o jogo terminar para iniciar outro!')
+.setDescription('<:incorreto:737091863558750279> **|** Já tem um jogo em andamento neste servidor, espere o jogo terminar para iniciar outro!')
 .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
 .setTimestamp()
 .setColor('RANDOM')
@@ -49,7 +49,7 @@ if(guess === true) return message.channel.send(embederro)
 let random_number = Math.floor(Math.random() * (gameconfig.maximum - gameconfig.minimum + 1)) + gameconfig.minimum;
 
 let embed1 = new Discord.MessageEmbed()
-.setTitle('**GUESS <:discord:729445842888425592>**')
+.setTitle('**GUESS <:discord:737331945264119828>**')
 .setDescription(`O número está entre **${gameconfig.minimum}** e **${gameconfig.maximum}**, você tem **${gameconfig.tries}** tentativas para acerta-lo\n\nDigite \`parar\` a qualquer momento para cancelar o jogo!`)
 .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
 .setColor('RANDOM')
@@ -65,7 +65,7 @@ game_coletor.on('collect', u_msg => {
 
     let forced0 = new Discord.MessageEmbed()
       .setTitle('**JOGO CANCELADO**')
-      .setDescription(`<:incorreto:729451886683619438> **|** Você cancelou o jogo!\nO número correto era **${random_number}**!`)
+      .setDescription(`<:incorreto:737091863558750279> **|** Você cancelou o jogo!\nO número correto era **${random_number}**!`)
       .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
       .setColor('FF0000')
       .setTimestamp()
@@ -79,7 +79,7 @@ game_coletor.on('collect', u_msg => {
 
     let win0 = new Discord.MessageEmbed()
       .setTitle('**VOCÊ GANHOU**')
-      .setDescription(`<:correto:729451917004242964> **|** Parabéns você acertou o número correto!\n\nTentativas restantes: **${gameconfig.tries - 1}**\nTentativas usadas: **${gameconfig.trycount + 1}**`)
+      .setDescription(`<:correto:737091697615568957> **|** Parabéns você acertou o número correto!\n\nTentativas restantes: **${gameconfig.tries - 1}**\nTentativas usadas: **${gameconfig.trycount + 1}**`)
       .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
       .setColor('39FF14')
       .setTimestamp()
@@ -93,7 +93,7 @@ game_coletor.on('collect', u_msg => {
 
     let gameover0 = new Discord.MessageEmbed()
       .setTitle('**VOCÊ PERDEU**')
-      .setDescription(`<:incorreto:729451886683619438> **|** Você perdeu todas suas tentativas!\nO número correto era **${random_number}**!`)
+      .setDescription(`<:incorreto:737091863558750279> **|** Você perdeu todas suas tentativas!\nO número correto era **${random_number}**!`)
       .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
       .setColor('FF0000')
       .setTimestamp()
@@ -108,7 +108,7 @@ game_coletor.on('collect', u_msg => {
     gameconfig.tries--;
 
     let embed4 = new Discord.MessageEmbed()
-    .setTitle('**GUESS <:discord:729445842888425592>**')
+    .setTitle('**GUESS <:discord:737331945264119828>**')
     .setDescription(`**${u_msg.content}** é menor que o número correto!\nVocê tem **${gameconfig.tries}** tentativas restantes!`)
     .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
     .setColor('RANDOM')
@@ -122,7 +122,7 @@ game_coletor.on('collect', u_msg => {
     gameconfig.tries--;
 
     let embed5 = new Discord.MessageEmbed()
-    .setTitle('**GUESS <:discord:729445842888425592>**')
+    .setTitle('**GUESS <:discord:737331945264119828>**')
     .setDescription(`**${u_msg.content}** é maior que o número correto!\nVocê tem **${gameconfig.tries}** tentativas restantes!`)
     .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
     .setColor('RANDOM')
@@ -140,7 +140,7 @@ game_coletor.on('end', (collected, reason) => {
     db.set(`guess_${message.guild.id}`, false)
 
     let embedT = new Discord.MessageEmbed()
-    .setDescription('<:incorreto:729451886683619438> **|** O jogo foi cancelado pois o tempo de 5 minutos excedeu!')
+    .setDescription('<:incorreto:737091863558750279> **|** O jogo foi cancelado pois o tempo de 5 minutos excedeu!')
 
     message.channel.send(embedT)
     

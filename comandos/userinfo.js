@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const moment = require("moment"); 
 moment.locale('pt-BR') 
 const db = require('quick.db')
-const c = process.env.PREFIX
+const c = require('../config.json')
 
 exports.run = async (bot, message, args) => { 
   

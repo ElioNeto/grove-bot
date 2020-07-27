@@ -19,16 +19,16 @@ exports.run = async (bot, message, args) => {
     } 
 
     let a1 = new Discord.MessageEmbed()
-    .setDescription(`<:incorreto:729451886683619438> **|** Você precisa ser um moderador para fazer isto!`)
+    .setDescription(`<:incorreto:737091863558750279> **|** Você precisa ser um moderador para fazer isto!`)
 
     let a2 = new Discord.MessageEmbed()
-    .setDescription('<:incorreto:729451886683619438> **|** Não hà nenhum cargo de mute setado!')
+    .setDescription('<:incorreto:737091863558750279> **|** Não hà nenhum cargo de mute setado!')
 
     let a3 = new Discord.MessageEmbed()
-    .setDescription('<:incorreto:729451886683619438> **|** É preciso me informar um usuário!')
+    .setDescription('<:incorreto:737091863558750279> **|** É preciso me informar um usuário!')
 
     let a4 = new Discord.MessageEmbed()
-    .setDescription('<:incorreto:729451886683619438> **|** Você não pode silenciar você mesmo!')
+    .setDescription('<:incorreto:737091863558750279> **|** Você não pode silenciar você mesmo!')
 
     if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(a1); 
 
@@ -38,7 +38,7 @@ exports.run = async (bot, message, args) => {
     var membro = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
 
      let a5 = new Discord.MessageEmbed()
-    .setDescription(`<:correto:729451917004242964> **|** O membro ${membro} foi silenciado com sucesso!`)
+    .setDescription(`<:correto:737091697615568957> **|** O membro ${membro} foi silenciado com sucesso!`)
     
     if(!membro) return message.channel.send(a3)
     if(membro === message.member) return message.channel.send(a4)

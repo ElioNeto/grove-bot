@@ -1,6 +1,6 @@
 const Discord = require('discord.js')
 const db = require('quick.db')
-const c = process.env.PREFIX
+const c = require('../config.json')
 
 exports.run = async (bot, message, args) => {
 
@@ -25,19 +25,19 @@ exports.run = async (bot, message, args) => {
     var presence = []
 
     if(member.presence.status === 'online') {
-      presence.push(`<:online:729460721963892826> Disponível`)
+      presence.push(`<:on:737092700716662865> Disponível`)
     }  
 
     else if(member.presence.status === 'idle') {
-      presence.push(`<:ausente:729460709921915010> Ausente`)
+      presence.push(`<:ausente:737101962583212084> Ausente`)
     }
 
     else if(member.presence.status === 'dnd') {
-      presence.push(`<:dnd:729460731619311678> Não perturbar`)
+      presence.push(`<:dnd:737102054501253143> Não perturbar`)
     }
 
     else if(member.presence.status === 'offline') {
-      presence.push(`<:offline:729459670061678693> Invisível`)
+      presence.push(`<:Offiline:737101779719815189> Invisível`)
     }
   
     var desc = await db.get(`desc_${member.id}`)  
@@ -49,7 +49,7 @@ exports.run = async (bot, message, args) => {
     if(rep === null) rep = db.set(`rep_${member.id}`, 0)
 
     let or = ('<a:veri:729443010827255919> **|** Grove Official Representative')
-    let gc = ('<a:veri:729443010827255919> **|** Grove Creator')
+    let gc = ('<a:veri:737094028419399690> **|** Grove Creator')
 
     let emb = await db.get(`emb_${member.id}`)
 
