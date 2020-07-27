@@ -19,7 +19,7 @@ exports.run = async (bot, message, args) => {
     } 
 
   let a1 = new Discord.MessageEmbed()
-  .setDescription('<:incorreto:729451886683619438> **|** Você precisa me informar um usuário!')
+  .setDescription('<:incorreto:737091863558750279> **|** Você precisa me informar um usuário!')
 
   var membro = message.mentions.users.first()
   if(!membro) return message.channel.send(a1)
@@ -36,7 +36,7 @@ exports.run = async (bot, message, args) => {
   else if(love >= 0 && love < 20) amor = 6
 
   var loveEmbed = new Discord.MessageEmbed()
-      .setTitle('**TESTE DE AMOR <:love:731664172496191559>**')
+      .setTitle('**TESTE DE AMOR <:love:737092622224719883>**')
       .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
       .setTimestamp()
       .setColor('RANDOM')

@@ -21,7 +21,7 @@ exports.run = async (bot, message, args) => {
 
     
     let c1 = new Discord.MessageEmbed()
-    .setDescription('<:incorreto:729451886683619438> **|** Eu preciso ter a permissão de criar webhooks!')
+    .setDescription('<:incorreto:737091863558750279> **|** Eu preciso ter a permissão de criar webhooks!')
 
     if(!message.guild.me.hasPermission('MANAGE_WEBHOOKS')) return message.channel.send(c1)
  
@@ -30,7 +30,7 @@ exports.run = async (bot, message, args) => {
     if(chx === null){
 
       let a1 = new Discord.MessageEmbed()
-      .setDescription('<:incorreto:729451886683619438> **|** Não há nenhum canal de sugestões setado!')
+      .setDescription('<:incorreto:737091863558750279> **|** Não há nenhum canal de sugestões setado!')
 
       return message.channel.send(a1);
     }  
@@ -38,13 +38,13 @@ exports.run = async (bot, message, args) => {
   var canal = bot.channels.cache.get(chx)
 
   let a8 = new Discord.MessageEmbed()
-  .setDescription(`<:correto:729451917004242964> **|** Sua sugestão foi enviada no canal ${canal} com sucesso!`)
+  .setDescription(`<:correto:737091697615568957> **|** Sua sugestão foi enviada no canal ${canal} com sucesso!`)
   
   var sugestao = args.slice(0).join(' ');
   if(!sugestao){ 
 
     let a2 = new Discord.MessageEmbed()
-    .setDescription(`<:incorreto:729451886683619438> **|** Escreva a sua sugestão!`)
+    .setDescription(`<:incorreto:737091863558750279> **|** Escreva a sua sugestão!`)
 
     return message.channel.send(a2)
 

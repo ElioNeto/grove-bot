@@ -20,7 +20,7 @@ exports.run = async (bot, message, args) => {
     } 
   
   let a1 = new Discord.MessageEmbed()
-    .setDescription(`<:incorreto:729451886683619438> **|** Você precisa ser um moderador para fazer isto!`)
+    .setDescription(`<:incorreto:737091863558750279> **|** Você precisa ser um moderador para fazer isto!`)
 
   if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(a1); 
 
@@ -34,7 +34,7 @@ exports.run = async (bot, message, args) => {
   let role = message.mentions.roles.first()
   
     let a3 = new Discord.MessageEmbed()
-    .setDescription(`<:correto:729451917004242964> **|** Cargo de mute setado: ${role}`)
+    .setDescription(`<:correto:737091697615568957> **|** Cargo de mute setado: ${role}`)
 
   if(!role) return message.channel.send(embed)
 

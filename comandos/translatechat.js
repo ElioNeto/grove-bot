@@ -4,10 +4,10 @@ const db = require('quick.db')
 exports.run = async (bot, message, args) => {
 
   let a1 = new Discord.MessageEmbed()
-  .setDescription('<:incorreto:729451886683619438> **|** Eu preciso ter a permissão de criar canais!')
+  .setDescription('<:incorreto:737091863558750279> **|** Eu preciso ter a permissão de criar canais!')
 
   let a2 = new Discord.MessageEmbed()
-  .setDescription('<:incorreto:729451886683619438> **|** Você precisa mencionar um usuário!')
+  .setDescription('<:incorreto:737091863558750279> **|** Você precisa mencionar um usuário!')
   
   if(!message.guild.me.hasPermission('MANAGE_CHANNELS')) return message.channel.send(a1)
   
@@ -33,7 +33,7 @@ exports.run = async (bot, message, args) => {
   }).then(async c => {
 
     let a3 = new Discord.MessageEmbed()
-    .setDescription('<:correto:729451917004242964> **|** O canal foi criado com sucesso!')
+    .setDescription('<:correto:737091697615568957> **|** O canal foi criado com sucesso!')
     
     message.channel.send(a3)
     
@@ -45,10 +45,10 @@ exports.run = async (bot, message, args) => {
     db.set(`traduction_system_channels_${c.id}_web${other_user.user.id}`, {id: web2.id, token: web2.token})
 
     let a4 = new Discord.MessageEmbed()
-    .setDescription(`<:texto:729463024372547676> **|** ${message.author} me informe o seu idioma!`)
+    .setDescription(`<a:texto:737103192160075898> **|** ${message.author} me informe o seu idioma!`)
 
     let a5 = new Discord.MessageEmbed()
-    .setDescription('<:incorreto:729451886683619438> **|** Você precisa me informar com português ou inglês!')
+    .setDescription('<:incorreto:737091863558750279> **|** Você precisa me informar com português ou inglês!')
     
     message.channel.send(a4).then(async m => {
       
@@ -59,7 +59,7 @@ exports.run = async (bot, message, args) => {
         db.set(`users_${message.author.id}`, {idioma: 'PT'})
 
         let b3 = new Discord.MessageEmbed()
-        .setDescription(`<:correto:729451917004242964> **|** ${message.author} seu idioma foi definido para Português!`)
+        .setDescription(`<:correto:737091697615568957> **|** ${message.author} seu idioma foi definido para Português!`)
 
         message.channel.send(b3)
           
@@ -67,7 +67,7 @@ exports.run = async (bot, message, args) => {
           db.set(`users_${message.author.id}`, {idioma: 'EN'})
 
         let b4 = new Discord.MessageEmbed()
-        .setDescription(`<:correto:729451917004242964> **|** ${message.author} seu idioma foi definido para Inglês!`)
+        .setDescription(`<:correto:737091697615568957> **|** ${message.author} seu idioma foi definido para Inglês!`)
 
         message.channel.send(b4)
           
@@ -76,10 +76,10 @@ exports.run = async (bot, message, args) => {
     })
 
     let a6 = new Discord.MessageEmbed()
-    .setDescription(`<:texto:729463024372547676> **|** ${other_user} me informe o seu idioma!`)
+    .setDescription(`<a:texto:737103192160075898> **|** ${other_user} me informe o seu idioma!`)
 
     let a7 = new Discord.MessageEmbed()
-    .setDescription('<:incorreto:729451886683619438> **|** Você precisa me informar com português ou inglês!')
+    .setDescription('<:incorreto:737091863558750279> **|** Você precisa me informar com português ou inglês!')
     
     message.channel.send(a6).then(async m => {
       
@@ -91,7 +91,7 @@ exports.run = async (bot, message, args) => {
         db.set(`users_${other_user.user.id}`, {idioma: 'PT'})
 
         let b1 = new Discord.MessageEmbed()
-        .setDescription(`<:correto:729451917004242964> **|** ${other_user} seu idioma foi definido para Português!`)
+        .setDescription(`<:correto:737091697615568957> **|** ${other_user} seu idioma foi definido para Português!`)
 
         message.channel.send(b1)
           
@@ -99,7 +99,7 @@ exports.run = async (bot, message, args) => {
           db.set(`users_${other_user.user.id}`, {idioma: 'EN'})
 
           let b2 = new Discord.MessageEmbed()
-         .setDescription(`<:correto:729451917004242964> **|** ${other_user} seu idioma foi definido para Inglês!`)
+         .setDescription(`<:correto:737091697615568957> **|** ${other_user} seu idioma foi definido para Inglês!`)
 
           message.channel.send(b2)
           

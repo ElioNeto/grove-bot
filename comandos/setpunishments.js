@@ -19,17 +19,17 @@ exports.run = async (bot, message, args) => {
     } 
   
  let a1 = new Discord.MessageEmbed()
-    .setDescription(`<:incorreto:729451886683619438> **|** Você precisa ser um moderador para fazer isto!`)
+    .setDescription(`<:incorreto:737091863558750279> **|** Você precisa ser um moderador para fazer isto!`)
 
     let a2 = new Discord.MessageEmbed()
-    .setDescription('<:incorreto:729451886683619438> **|** Por favor mencione o canal a ser setado!')
+    .setDescription('<:incorreto:737091863558750279> **|** Por favor mencione o canal a ser setado!')
 
   if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(a1); 
   
   let channel = message.mentions.channels.first()
 
     let a3 = new Discord.MessageEmbed()
-    .setDescription(`<:correto:729451917004242964> **|** Canal de punições setado em: ${channel}`)
+    .setDescription(`<:correto:737091697615568957> **|** Canal de punições setado em: ${channel}`)
   
   if(!channel) return message.channel.send(a2)
   

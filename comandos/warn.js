@@ -19,16 +19,16 @@ exports.run = async (bot, message, args) => {
     } 
 
     let a1 = new Discord.MessageEmbed()
-    .setDescription(`<:incorreto:729451886683619438> **|** Você precisa ter a permissão expulsar membros para fazer isto!`)
+    .setDescription(`<:incorreto:737091863558750279> **|** Você precisa ter a permissão expulsar membros para fazer isto!`)
 
     let a2 = new Discord.MessageEmbed()
-    .setDescription(`<:incorreto:729451886683619438> **|** Eu preciso ter a permissão de expulsar membros para fazer isto!`)
+    .setDescription(`<:incorreto:737091863558750279> **|** Eu preciso ter a permissão de expulsar membros para fazer isto!`)
 
     let a3 = new Discord.MessageEmbed()
-    .setDescription(`<:incorreto:729451886683619438> **|** Mencione qual usuário deseja avisar, e por qual motivo!`)
+    .setDescription(`<:incorreto:737091863558750279> **|** Mencione qual usuário deseja avisar, e por qual motivo!`)
 
     let a4 = new Discord.MessageEmbed()
-    .setDescription("<:incorreto:729451886683619438> **|** Você não pode alertar você mesmo.")
+    .setDescription("<:incorreto:737091863558750279> **|** Você não pode alertar você mesmo.")
 
     if (!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send(a1)
     if (!message.guild.me.hasPermission("KICK_MEMBERS")) return message.channel.send(a2); 
@@ -45,7 +45,7 @@ exports.run = async (bot, message, args) => {
     if(chx === null){
 
       let a5 = new Discord.MessageEmbed()
-      .setDescription('<:incorreto:729451886683619438> **|** Não há nenhum canal de punição setado!')
+      .setDescription('<:incorreto:737091863558750279> **|** Não há nenhum canal de punição setado!')
 
       return message.channel.send(a5);
     }  
@@ -56,9 +56,9 @@ exports.run = async (bot, message, args) => {
     if(warns === null) warns = 0;
 
     let embedWarn = new Discord.MessageEmbed()
-    .setTitle('**WARN <:ban:729462106721746946>**')
+    .setTitle('**WARN <:admin:737317049860358206>**')
     .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
-    .setDescription(`<:membros:729454785216118794> Membro: ${membro}\n\n<:trabalhador:729455442677203025> Motivo: **${motivo}**\n\n<:erro:729456202139828314> Warns: **${warns +1}**`)
+    .setDescription(`<:pessoas:737094140264841257> Membro: ${membro}\n\n<:eqp:737092505098780843> Motivo: **${motivo}**\n\n<:erro:729456202139828314> Warns: **${warns +1}**`)
     .setThumbnail(membro.user.displayAvatarURL({dynamic: true}))
     .setTimestamp()   
     .setColor('FF0000')
@@ -70,8 +70,8 @@ exports.run = async (bot, message, args) => {
 
           let embedKick = new Discord.MessageEmbed()
           .setColor('FF0000')
-          .setTitle(`**MEMBRO EXPULSO <:ban:729462106721746946>**`)
-          .setDescription(`\n\n<:membros:729454785216118794> Membro: ${membro}\n\n<:trabalhador:729455442677203025> Motivo: **Tomou 3 warns no servidor.**`)
+          .setTitle(`**MEMBRO EXPULSO <:admin:737317049860358206>**`)
+          .setDescription(`\n\n<:pessoas:737094140264841257> Membro: ${membro}\n\n<:eqp:737092505098780843> Motivo: **Tomou 3 warns no servidor.**`)
           .setThumbnail(membro.user.displayAvatarURL({dynamic: true}))
           .addField('<:info:729476860060237895> Observação', `Ningúem mandou descumprir as regras do servidor!`)
           .setTimestamp()   
@@ -84,8 +84,8 @@ exports.run = async (bot, message, args) => {
 
            let embedBan = new Discord.MessageEmbed()
           .setColor('FF0000')
-          .setTitle(`**MEMBRO BANIDO <:ban:729462106721746946>**`)
-          .setDescription(`\n\n<:membros:729454785216118794> Membro: ${membro}\n\n<:trabalhador:729455442677203025> Motivo: **Tomou 5 warns no servidor.**`)
+          .setTitle(`**MEMBRO BANIDO <:admin:737317049860358206>**`)
+          .setDescription(`\n\n<:pessoas:737094140264841257> Membro: ${membro}\n\n<:eqp:737092505098780843> Motivo: **Tomou 5 warns no servidor.**`)
           .setThumbnail(membro.user.displayAvatarURL({dynamic: true}))
           .setTimestamp()   
           .addField('<:info:729476860060237895> Observação', `Ningúem mandou descumprir as regras do servidor!`)

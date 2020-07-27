@@ -21,13 +21,13 @@ exports.run = async (bot, message, args) => {
     } 
 
   let a1 = new Discord.MessageEmbed()
-  .setDescription('<:incorreto:729451886683619438> **|** Você precisa me informar o que traduzir!')
+  .setDescription('<:incorreto:737091863558750279> **|** Você precisa me informar o que traduzir!')
 
   let a2 = new Discord.MessageEmbed()
-  .setDescription('<:incorreto:729451886683619438> **|** Você precisa me informar a sigla do idioma, caso eu não responda é por que a sigla não existe!')
+  .setDescription('<:incorreto:737091863558750279> **|** Você precisa me informar a sigla do idioma, caso eu não responda é por que a sigla não existe!')
 
   let a3 = new Discord.MessageEmbed()
-  .setDescription('<:incorreto:729451886683619438> **|** Eu preciso ter a permissão de criar webhooks!')
+  .setDescription('<:incorreto:737091863558750279> **|** Eu preciso ter a permissão de criar webhooks!')
 
   if(!message.guild.me.hasPermission('MANAGE_WEBHOOKS')) return message.channel.send(a3)
 

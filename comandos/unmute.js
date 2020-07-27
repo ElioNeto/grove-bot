@@ -19,13 +19,13 @@ exports.run = async (bot, message, args) => {
     } 
 
     let a1 = new Discord.MessageEmbed()
-    .setDescription(`<:incorreto:729451886683619438> **|** Você precisa ser um moderador para fazer isto!`)
+    .setDescription(`<:incorreto:737091863558750279> **|** Você precisa ser um moderador para fazer isto!`)
 
     let a2 = new Discord.MessageEmbed()
-    .setDescription('<:incorreto:729451886683619438> **|** Não hà nenhum cargo de mute setado!')
+    .setDescription('<:incorreto:737091863558750279> **|** Não hà nenhum cargo de mute setado!')
 
     let a3 = new Discord.MessageEmbed()
-    .setDescription('<:incorreto:729451886683619438> **|** É preciso me informar um usuário!')
+    .setDescription('<:incorreto:737091863558750279> **|** É preciso me informar um usuário!')
 
     if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(a1); 
 
@@ -36,10 +36,10 @@ exports.run = async (bot, message, args) => {
     if(!membro) return message.channel.send(a3)
 
     let a4 = new Discord.MessageEmbed()
-    .setDescription(`<:incorreto:729451886683619438> **|** O membro ${membro} não está silenciado!`)
+    .setDescription(`<:incorreto:737091863558750279> **|** O membro ${membro} não está silenciado!`)
 
     let a5 = new Discord.MessageEmbed()
-    .setDescription(`<:correto:729451917004242964> **|** O membro ${membro} aprendeu a falar novamente!`)
+    .setDescription(`<:correto:737091697615568957> **|** O membro ${membro} aprendeu a falar novamente!`)
 
     if(!membro.roles.cache.has(mute)) return message.channel.send(a4)
 

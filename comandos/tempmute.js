@@ -21,16 +21,16 @@ exports.run = async (bot, message, args) => {
     } 
 
     let a1 = new Discord.MessageEmbed()
-    .setDescription(`<:incorreto:729451886683619438> **|** Você precisa ser um moderador para fazer isto!`)
+    .setDescription(`<:incorreto:737091863558750279> **|** Você precisa ser um moderador para fazer isto!`)
 
     let a2 = new Discord.MessageEmbed()
-    .setDescription('<:incorreto:729451886683619438> **|** Não hà nenhum cargo de mute setado!')
+    .setDescription('<:incorreto:737091863558750279> **|** Não hà nenhum cargo de mute setado!')
 
     let a3 = new Discord.MessageEmbed()
-    .setDescription('<:incorreto:729451886683619438> **|** É preciso me informar um usuário!')
+    .setDescription('<:incorreto:737091863558750279> **|** É preciso me informar um usuário!')
 
     let a4 = new Discord.MessageEmbed()
-    .setDescription('<:incorreto:729451886683619438> **|** Você não pode silenciar você mesmo!')
+    .setDescription('<:incorreto:737091863558750279> **|** Você não pode silenciar você mesmo!')
 
     if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(a1); 
 
@@ -42,17 +42,17 @@ exports.run = async (bot, message, args) => {
     if(membro === message.member) return message.channel.send(a4)
 
     let a5 = new Discord.MessageEmbed()
-    .setDescription('<:incorreto:729451886683619438> **|** Você precisa me informar o tempo que o usuário será silenciado!')
+    .setDescription('<:incorreto:737091863558750279> **|** Você precisa me informar o tempo que o usuário será silenciado!')
 
     let Timer = args[1];
 
     if(!args[1]) return message.channel.send(a5) 
 
     let a6 = new Discord.MessageEmbed()
-    .setDescription('<:incorreto:729451886683619438> **|** O tempo precisa ser maior que zero!')
+    .setDescription('<:incorreto:737091863558750279> **|** O tempo precisa ser maior que zero!')
 
     let a7 = new Discord.MessageEmbed()
-    .setDescription(`<:correto:729451917004242964> **|** O membro ${membro} foi silenciado por \`${ms(ms(Timer), {long: true})}\` com sucesso!`) 
+    .setDescription(`<:correto:737091697615568957> **|** O membro ${membro} foi silenciado por \`${ms(ms(Timer), {long: true})}\` com sucesso!`) 
 
     if(args[1] <= 0) return message.channel.send(a6)
 
@@ -62,7 +62,7 @@ exports.run = async (bot, message, args) => {
      setTimeout(function(){ 
 
        let a8 = new Discord.MessageEmbed()
-       .setDescription(`<:correto:729451917004242964> **|** O membro ${membro} aprendeu a falar novamente depois de \`${ms(ms(Timer), {long: true})}\`!`)
+       .setDescription(`<:correto:737091697615568957> **|** O membro ${membro} aprendeu a falar novamente depois de \`${ms(ms(Timer), {long: true})}\`!`)
 
      membro.roles.remove(mute)
      message.channel.send(a8)
