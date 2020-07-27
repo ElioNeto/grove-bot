@@ -1,5 +1,4 @@
 const Discord = require("discord.js");
-const config = require("./config.json");
 const fs = require("fs");
 const bot = new Discord.Client();
 const http = require('http');
@@ -8,7 +7,10 @@ const app = express();
 const db = require('quick.db')
 const request = require('request')
 const translator = require('@vitalets/google-translate-api')
+const dotenv = require('dotenv')
 bot.aliases = new Discord.Collection();
+
+dotenv.config()
 
 app.get("/", (request, response) => {
   console.log(Date.now() + " Ping Recebido");
@@ -154,9 +156,9 @@ bot.on('guildCreate', guild => {
   let servidores = bot.guilds.cache.size;
   let canais = bot.channels.cache.size;
     setTimeout(() => {
-     bot.channels.cache.get("733511338935976056").setName(`🌐 Servidores: ${servidores}`)
-     bot.channels.cache.get("736299207186579626").setName(`💬 Canais: ${canais}`)
-     bot.channels.cache.get("733511380665368587").setName(`👥 Usuários: ${users}`)
+     bot.channels.cache.get("737063422851547226").setName(`🌐 Servidores: ${servidores}`)
+     bot.channels.cache.get("737064096834256938").setName(`💬 Canais: ${canais}`)
+     bot.channels.cache.get("737063422851547227").setName(`👥 Usuários: ${users}`)
     }, 400)
   
   var canal = bot.channels.cache.get('719599120494624819')
@@ -184,9 +186,9 @@ bot.on('guildDelete', guild => {
   let servidores = bot.guilds.cache.size;
   let canais = bot.channels.cache.size;
     setTimeout(() => {
-     bot.channels.cache.get("733511338935976056").setName(`🌐 Servidores: ${servidores}`)
-     bot.channels.cache.get("736299207186579626").setName(`💬 Canais: ${canais}`)
-     bot.channels.cache.get("733511380665368587").setName(`👥 Usuários: ${users}`)
+     bot.channels.cache.get("737063422851547226").setName(`🌐 Servidores: ${servidores}`)
+     bot.channels.cache.get("737064096834256938").setName(`💬 Canais: ${canais}`)
+     bot.channels.cache.get("737063422851547227").setName(`👥 Usuários: ${users}`)
     }, 400)
   
   guild.owner.send(`:wave: **|** Olá ${guild.owner}, vi que você me retirou do seu servidor **${guild.name}**, eu gostaria de saber o motivo :confused:\n\n Se você puder me informar o motivo na qual levou você a me **expulsar** do seu servidor, tenho meu próprio servidor no Discord para suporte, lá você pode conversar com o meu criador e dar sua opinião para que eu melhore cada vez mais!\n\nhttps://discord.gg/q7ZY9cg\n\n Espero você lá, pense em mim, me de mais uma chance! :wink:`)
@@ -377,13 +379,13 @@ bot.on('message', message => {
     if(message.author.bot) return;
     if(message.channel === "dm") return;
   
-    let prefix = config.prefix;
+    let prefix = process.env.PREFIX;
     let messageArray = message.content.split(" ");
     let command = messageArray[0];
     let args = messageArray.slice(1);
     
     let mentionEmbed = new Discord.MessageEmbed()
-    .setDescription(`:wave: **|** Olá ${message.author} meu prefixo aqui é \`${config.prefix}\` digite \`${config.prefix}ajuda\` para saber meus comandos!`)
+    .setDescription(`:wave: **|** Olá ${message.author} meu prefixo aqui é \`${prefix}\` digite \`${prefix}ajuda\` para saber meus comandos!`)
     
     if(message.content.startsWith(`<@${bot.user.id}>`) || message.content.startsWith(`<@!${bot.user.id}>`)) return message.channel.send(mentionEmbed)
     if(message.content.includes(`<@${bot.user.id}>`) || message.content.includes(`<@!${bot.user.id}>`)) {
@@ -408,11 +410,11 @@ bot.on('message', message => {
            let errox = new Discord.MessageEmbed()
           .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
           .setTitle('**<:incorreto:729451886683619438> | ERRO**')
-          .setDescription(`<:comandos:729477049252708423> **|** Este comando não foi encontrado!\nDigite \`${config.prefix}ajuda\` para saber meus comandos!`)
+          .setDescription(`<:comandos:729477049252708423> **|** Este comando não foi encontrado!\nDigite \`${prefix}ajuda\` para saber meus comandos!`)
           .setTimestamp()
 
            return;
     }
 });
 
-bot.login(config.token)
+bot.login(process.env.TOKEN)

@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const math = require('mathjs');
-const c = require('../config.json');
+const c = process.env.PREFIX
 const ms = require('ms');
 const db = require('quick.db')
 

@@ -1,5 +1,5 @@
 const Discord = require('discord.js')
-const c = require('../config.json')
+const c = process.env.PREFIX
 const db = require('quick.db')
 
 exports.run = async (bot, message, args) => {

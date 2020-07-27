@@ -20,13 +20,13 @@ exports.run = async (bot, message, args, texts) => {
     } 
 
     let a2 = new discord.MessageEmbed()
-    .setDescription("<:incorreto:729451886683619438> **|** Você precisa me informar um texto para converter para ASCII.")
+    .setDescription("<:incorreto:737091863558750279> **|** Você precisa me informar um texto para converter para ASCII.")
 
     let text = encodeURIComponent(args.join(' '));
     if (!text) return message.channel.send(a2);
 
     let a1 = new discord.MessageEmbed()
-    .setDescription('<:incorreto:729451886683619438> **|** O texto inserido é muito longo!')
+    .setDescription('<:incorreto:737091863558750279> **|** O texto inserido é muito longo!')
 
     const tooLong = a1;
 

@@ -19,12 +19,12 @@ exports.run = async (bot, message, args) => {
     } 
 
     let c1 = new Discord.MessageEmbed()
-    .setDescription('<:incorreto:729451886683619438> **|** Eu preciso ter a permissão de criar webhooks!')
+    .setDescription('<:incorreto:737091863558750279> **|** Eu preciso ter a permissão de criar webhooks!')
 
     if(!message.guild.me.hasPermission('MANAGE_WEBHOOKS')) return message.channel.send(c1)
 
     let embedx5 = new Discord.MessageEmbed()
-    .setDescription(`<:incorreto:729451886683619438> **|** Você precisa ser um moderador para fazer isto!`)
+    .setDescription(`<:incorreto:737091863558750279> **|** Você precisa ser um moderador para fazer isto!`)
   
     if(!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send(embedx5);
 
@@ -44,7 +44,7 @@ exports.run = async (bot, message, args) => {
     .setDescription('Qual o titulo do seu anúncio?')
 
     let a6 = new Discord.MessageEmbed()
-    .setDescription('<:incorreto:729451886683619438> **|** Cancelado com sucesso.')
+    .setDescription('<:incorreto:737091863558750279> **|** Cancelado com sucesso.')
      
      message.channel.send(a1).then(msg => {
           let cp = message.channel.createMessageCollector(x => x.author.id == message.author.id, {max: 1})

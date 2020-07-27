@@ -19,18 +19,18 @@ exports.run = async (bot, message, args) => {
     } 
 
   let a1 = new Discord.MessageEmbed()
-  .setDescription('<:incorreto:729451886683619438> **|** Eu preciso ter a permissão de de adicionar emojis!')
+  .setDescription('<:incorreto:737091863558750279> **|** Eu preciso ter a permissão de de adicionar emojis!')
 
    let a3 = new Discord.MessageEmbed()
-  .setDescription('<:incorreto:729451886683619438> **|** Você precisa ter a permissão de adicionar emojis!')
+  .setDescription('<:incorreto:737091863558750279> **|** Você precisa ter a permissão de adicionar emojis!')
 
   if(!message.guild.me.hasPermission('MANAGE_EMOJIS')) return message.channel.send(a1)
 
   let a2 = new Discord.MessageEmbed()
-  .setDescription('<:incorreto:729451886683619438> **|** Você precisa me enviar o URL do emoji!')
+  .setDescription('<:incorreto:737091863558750279> **|** Você precisa me enviar o URL do emoji!')
 
   let a8 = new Discord.MessageEmbed()
-  .setDescription('<:incorreto:729451886683619438> **|** Você precisa me informar o nome do emoji')
+  .setDescription('<:incorreto:737091863558750279> **|** Você precisa me informar o nome do emoji')
 
   if(!args[0]) return message.channel.send(a8)
   if(!args[1]) return message.channel.send(a2)
@@ -53,7 +53,7 @@ exports.run = async (bot, message, args) => {
     })
   } catch (err) {
     let a5 = new Discord.MessageEmbed()
-    .setDescription(`<:incorreto:729451886683619438> **|** Ocorreu um erro! \`\`\`js\n${err}\`\`\``)
+    .setDescription(`<:incorreto:737091863558750279> **|** Ocorreu um erro! \`\`\`js\n${err}\`\`\``)
 
     message.channel.send(a5)
   }

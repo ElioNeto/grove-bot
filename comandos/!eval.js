@@ -5,14 +5,14 @@ exports.run = async (bot, message, args) => {
     if (!['389866221295763456', '449240801520779266'].includes(message.author.id)) {
 
       let a = new Discord.MessageEmbed()
-      .setDescription('<:incorreto:729451886683619438> **|** Apenas meu desenvolvedor pode usar esse comando.')
+      .setDescription('<:incorreto:737091863558750279> **|** Apenas meu desenvolvedor pode usar esse comando.')
 
     return message.channel.send(a)
 
     }
 
     let a1 = new Discord.MessageEmbed()
-    .setDescription('<:incorreto:729451886683619438> **|** Digite algum comando!')
+    .setDescription('<:incorreto:737091863558750279> **|** Digite algum comando!')
 
     const code = args.slice(0).join(" ")
     if (!code) return message.channel.send(a1)
@@ -33,7 +33,7 @@ exports.run = async (bot, message, args) => {
         } catch(err) {
 
           let errorrr = new Discord.MessageEmbed()
-          .setDescription(`**<:incorreto:729451886683619438> **|** ERRO!**\n\`\`\`\n${err}\`\`\``)
+          .setDescription(`**<:incorreto:737091863558750279> **|** ERRO!**\n\`\`\`\n${err}\`\`\``)
           .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
           .setTimestamp()
 

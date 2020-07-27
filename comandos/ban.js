@@ -19,20 +19,20 @@ exports.run = async (bot, message, args) => {
     } 
 
     let a1 = new Discord.MessageEmbed()
-    .setDescription("<:incorreto:729451886683619438> **|** Mencione qual usuário deseja banir, e por qual motivo!")
+    .setDescription("<:incorreto:737091863558750279> **|** Mencione qual usuário deseja banir, e por qual motivo!")
 
     let a2 = new Discord.MessageEmbed()
-    .setDescription("<:incorreto:729451886683619438> **|** Você não pode banir você mesmo!")
+    .setDescription("<:incorreto:737091863558750279> **|** Você não pode banir você mesmo!")
 
   var membro = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
   if (!membro) return message.channel.send(a1);
   if (membro === message.member) return message.channel.send(a2);
 
   let a3 = new Discord.MessageEmbed()
-  .setDescription(`<:incorreto:729451886683619438> **|** Você precisa ser um moderador para fazer isto!`)
+  .setDescription(`<:incorreto:737091863558750279> **|** Você precisa ser um moderador para fazer isto!`)
 
   let a4 = new Discord.MessageEmbed()
-  .setDescription(`<:incorreto:729451886683619438> **|** Eu preciso ter a permissão de banir usuários para fazer isto!`)
+  .setDescription(`<:incorreto:737091863558750279> **|** Eu preciso ter a permissão de banir usuários para fazer isto!`)
 
   var motivo = args.slice(1).join(" ");
   if(!motivo) motivo = ("Nenhum motivo especificado.");
@@ -44,7 +44,7 @@ exports.run = async (bot, message, args) => {
     if(chx === null){
 
       let a5 = new Discord.MessageEmbed()
-    .setDescription('<:incorreto:729451886683619438> **|** Não há nenhum canal de punição setado!')
+    .setDescription('<:incorreto:737091863558750279> **|** Não há nenhum canal de punição setado!')
 
       return message.channel.send(a5);
     }  
@@ -82,7 +82,7 @@ exports.run = async (bot, message, args) => {
           let coletor2 = confirm_msg.createReactionCollector(filtro2, {max: 1});
 
           let embed2 = new Discord.MessageEmbed()
-          .setDescription('<:incorreto:729451886683619438> **|** Cancelado com sucesso.')
+          .setDescription('<:incorreto:737091863558750279> **|** Cancelado com sucesso.')
           coletor2.on('collect', cp => {
 
           message.channel.send(embed2)

@@ -20,7 +20,7 @@ exports.run = async (bot, message, args) => {
     } 
 
   let a1 = new Discord.MessageEmbed()
-  .setDescription("<:incorreto:729451886683619438> **|** Você precisa me informar um usuário!")
+  .setDescription("<:incorreto:737091863558750279> **|** Você precisa me informar um usuário!")
 
   var membro = message.mentions.users.first()
   if(!membro) return message.channel.send(a1)
@@ -29,7 +29,7 @@ exports.run = async (bot, message, args) => {
   .setDescription(`<:correto:729451917004242964> **|** Você adicionou 1 reputação em ${membro}`)
 
   let a3 = new Discord.MessageEmbed()
-  .setDescription('<:incorreto:729451886683619438> **|** Você não pode adicionar reputação a si mesmo!')
+  .setDescription('<:incorreto:737091863558750279> **|** Você não pode adicionar reputação a si mesmo!')
 
   let rep = db.get(`rep_${membro.id}`)
 
@@ -48,7 +48,7 @@ exports.run = async (bot, message, args) => {
     let time = ms(timeout - (Date.now() - repe)); 
 
     let a4 = new Discord.MessageEmbed()
-    .setDescription(`<:incorreto:729451886683619438> **|** Você só pode adicionar outra reputação em: **${time.minutes}m** **${time.seconds}s**`)
+    .setDescription(`<:incorreto:737091863558750279> **|** Você só pode adicionar outra reputação em: **${time.minutes}m** **${time.seconds}s**`)
 
     message.channel.send(a4)
 

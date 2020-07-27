@@ -19,13 +19,13 @@ exports.run = async (bot, message, args) => {
     } 
 
     let a1 = new Discord.MessageEmbed()
-    .setDescription('<:incorreto:729451886683619438> **|** Você precisa ser um moderador para fazer isto!')
+    .setDescription('<:incorreto:737091863558750279> **|** Você precisa ser um moderador para fazer isto!')
 
   if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(a1); 
 
   let embedbi = new Discord.MessageEmbed()
     .setTitle("**BLOCK INVITE**")
-    .setDescription("<:incorreto:729451886683619438> **|** É preciso me informar o status com on ou off.")
+    .setDescription("<:incorreto:737091863558750279> **|** É preciso me informar o status com on ou off.")
     .setTimestamp()
     .setFooter(`Grove • Todos direitos reservados`, bot.user.displayAvatarURL({dynamic: true}))
 
